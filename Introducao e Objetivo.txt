@@ -1,0 +1,9 @@
+Introdução
+
+Um dos maiores problemas a nivel nacional é a falta de emprego. O simples envio de curriculos não é agil o suficiente. Muitas das entidades empregadoras nem sequer têm tempo para ver ps curriculos. É necessaria uma ferramenta agil, prática e que dê a quem procura trabalho um papel mais proactivo. Em vez de simplesmente esperar por anuncio de emprego, quem procura emprego tem que divulgar as suas capacidades e conhecimentos para quem possa querer emprega-los.
+
+Proposta
+
+O que o nosso grupo se propoe a fazer é uma plataforma web de procura de emprego e publicação de perfil de candidatos a emprego. Para alem disso, queremos implementar um sistema de mensagens entre todos os utilizadores registados no sistema.
+Os candidatos teriam a capacidade de pesquisar anuncios de emprego, publicar o seu perfil no sistema para que empregadores o possam contactar mais facilmente.
+As entidades empregadoras poderiam publicar anuncios de emprego ou mais rapidamente, poderiam pesquisar candidatos de acordo com as suas necessidades e efectuar a contratação mais facilmente.
