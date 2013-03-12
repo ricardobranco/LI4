@@ -1,0 +1,5 @@
+1-Introdução e contextualização
+2-problema(o que se pretende fazer)
+3-Justificar opções
+4-Detalhes caracteristicos da solução
+5-plano de trabalho
