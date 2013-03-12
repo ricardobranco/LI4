@@ -7,3 +7,5 @@ Proposta
 O que o nosso grupo se propoe a fazer é uma plataforma web de procura de emprego e publicação de perfil de candidatos a emprego. Para alem disso, queremos implementar um sistema de mensagens entre todos os utilizadores registados no sistema.
 Os candidatos teriam a capacidade de pesquisar anuncios de emprego, publicar o seu perfil no sistema para que empregadores o possam contactar mais facilmente.
 As entidades empregadoras poderiam publicar anuncios de emprego ou mais rapidamente, poderiam pesquisar candidatos de acordo com as suas necessidades e efectuar a contratação mais facilmente.
+Para alem disso, todas as informações têm de ser fiaveis a correctas, por isso será necessario implementar mecanismos de queixa e tratamento de maneira a evitar falsos anuncios ou conteudo improprio.
+Outra necessidade será filtrar conteudo desactualizado. Daí que todos os anuncios tenham um tempo de validade, a partir do qual têm que ser renovados caso haja necessidade por parte de quem o publicou.
