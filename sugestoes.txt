@@ -1,0 +1,18 @@
+Empregador:
+-area;
+-habilitações;
+
+extras:
+-idade;
+-empregado/desempregado;
+-ultimo emprego;
+?local?
+
+Candidato:
+area;
+
+Extras:
+-salario oferecido;
+?local?
+
+O local pode ser posto mas temos que implementar grafos.
