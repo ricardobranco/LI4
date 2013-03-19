@@ -1,0 +1,49 @@
+Mensagens
+
+	(
+	- gestao interna (geridas pelo programa e gravada na bd)
+		- passados n dias sem ler pode-se notificar por e-mail (aplicar mais tarde)
+	)
+
+	- sao enviadas (internamente) pelo username ou o proprio e-mail (uma vez que e unico)
+	
+	- estrutura:
+		- para:
+		- de:
+		- assunto:
+		- corpo da msg:
+
+		- guarda-se tambem:
+			- a data e hora de envio, 
+			- um valor para saber se a msg ja foi lida
+			- e talvez outro para controlar quem é o receptor e emissor da msg
+	(para já so vejo isto)
+
+Queixas / Denuncias
+	
+	(	
+	- gestao interna (geridas pelo programa e gravada na bd)
+		- apos tomada a decisao da ação perante a denuncia, esta tambem sera feita a partir do programa
+	)
+
+	- Curriculos Falsos
+		- Se for denunciado e provado pode-se eliminar por x tempo e limpar a bd, ou banir completamente
+
+	- Propostas falsas
+		- pode-se bloquear o utilizador de propor x tempo, ate ser bloqueado n vezes depois bane-se
+
+	- Conteúdo / texto improprio
+		- apagar conteudo e notificar
+
+
+	??? Sugestoes para o site ???
+
+	
+
+
+
+
+
+
+
+
