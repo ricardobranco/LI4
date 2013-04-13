@@ -1,0 +1,39 @@
+Paxaxa:
+
+Pedir Sugestões de Anuncios |cand/Empre
+LogIn/Out|Cand/Empre
+Passar Diagramas de use case
+
+
+-------- - -- -- ---- -----  --- --- 
+Soninho:
+
+Reportar anuncio|cand
+Enviar mensagem |cand/Empre/Admin
+Reportar perfil |cand/Empre
+Bolquear utilizador | Admin
+
+----- ----- ----- ----- ----- --
+20:
+
+Registar-> cand|empre
+Editar Prefil cand|empre
+Gerar CB
+
+
+------- ------- --- -----------
+Esteves:
+
+Pesquisar anúnicios cand
+Pesquisar candidatos empre
+
+
+----- --- ------- - --------
+28
+
+Publicar anúncio empr|
+Remover anúncio empr|
+Encerrar anúncio empr|
+Analisar denuncia adm|
+Remover anúncio admin|
+-------- ----- ---- ---
