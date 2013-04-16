@@ -34,6 +34,6 @@ Pesquisar candidatos empre
 Publicar anúncio empr|
 Remover anúncio empr|
 Encerrar anúncio empr|
-Analisar denuncia adm|
+Analisar denuncia adm| DUVIDA
 Remover anúncio admin|
 -------- ----- ---- ---
