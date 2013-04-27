@@ -1,0 +1,57 @@
+﻿@model cv2job.Models.Anuncio
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Anuncio</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Titulo)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Titulo)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Descricao)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Descricao)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.InfoAdiconal)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.InfoAdiconal)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.TipoEmprego)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.TipoEmprego)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.eRenumerado)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.eRenumerado)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Renumeracao)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Renumeracao)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
