@@ -132,6 +132,8 @@
     </Compile>
     <Compile Include="Models\Anuncio.cs" />
     <Compile Include="Models\Cv2Job.cs" />
+    <Compile Include="Models\Morada.cs" />
+    <Compile Include="Models\Utilizador.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
