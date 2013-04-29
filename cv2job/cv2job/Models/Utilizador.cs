@@ -6,13 +6,15 @@ using System.Web.Mvc;
 
 namespace cv2job.Models
 {
-    abstract class Utilizador
+    public class Utilizador
     {
         public String username { get; set; }
         public String nome { get; set; }
         public Morada morada { get; set; }
         public String telefone { get; set; }
         public String email { get; set; }
+        public String dataNascFund { get; set; }   // data de nascimento para candidato/empregador, data fundação para empregadores empresa.
         public Byte[] foto { get; set; }
+
     }
 }

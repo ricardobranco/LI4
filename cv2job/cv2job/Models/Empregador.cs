@@ -6,9 +6,9 @@ using System.Web.Mvc;
 
 namespace cv2job.Models
 {
-    public class Empregador
+    public class Empregador : Utilizador
     {
-        
+        public Preferencias pref { get; set; }
 
     }
 }
