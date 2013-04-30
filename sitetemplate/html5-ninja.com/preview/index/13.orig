@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>HTML5 Ninja - Job Station - HTML5 curriculum vitae | live preview</title>
+		<meta name="robots" content="noindex, nofollow">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="live preview : Modern and Responsive Single Page HTML5 and CSS3 Template based on Metro UI CSS, just edit the content and enjoy.">
+        <meta name="keywords" content="Metro, modern, cv, curriculum vitae, portfolio, responsive, resume" />
+        <base href="http://html5-ninja.com/" >
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link href="assets/css/styles.css" rel="stylesheet">
+        <meta property="og:image" content="http://html5-ninja.com/assets/shot/b5azEtD2cTDxNA0a_thumb.png"/> 
+        <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+        <!--[if lt IE 9]>
+          <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+        <!-- Le fav and touch icons -->
+        <link rel="shortcut icon" href="assets/images/ico/favicon.ico">
+        <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/images/ico/apple-touch-icon-114-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/images/ico/apple-touch-icon-72-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" href="assets/images/ico/apple-touch-icon-57-precomposed.png">
+        <script type="text/javascript" src="assets/js/require.js"></script>
+        <script type="text/javascript" src="assets/js/scripts.js"></script>
+    </head>
+    <body id="previewPage">
+        <div class="container" id="prevFrame">
+            <div class="row">
+                <div class="pull-right">
+                    <!-- AddThis Button BEGIN -->
+                    <div class="addthis_toolbox addthis_default_style ">
+                        <a class="addthis_counter addthis_pill_style w90"></a>
+                    </div>
+                    <script type="text/javascript">var addthis_config = {"data_track_addressbar":true};</script>
+                    <script type="text/javascript" src="http://s7.addthis.com/js/300/addthis_widget.js#pubid=ra-4fb432db53eb09ec"></script>
+                    <!-- AddThis Button END -->
+					
+											<a href="#" title="You must be logged in to give it a Shuriken"  class="btn  btn-mini shuriken_btn"><span>4</span></a>
+					                </div> 
+                <h1>
+                    <a href="http://html5-ninja.com/item/Job-Station-HTML5-curriculum-vitae/13" title="Back to details page"><i class="icon-chevron-left"></i> Job Station - HTML5 curriculum vitae</a> 
+                                            -
+                        <a class="btn-paypal" href="javascript:void(0)" rel="13" title="PayPal">
+                            <span class="badge badge-warning dollar">$5</span>
+                            Buy now 
+                            <i class="icon-shopping-cart"></i> 
+                        </a>
+                                    </h1>
+
+            </div>
+        </div>  
+                    <iframe src="http://html5-ninja.com/assets/previews/WvoNk0zSDbAK4y7w" id="iframe" frameborder="0" >Your browser doesn't support iFrames.</iframe>
+            </body>
+</html>

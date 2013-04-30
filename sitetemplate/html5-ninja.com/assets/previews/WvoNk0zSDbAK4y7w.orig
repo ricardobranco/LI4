@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1.0, maximum-scale=1">
+        <title>Job Station</title>
+        <meta name="description" content="html5 curriculum vitae">
+        <meta name="keywords" content="html5, curriculum vitae" />   
+        <link href="assets/css/styles.css" rel="stylesheet" type="text/css" >
+        <!-----------------------------------------------------------------
+            2013-03 author : zied Hosni, zied.hosni.mail@gmail.com
+        ------------------------------------------------------------------->
+    </head>
+    <body>
+        <div class="page">
+            <div class="grid">
+                <div class="row ">
+                    <div class="span12" itemscope itemtype="http://data-vocabulary.org/Person">
+                        <div class="row">
+
+                            <div class="span8" id="intro">
+
+                                <h1>
+                                    <span itemprop="name">John Doe</span><br/>
+                                    <small itemprop="role">PRESIDENT OF THE UNIVERSE</small>
+                                </h1>
+                                <p itemprop="address" itemscope itemtype="http://data-vocabulary.org/Address">
+                                    <span itemprop="street-address">3678 Street name city , XX 010101 somewhere on</span> <span itemprop="location">planet earth</span>
+                                </p>
+                                <i class="icon-arrow-right-3 fg-color-blueLight" id="arrow1"></i>
+                                <ul class="unstyled">
+                                    <li>
+                                        <i class="icon-link"></i> <a href="http://html5-ninja.com" target="_blank" itemprop="url">html5-ninja.com</a>
+                                    </li>
+                                    <li>
+                                        <i class="icon-mail"></i> <a href="mailto:zied.hosni.mail@gmail.com">zied.hosni.mail@gmail.com</a>
+                                    </li>
+                                    <li>
+                                        <i class="icon-mobile"></i>066 666 999
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="imgMe ">
+                                <img class="span4" src="assets/images/me.jpg" alt="me" itemprop="photo"/>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="row clear">
+                    <div class="span8">
+                        <h2>About me</h2>
+                        <div class="hero-unit">
+                            <p>
+                                Bacon ipsum dolor sit amet tongue pork loin turducken turkey tail. Short loin fatback jerky bacon drumstick leberkas kielbasa t-bone ball tip. Chicken ribeye capicola ham hock pork. Rump pancetta salami cow hamburger t-bone turducken ball tip pork loin short loin. Filet mignon tail strip steak beef.                    
+                            </p>
+                        </div>
+                    </div>
+                    <div class="span4">
+                        <h2>Follow me</h2>
+                        <div class="networks">
+                            <a href="#"><i class="icon-twitter"></i></a>
+                            <a href="#"><i class="icon-facebook"></i></a>
+                            <a href="#"><i class="icon-linkedin"></i></a>
+                            <a href="#"><i class="icon-google-plus"></i></a>
+                            <a href="#"><i class="icon-github"></i></a>
+                            <a href="#"><i class="icon-tumblr"></i></a>
+                            <a href="#"><i class="icon-stumbleupon"></i></a>
+                        </div>
+                        <button type="button" class="command-button bg-color-blueDark fg-color-white" id="download" onclick="javascript:pdf_url = location.href;
+                                location.href = 'http://pdfmyurl.com?url=' + escape(pdf_url) + '&-O=Portrait&--print-media-type'">
+                            <i class="icon-download place-right"></i>
+                            Download
+                        </button>
+                    </div>
+                </div>
+                <div class="row clear">
+                    <div class="span4">
+                        <h2>Work experience</h2>
+                        <div class="row">
+                            <div class="span4">
+                                <div class="replies">
+                                    <div class="bg-color-orange">
+                                        <div class="avatar"><img src="assets/images/google.jpg" alt="google"/></div>
+                                        <div class="reply">
+                                            <div class="date">2006</div>
+                                            <div class="author">Google</div>
+                                            <div class="text">Bacon ipsum dolor sit amet tongue pork loin turducken turkey tail.</div>
+                                        </div>
+                                    </div>
+                                </div>                        
+                            </div>
+                            <div class="span4">
+                                <div class="replies">
+                                    <div class="bg-color-orange">
+                                        <div class="avatar"><img src="assets/images/little-ninja.png" alt="HTML5 Ninja"/></div>
+                                        <div class="reply">
+                                            <div class="date">2012</div>
+                                            <div class="author">HTML5 Ninja</div>
+                                            <div class="text">Bacon ipsum dolor sit amet tongue pork loin turducken turkey tail.</div>
+                                        </div>
+                                    </div>
+                                </div>                        
+                            </div>
+                            <div class="span4">
+                                <div class="replies">
+                                    <div class="bg-color-orange">
+                                        <div class="avatar"><img src="" alt=""/></div>
+                                        <div class="reply">
+                                            <div class="date">2006</div>
+                                            <div class="author">Bacon ipsum dolor</div>
+                                            <div class="text">Bacon ipsum dolor sit amet tongue pork loin turducken turkey tail.</div>
+                                        </div>
+                                    </div>
+                                </div>                        
+                            </div>
+                            <div class="span4">
+                                <div class="replies">
+                                    <div class="bg-color-orange">
+                                        <div class="avatar"><img src="" alt=""/></div>
+                                        <div class="reply">
+                                            <div class="date">2006</div>
+                                            <div class="author">Bacon ipsum dolor</div>
+                                            <div class="text">Bacon ipsum dolor sit amet tongue pork loin turducken turkey tail.</div>
+                                        </div>
+                                    </div>
+                                </div>                        
+                            </div>
+                        </div>
+                    </div>
+                    <div class="span4">
+                        <h2>Education</h2>
+                        <div class="row">
+                            <div class="span4">
+                                <div class="replies">
+                                    <div class="bg-color-greenLight">
+                                        <div class="avatar"><img src=""/></div>
+                                        <div class="reply">
+                                            <div class="date">2006</div>
+                                            <div class="author">Mortal Kombat University</div>
+                                            <div class="text">Bacon ipsum dolor sit amet tongue pork loin turducken turkey tail.</div>
+                                        </div>
+                                    </div>
+                                </div>                        
+                            </div>
+                            <div class="span4">
+                                <div class="replies">
+                                    <div class="bg-color-greenLight">
+                                        <div class="avatar"><img src=""/></div>
+                                        <div class="reply">
+                                            <div class="date">2012</div>
+                                            <div class="author">Best High School in the world</div>
+                                            <div class="text">Bacon ipsum dolor sit amet tongue pork loin turducken turkey tail.</div>
+                                        </div>
+                                    </div>
+                                </div>                        
+                            </div>
+                            <div class="span4">
+                                <div class="replies">
+                                    <div class="bg-color-greenLight">
+                                        <div class="avatar"><img src="" alt=""/></div>
+                                        <div class="reply">
+                                            <div class="date">2006</div>
+                                            <div class="author">Bacon ipsum dolor</div>
+                                            <div class="text">Bacon ipsum dolor sit amet tongue pork loin turducken turkey tail.</div>
+                                        </div>
+                                    </div>
+                                </div>                        
+                            </div>
+                        </div>
+                    </div>
+                    <div class="span4" id="skills">
+                        <h2>Skills</h2>
+                        <div class="row">
+                            <div class="span2">
+                                <h3>PHP</h3>
+                                <div class="static-rating small">
+                                    <div class="rating-value" style="width: 75%"></div>
+                                </div>
+                            </div>
+                            <div class="span2">
+                                <h3>MySQL</h3>
+                                <div class="static-rating small">
+                                    <div class="rating-value" style="width: 75%"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="span2">
+                                <h3>Power</h3>
+                                <div class="static-rating small">
+                                    <div class="rating-value" style="width: 100%"></div>
+                                </div>
+                            </div>
+                            <div class="span2">
+                                <h3>UFO's Secret</h3>
+                                <div class="static-rating small">
+                                    <div class="rating-value" style="width: 75%"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="span2">
+                                <h3>Big Bang</h3>
+                                <div class="static-rating small">
+                                    <div class="rating-value" style="width: 50%"></div>
+                                </div>
+                            </div>
+                            <div class="span2">
+                                <h3>Dictator</h3>
+                                <div class="static-rating small">
+                                    <div class="rating-value" style="width: 35%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row clear">
+                    <div class="span6">
+                        <h2>More details</h2>
+                        <p>Bacon ipsum dolor sit amet tongue pork loin turducken turkey tail. Short loin fatback jerky bacon drumstick leberkas kielbasa t-bone ball tip. Chicken ribeye capicola ham hock pork. Rump pancetta salami cow hamburger t-bone turducken ball tip pork loin short loin. Filet mignon tail strip steak beef.</p>
+                    </div>
+                    <div class="span6">
+                        <h2>Others</h2>
+                        <p>Bacon ipsum dolor sit amet tongue pork loin turducken turkey tail. Short loin fatback jerky bacon drumstick leberkas kielbasa t-bone ball tip. Chicken ribeye capicola ham hock pork. Rump pancetta salami cow hamburger t-bone turducken ball tip pork loin short loin. Filet mignon tail strip steak beef.</p>
+                    </div>
+                </div>
+            </div>
+            <footer>
+                <div class="nav-bar">
+                    <div class="nav-bar-inner padding10">
+                        <span class="element">
+                            John Doe - <i class="icon-mail-2"></i>zied.hosni.mail@gmail.com
+                        </span>
+                        <i class="icon-arrow-left-3 place-right fg-color-white" style="font-size: 44px"></i>
+                    </div>
+                </div>
+            </footer>
+            <a href="http://html5-ninja.com" class="hide">HTML5 Ninja</a>
+        </div>
+    </body>
+</html>
