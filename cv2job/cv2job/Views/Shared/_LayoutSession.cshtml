@@ -1,0 +1,269 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+
+
+    <!-- Stylesheets -->
+  <link href="~/Content/style/bootstrap.css" rel="stylesheet">
+  <!-- Font awesome icon -->
+  <link rel="stylesheet" href="~/Content/style/font-awesome.css"> 
+  <!-- jQuery UI -->
+  <link rel="stylesheet" href="~/Content/style/jquery-ui.css"> 
+  <!-- Calendar -->
+  <link rel="stylesheet" href="~/Content/style/fullcalendar.css">
+  <!-- prettyPhoto -->
+  <link rel="stylesheet" href="~/Content/style/prettyPhoto.css">   
+  <!-- Star rating -->
+  <link rel="stylesheet" href="~/Content/style/rateit.css">
+  <!-- Date picker -->
+  <link rel="stylesheet" href="~/Content/style/bootstrap-datetimepicker.min.css">
+  <!-- jQuery Gritter -->
+  <link rel="stylesheet" href="~/Content/style/jquery.gritter.css">
+  <!-- CLEditor -->
+  <link rel="stylesheet" href="~/Content/style/jquery.cleditor.css"> 
+  <!-- Bootstrap toggle -->
+  <link rel="stylesheet" href="~/Content/style/bootstrap-toggle-buttons.css">
+  <!-- Main stylesheet -->
+  <link href="~/Content/style/style.css" rel="stylesheet">
+  <!-- Widgets stylesheet -->
+  <link href="~/Content/style/widgets.css" rel="stylesheet">   
+  <!-- Responsive style (from Bootstrap) -->
+  <link href="~/Content/style/bootstrap-responsive.css" rel="stylesheet">
+  
+
+    <!--@Styles.Render("~/Content/css")-->
+    @Styles.Render("~/c/themes/base/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+    
+</head>
+<body>
+
+   
+ <div class="navbar navbar-fixed-top navbar-inverse">
+  <div class="navbar-inner">
+    <div class="container">
+      <!-- Menu button for smallar screens -->
+      <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+      </a>
+      <!-- Site name for smallar screens -->
+      <!--<a href="layout.html" class="brand">Metro <span class="bold">CV2JOB</span></a>-->
+      <a href="layout.html" class="brand"><img class="logoimg" src="Images/logo.png"></a>
+
+      <!-- Navigation starts -->
+      <div class="nav-collapse collapse">        
+
+
+
+        <!-- Links -->
+        <ul class="nav pull-right">
+          <li class="dropdown pull-right">            
+            <a data-toggle="dropdown" class="dropdown-toggle" href="layout.html#">
+              <img src="Images/user.jpg" alt="" class="nav-user-pic" /> Admin <b class="caret"></b>              
+            </a>
+            
+            <!-- Dropdown menu -->
+            <ul class="dropdown-menu">
+              <li><a href="layout.html#"><i class="icon-user"></i> Profile</a></li>
+              <li><a href="layout.html#"><i class="icon-cogs"></i> Settings</a></li>
+              <li><a href="login.html"><i class="icon-off"></i> Logout</a></li>
+            </ul>
+          </li>
+          
+        </ul>
+
+        <!-- Notifications -->
+        <ul class="nav pull-right">
+          <!-- Message button with number of latest messages count-->
+            <li class="dropdown dropdown-big">
+              <a class="dropdown-toggle" href="layout.html#" data-toggle="dropdown">
+                <i class="icon-envelope-alt"></i> Mensagens <span class="badge badge-important">6</span> 
+              </a>
+
+                <ul class="dropdown-menu">
+                  <li>
+                    <!-- Heading - h5 -->
+                    <h5><i class="icon-envelope-alt"></i> Mensagens</h5>
+                    <!-- Use hr tag to add border -->
+                    <hr />
+                  </li>
+                  <li>
+                    <!-- List item heading h6 -->
+                    <a href="layout.html#">Hello how are you?</a>
+                    <!-- List item para -->
+                    <p>Quisque eu consectetur erat eget  semper...</p>
+                    <hr />
+                  </li>
+                  <li>
+                    <a href="layout.html#">Today is wonderful?</a>
+                    <p>Quisque eu consectetur erat eget  semper...</p>
+                    <hr />
+                  </li>
+                  <li>
+                    <div class="drop-foot">
+                      <a href="layout.html#">View All</a>
+                    </div>
+                  </li>                                    
+                </ul>
+            </li>
+
+        </ul>
+
+      </div>
+
+    </div>
+  </div>
+</div>
+ 
+
+<!-- Main content starts -->
+
+<div class="content">
+
+  	<!-- Sidebar -->
+    <div class="sidebar">
+        <div class="sidebar-dropdown"><a href="index.html#">Navigation</a></div>
+
+        <div class="sidebar-inner">
+
+
+
+          <!-- Search form -->
+          <div class="sidebar-widget">
+            <form class="form-inline">
+              <div class="input-append row-fluid">
+                <input type="text" class="span8" placeholder="Search">
+                <button type="submit" class="btn btn-info">Search</button>
+              </div>
+            </form>
+          </div>
+
+          <!--- Sidebar navigation -->
+          <!-- If the main navigation has sub navigation, then add the class "has_submenu" to "li" of main navigation. -->
+          <ul class="navi">
+
+            <!-- Use the class nred, ngreen, nblue, nlightblue, nviolet or norange to add background color. You need to use this in <li> tag. -->
+
+            <li class="nred current"><a href="index.html#"><i class="icon-desktop"></i> Dashboard</a></li>
+
+            <!-- Menu with sub menu -->
+            <li class="has_submenu nlightblue">
+              <a href="index.html#">
+                <!-- Menu name with icon -->
+                <i class="icon-th"></i> Widgets 
+                <!-- Icon for dropdown -->
+                <span class="pull-right"><i class="icon-angle-right"></i></span>
+              </a>
+
+              <ul>
+                <li><a href="widgets1.html">Widgets #1</a></li>
+                <li><a href="widgets2.html">Widgets #2</a></li>
+              </ul>
+            </li>
+
+            <li class="ngreen"><a href="charts.html"><i class="icon-bar-chart"></i> Charts</a></li>
+
+            <li class="norange"><a href="ui.html"><i class="icon-sitemap"></i> UI Elements</a></li>
+
+            <li class="has_submenu nviolet">
+              <a href="index.html#">
+                <i class="icon-file-alt"></i> Pages #1
+                <span class="pull-right"><i class="icon-angle-right"></i></span>
+              </a>
+
+              <ul>
+                <li><a href="calendar.html">Calendar</a></li>
+                <li><a href="post.html">Make Post</a></li>
+                <li><a href="login.html">Login</a></li>
+                <li><a href="register.html">Register</a></li>
+                <li><a href="statement.html">Statement</a></li>
+                <li><a href="error-log.html">Error Log</a></li>
+                <li><a href="support.html">Support</a></li>
+              </ul>
+            </li> 
+
+            <li class="has_submenu nblue">
+              <a href="index.html#">
+                <i class="icon-file-alt"></i> Pages #2
+                <span class="pull-right"><i class="icon-angle-right"></i></span>
+              </a>
+              
+              <ul>
+                <li><a href="error.html">Error</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="grid.html">Grid</a></li>
+                <li><a href="invoice.html">Invoice</a></li>
+                <li><a href="media.html">Media</a></li>
+                <li><a href="profile.html">Profile</a></li>
+              </ul>
+            </li> 
+
+            <li class="nred"><a href="forms.html"><i class="icon-list"></i> Forms</a></li>
+
+            <li class="nlightblue"><a href="tables.html"><i class="icon-table"></i> Tables</a></li>
+
+          </ul>
+        </div>
+
+    </div>
+
+    <!-- Sidebar ends -->
+
+  	<!-- Main bar -->
+  	<div class="mainbar">
+      
+	    <!-- Page heading -->
+	    <!-- Page heading ends -->
+      <!-- Matter -->
+         
+          @RenderBody()
+    
+      <!-- Matter ends -->
+    </div>
+      <!-- Mainbar ends -->	    	
+   <div class="clearfix"></div>
+</div>
+ 
+ 
+       
+
+    
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    
+    @RenderSection("scripts", required: false)
+    <!-- JS -->
+<script src="~/Scripts/jquery.js"></script> <!-- jQuery -->
+<script src="~/Scripts/bootstrap.js"></script> <!-- Bootstrap -->
+<script src="~/Scripts/jquery-ui-1.10.2.custom.min.js"></script> <!-- jQuery UI -->
+<script src="~/Scripts/fullcalendar.min.js"></script> <!-- Full Google Calendar - Calendar -->
+<script src="~/Scripts/jquery.rateit.min.js"></script> <!-- RateIt - Star rating -->
+<script src="~/Scripts/jquery.prettyPhoto.js"></script> <!-- prettyPhoto -->
+
+<!-- jQuery Flot -->
+<script src="~/Scripts/excanvas.min.js"></script>
+<script src="~/Scripts/jquery.flot.js"></script>
+<script src="~/Scripts/jquery.flot.resize.js"></script>
+<script src="~/Scripts/jquery.flot.pie.js"></script>
+<script src="~/Scripts/jquery.flot.stack.js"></script>
+
+<!--script src="~/Scripts/jquery.gritter.min.js"></script--> <!-- jQuery Gritter -->
+<script src="~/Scripts/sparklines.js"></script> <!-- Sparklines -->
+<script src="~/Scripts/jquery.cleditor.min.js"></script> <!-- CLEditor -->
+<script src="~/Scripts/bootstrap-datetimepicker.min.js"></script> <!-- Date picker -->
+<script src="~/Scripts/jquery.toggle.buttons.js"></script> <!-- Bootstrap Toggle -->
+<script src="~/Scripts/filter.js"></script> <!-- Filter for support page -->
+<script src="~/Scripts/custom.js"></script> <!-- Custom codes -->
+<script src="~/Scripts/charts.js"></script> <!-- Custom chart codes -->
+
+
+</body>
+</html>
+

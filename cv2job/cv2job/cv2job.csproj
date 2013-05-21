@@ -225,6 +225,7 @@
     <Content Include="Views\Anuncios\Create.cshtml" />
     <Content Include="Views\Anuncios\Edit.cshtml" />
     <Content Include="Views\Anuncios\Delete.cshtml" />
+    <Content Include="Views\Shared\_LayoutSession.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
