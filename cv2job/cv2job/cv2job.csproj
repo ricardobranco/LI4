@@ -132,8 +132,10 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Anuncio.cs" />
+    <Compile Include="Models\CInfoPessoal.cs" />
     <Compile Include="Models\Cv2Job.cs" />
     <Compile Include="Models\Empregador.cs" />
+    <Compile Include="Models\Eprofissional.cs" />
     <Compile Include="Models\Morada.cs" />
     <Compile Include="Models\Preferencias.cs" />
     <Compile Include="Models\Utilizador.cs" />
