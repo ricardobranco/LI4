@@ -6,15 +6,12 @@ using System.Web.Mvc;
 
 namespace cv2job.Models
 {
-    public class Preferencias : Controller
+    public class Preferencias
     {
-        //
-        // GET: /Preferencias/
-
-        public ActionResult Index()
-        {
-            return View();
-        }
-
+        public String Sexo { get; set; }
+        public String Local { get; set; }
+        public Habilitacoes hab { get; set; }
+        public bool Desemp { get; set; }
+        public int IdadeMax { get; set; }
     }
 }
