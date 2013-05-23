@@ -1,0 +1,63 @@
+﻿@model IEnumerable<cv2job.Models.Anuncio>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Titulo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Descricao)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.InfoAdiconal)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TipoEmprego)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.eRenumerado)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Renumeracao)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Titulo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Descricao)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.InfoAdiconal)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TipoEmprego)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.eRenumerado)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Renumeracao)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.AnuncioID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.AnuncioID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.AnuncioID })
+        </td>
+    </tr>
+}
+
+</table>
