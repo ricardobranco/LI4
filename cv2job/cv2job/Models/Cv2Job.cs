@@ -13,7 +13,7 @@ namespace cv2job.Models
         {
         }
 
-        public DbSet<UserProfile> UserProfiles { get; set; }
+        public DbSet<Utilizador> Utilizadores { get; set; }
         public DbSet<Anuncio> Anuncios { get; set; }
     }
 

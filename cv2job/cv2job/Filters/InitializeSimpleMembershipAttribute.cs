@@ -38,7 +38,7 @@ namespace cv2job.Filters
                         }
                     }
 
-                    WebSecurity.InitializeDatabaseConnection("Cv2JobDBContext", "UserProfile", "UserId", "UserName", autoCreateTables: true);
+                    WebSecurity.InitializeDatabaseConnection("Cv2JobDBContext", "Utilizadores", "UserId", "UserName", autoCreateTables: true);
                 }
                 catch (Exception ex)
                 {
