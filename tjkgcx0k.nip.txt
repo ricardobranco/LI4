@@ -1,0 +1,145 @@
+﻿login
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+# On branch master
+# Changes to be committed:
+#   (use "git reset HEAD <file>..." to unstage)
+#
+#	modified:   cv2job/cv2job/App_Start/RouteConfig.cs
+#	new file:   cv2job/cv2job/Controllers/Utilizadores.cs
+#	new file:   cv2job/cv2job/Controllers/UtilizadoresController.cs
+#	modified:   cv2job/cv2job/Filters/InitializeSimpleMembershipAttribute.cs
+#	new file:   cv2job/cv2job/Images/arrow-down.png
+#	new file:   cv2job/cv2job/Images/logo.png
+#	new file:   cv2job/cv2job/Migrations/201305231633355_InitialCreate.Designer.cs
+#	new file:   cv2job/cv2job/Migrations/201305231633355_InitialCreate.cs
+#	new file:   cv2job/cv2job/Migrations/201305231633355_InitialCreate.resx
+#	new file:   cv2job/cv2job/Migrations/201305240046431_newtable.Designer.cs
+#	new file:   cv2job/cv2job/Migrations/201305240046431_newtable.cs
+#	new file:   cv2job/cv2job/Migrations/201305240046431_newtable.resx
+#	new file:   cv2job/cv2job/Migrations/Configuration.cs
+#	modified:   cv2job/cv2job/Models/Cv2Job.cs
+#	new file:   cv2job/cv2job/Models/Utilizador.cs
+#	new file:   cv2job/cv2job/Views/Shared/_LayoutNSession.cshtml
+#	new file:   cv2job/cv2job/Views/Shared/_LayoutSession.cshtml
+#	new file:   cv2job/cv2job/Views/Utilizadores/Auntenticar.cshtml
+#	new file:   cv2job/cv2job/Views/Utilizadores/Details.cshtml
+#	new file:   cv2job/cv2job/Views/Utilizadores/ExternalLoginConfirmation.cshtml
+#	new file:   cv2job/cv2job/Views/Utilizadores/ExternalLoginFailure.cshtml
+#	new file:   cv2job/cv2job/Views/Utilizadores/Index.cshtml
+#	new file:   cv2job/cv2job/Views/Utilizadores/Login.cshtml
+#	new file:   cv2job/cv2job/Views/Utilizadores/Login1.cshtml
+#	new file:   cv2job/cv2job/Views/Utilizadores/Manage.cshtml
+#	new file:   cv2job/cv2job/Views/Utilizadores/Register.cshtml
+#	new file:   cv2job/cv2job/Views/Utilizadores/_ChangePasswordPartial.cshtml
+#	new file:   cv2job/cv2job/Views/Utilizadores/_ExternalLoginsListPartial.cshtml
+#	new file:   cv2job/cv2job/Views/Utilizadores/_RemoveExternalLoginsPartial.cshtml
+#	new file:   cv2job/cv2job/Views/Utilizadores/_SetPasswordPartial.cshtml
+#
+# Changes not staged for commit:
+#   (use "git add/rm <file>..." to update what will be committed)
+#   (use "git checkout -- <file>..." to discard changes in working directory)
+#
+#	modified:   cv2job/cv2job/Content/Site.css
+#	modified:   cv2job/cv2job/Content/themes/base/images/ui-bg_glass_65_ffffff_1x400.png
+#	modified:   cv2job/cv2job/Content/themes/base/images/ui-icons_222222_256x240.png
+#	modified:   cv2job/cv2job/Content/themes/base/jquery-ui.css
+#	deleted:    cv2job/cv2job/Controllers/AccountController.cs
+#	deleted:    cv2job/cv2job/Controllers/Utilizadores.cs
+#	deleted:    cv2job/cv2job/Models/AccountModels.cs
+#	modified:   cv2job/cv2job/Scripts/jquery-ui-1.8.24.js
+#	modified:   cv2job/cv2job/Scripts/knockout-2.2.0.debug.js
+#	deleted:    cv2job/cv2job/Views/Account/ExternalLoginConfirmation.cshtml
+#	deleted:    cv2job/cv2job/Views/Account/ExternalLoginFailure.cshtml
+#	deleted:    cv2job/cv2job/Views/Account/Login.cshtml
+#	deleted:    cv2job/cv2job/Views/Account/Manage.cshtml
+#	deleted:    cv2job/cv2job/Views/Account/Register.cshtml
+#	deleted:    cv2job/cv2job/Views/Account/_ChangePasswordPartial.cshtml
+#	deleted:    cv2job/cv2job/Views/Account/_ExternalLoginsListPartial.cshtml
+#	deleted:    cv2job/cv2job/Views/Account/_RemoveExternalLoginsPartial.cshtml
+#	deleted:    cv2job/cv2job/Views/Account/_SetPasswordPartial.cshtml
+#	modified:   cv2job/cv2job/Views/Anuncios/Create.cshtml
+#	modified:   cv2job/cv2job/Views/Anuncios/Delete.cshtml
+#	modified:   cv2job/cv2job/Views/Anuncios/Details.cshtml
+#	modified:   cv2job/cv2job/Views/Anuncios/Edit.cshtml
+#	modified:   cv2job/cv2job/Views/Anuncios/Index.cshtml
+#	modified:   cv2job/cv2job/Views/Home/Index.cshtml
+#	modified:   cv2job/cv2job/Views/Shared/_Layout.cshtml
+#	modified:   cv2job/cv2job/Views/Shared/_LayoutNSession.cshtml
+#	modified:   cv2job/cv2job/Views/Shared/_LayoutSession.cshtml
+#	modified:   cv2job/cv2job/Views/Shared/_LoginPartial.cshtml
+#	deleted:    cv2job/cv2job/Views/Utilizadores/Auntenticar.cshtml
+#	modified:   cv2job/cv2job/Views/Utilizadores/Details.cshtml
+#	modified:   cv2job/cv2job/Views/Utilizadores/ExternalLoginConfirmation.cshtml
+#	modified:   cv2job/cv2job/Views/Utilizadores/Index.cshtml
+#	modified:   cv2job/cv2job/Views/Utilizadores/Login.cshtml
+#	deleted:    cv2job/cv2job/Views/Utilizadores/Login1.cshtml
+#	modified:   cv2job/cv2job/Views/Utilizadores/Manage.cshtml
+#	modified:   cv2job/cv2job/Views/Utilizadores/Register.cshtml
+#	modified:   cv2job/cv2job/Views/Utilizadores/_ChangePasswordPartial.cshtml
+#	modified:   cv2job/cv2job/Views/Utilizadores/_ExternalLoginsListPartial.cshtml
+#	modified:   cv2job/cv2job/Views/Utilizadores/_RemoveExternalLoginsPartial.cshtml
+#	modified:   cv2job/cv2job/Views/Utilizadores/_SetPasswordPartial.cshtml
+#	modified:   cv2job/cv2job/Views/_ViewStart.cshtml
+#	modified:   cv2job/cv2job/Web.config
+#	modified:   cv2job/cv2job/cv2job.csproj
+#
+# Untracked files:
+#   (use "git add <file>..." to include in what will be committed)
+#
+#	cv2job/cv2job/App_Data/
+#	cv2job/cv2job/Content/fonts/
+#	cv2job/cv2job/Content/style/
+#	cv2job/cv2job/Content/style_NS/
+#	cv2job/cv2job/Content/themes/base/bootstrap-datetimepicker.min.css
+#	cv2job/cv2job/Content/themes/base/bootstrap-responsive.css
+#	cv2job/cv2job/Content/themes/base/bootstrap-toggle-buttons.css
+#	cv2job/cv2job/Content/themes/base/bootstrap.css
+#	cv2job/cv2job/Content/themes/base/font-awesome.css
+#	cv2job/cv2job/Content/themes/base/font-awesome.css.orig
+#	cv2job/cv2job/Content/themes/base/fullcalendar.css
+#	cv2job/cv2job/Content/themes/base/images/ui-bg_diagonals-thick_18_b81900_40x40.png
+#	cv2job/cv2job/Content/themes/base/images/ui-bg_diagonals-thick_20_666666_40x40.png
+#	cv2job/cv2job/Content/themes/base/images/ui-bg_flat_10_000000_40x100.png
+#	cv2job/cv2job/Content/themes/base/images/ui-bg_glass_100_f6f6f6_1x400.png
+#	cv2job/cv2job/Content/themes/base/images/ui-bg_glass_100_fdf5ce_1x400.png
+#	cv2job/cv2job/Content/themes/base/images/ui-bg_gloss-wave_35_f6a828_500x100.png
+#	cv2job/cv2job/Content/themes/base/images/ui-bg_highlight-soft_100_eeeeee_1x100.png
+#	cv2job/cv2job/Content/themes/base/images/ui-bg_highlight-soft_75_ffe45c_1x100.png
+#	cv2job/cv2job/Content/themes/base/images/ui-icons_228ef1_256x240.png
+#	cv2job/cv2job/Content/themes/base/images/ui-icons_ef8c08_256x240.png
+#	cv2job/cv2job/Content/themes/base/images/ui-icons_ffd27a_256x240.png
+#	cv2job/cv2job/Content/themes/base/images/ui-icons_ffffff_256x240.png
+#	cv2job/cv2job/Content/themes/base/jquery-ui.css.orig
+#	cv2job/cv2job/Content/themes/base/jquery.cleditor.css
+#	cv2job/cv2job/Content/themes/base/jquery.cleditor.css.orig
+#	cv2job/cv2job/Content/themes/base/jquery.gritter.css
+#	cv2job/cv2job/Content/themes/base/jquery.gritter.css.orig
+#	cv2job/cv2job/Content/themes/base/prettyPhoto.css
+#	cv2job/cv2job/Content/themes/base/prettyPhoto.css.orig
+#	cv2job/cv2job/Content/themes/base/rateit.css
+#	cv2job/cv2job/Content/themes/base/rateit.css.orig
+#	cv2job/cv2job/Content/themes/base/style.css
+#	cv2job/cv2job/Content/themes/base/style.css.orig
+#	cv2job/cv2job/Content/themes/base/widgets.css
+#	cv2job/cv2job/Scripts/bootstrap-datetimepicker.min.js
+#	cv2job/cv2job/Scripts/bootstrap.js
+#	cv2job/cv2job/Scripts/charts.js
+#	cv2job/cv2job/Scripts/custom.js
+#	cv2job/cv2job/Scripts/excanvas.min.js
+#	cv2job/cv2job/Scripts/filter.js
+#	cv2job/cv2job/Scripts/fullcalendar.min.js
+#	cv2job/cv2job/Scripts/jquery-ui-1.10.2.custom.min.js
+#	cv2job/cv2job/Scripts/jquery.cleditor.min.js
+#	cv2job/cv2job/Scripts/jquery.flot.js
+#	cv2job/cv2job/Scripts/jquery.flot.pie.js
+#	cv2job/cv2job/Scripts/jquery.flot.resize.js
+#	cv2job/cv2job/Scripts/jquery.flot.stack.js
+#	cv2job/cv2job/Scripts/jquery.gritter.min.js
+#	cv2job/cv2job/Scripts/jquery.js
+#	cv2job/cv2job/Scripts/jquery.prettyPhoto.js
+#	cv2job/cv2job/Scripts/jquery.rateit.min.js
+#	cv2job/cv2job/Scripts/jquery.toggle.buttons.js
+#	cv2job/cv2job/Scripts/sparklines.js
+#	fivtg5me.5bn.txt
+
