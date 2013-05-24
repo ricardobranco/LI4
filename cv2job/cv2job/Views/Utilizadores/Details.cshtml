@@ -1,13 +1,17 @@
-﻿<!DOCTYPE html>
+﻿@model cv2job.Models.Utilizador
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>@ViewBag.Title</title>
-</head>
-<body>
-    <div>
-        @RenderBody()
+@{
+    ViewBag.Title = "Details"; 
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Utilizador</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.UserName)
     </div>
-</body>
-</html>
+    
+</fieldset>
+

@@ -181,14 +181,23 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
-    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\UtilizadoresController.cs" />
     <Compile Include="Controllers\AnunciosController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Filters\InitializeSimpleMembershipAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\AccountModels.cs" />
+    <Compile Include="Migrations\201305231633355_InitialCreate.cs" />
+    <Compile Include="Migrations\201305231633355_InitialCreate.Designer.cs">
+      <DependentUpon>201305231633355_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201305240046431_newtable.cs" />
+    <Compile Include="Migrations\201305240046431_newtable.Designer.cs">
+      <DependentUpon>201305240046431_newtable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Utilizador.cs" />
     <Compile Include="Models\Anuncio.cs" />
     <Compile Include="Models\Cv2job.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -251,6 +260,8 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <None Include="Scripts\jquery-1.8.2.intellisense.js" />
+    <Content Include="Images\arrow-down.png" />
+    <Content Include="Images\logo.png" />
     <Content Include="Scripts\jquery-1.8.2.js" />
     <Content Include="Scripts\jquery-1.8.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
@@ -288,15 +299,14 @@
     <Content Include="Images\orderedList8.png" />
     <Content Include="Images\orderedList9.png" />
     <Content Include="Views\_ViewStart.cshtml" />
-    <Content Include="Views\Account\_ChangePasswordPartial.cshtml" />
-    <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
-    <Content Include="Views\Account\_RemoveExternalLoginsPartial.cshtml" />
-    <Content Include="Views\Account\_SetPasswordPartial.cshtml" />
-    <Content Include="Views\Account\Login.cshtml" />
-    <Content Include="Views\Account\Manage.cshtml" />
-    <Content Include="Views\Account\Register.cshtml" />
-    <Content Include="Views\Account\ExternalLoginFailure.cshtml" />
-    <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
+    <Content Include="Views\Utilizadores\_ChangePasswordPartial.cshtml" />
+    <Content Include="Views\Utilizadores\_ExternalLoginsListPartial.cshtml" />
+    <Content Include="Views\Utilizadores\_RemoveExternalLoginsPartial.cshtml" />
+    <Content Include="Views\Utilizadores\_SetPasswordPartial.cshtml" />
+    <Content Include="Views\Utilizadores\Manage.cshtml" />
+    <Content Include="Views\Utilizadores\Register.cshtml" />
+    <Content Include="Views\Utilizadores\ExternalLoginFailure.cshtml" />
+    <Content Include="Views\Utilizadores\ExternalLoginConfirmation.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
@@ -309,12 +319,25 @@
     <Content Include="Views\Anuncios\Create.cshtml" />
     <Content Include="Views\Anuncios\Edit.cshtml" />
     <Content Include="Views\Anuncios\Delete.cshtml" />
+    <Content Include="Views\Shared\_LayoutNSession.cshtml" />
+    <Content Include="Views\Shared\_LayoutSession.cshtml" />
+    <Content Include="Views\Utilizadores\Details.cshtml" />
+    <Content Include="Views\Utilizadores\Login.cshtml" />
+    <Content Include="Views\Utilizadores\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201305231633355_InitialCreate.resx">
+      <DependentUpon>201305231633355_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201305240046431_newtable.resx">
+      <DependentUpon>201305240046431_newtable.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
