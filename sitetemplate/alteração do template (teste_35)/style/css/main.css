@@ -1,0 +1,24 @@
+/*****************************************************
+2013-03 author : zied Hosni, zied.hosni.mail@gmail.com
+******************************************************/
+.page {
+    width: 940px;
+    margin: auto;
+    padding-top: 10px
+}
+.overlay a{font-size: 22px ;margin-top: 5px}
+.replies > div{width: 100%}
+.networks a {font-size: 30px;margin-bottom: 14px;float: left;margin-left: 2px}
+#arrow1 {float: right; font-size: 69px}
+.imgMe{position: relative}
+#arrow2{position: absolute;font-size: 69px;bottom: 0px;left: 10px}
+#download{width: 100%; margin-top: 20px;font-size: 22px}
+.clear{clear: both}
+.hide{display: none}
+@media print
+{
+   #intro{width: 450px !important;float: left !important}
+   img.span4 {width: 200px !important;float: right !important}
+   #skills .span2{width: 200px }
+   #download {display: none}
+}
