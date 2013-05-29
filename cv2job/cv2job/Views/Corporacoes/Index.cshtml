@@ -1,0 +1,64 @@
+﻿@model IEnumerable<cv2job.Models.Corporcao>
+
+@{
+    ViewBag.Title = "Gerir Anuncios";
+}
+
+<div class="page-head">
+		<!-- Page heading -->
+		  <h2 class="pull-left">Index 
+		  <!-- page meta -->
+		  <span class="page-meta"></span>
+		</h2>
+
+
+		<!-- Breadcrumb -->
+		<div class="bread-crumb pull-right">
+		  <a href="~/"><i class="icon-home"></i> Home</a> 
+		  <!-- Divider -->
+		  <span class="divider">/</span> 
+		  <a href="/Corporacoes/Index" class="bread-current">Corporações</a>
+		</div>
+
+		<div class="clearfix"></div>
+
+		</div>
+
+
+<div class="matter">
+	<div class="container-fluid">
+		
+	<div class="row-fluid">
+		
+<p>
+	@Html.ActionLink("Create New", "Create")
+</p>
+
+	</div>
+
+<table>
+	<tr>
+		<th>
+			@Html.DisplayNameFor(model => model.Nome)
+		</th>
+		
+	</tr>
+
+@foreach (var item in Model) {
+	<tr>
+		<td>
+			@Html.DisplayFor(modelItem => item.Nome)
+		</td>
+		
+		<td>
+			@Html.ActionLink("Edit", "Edit", new { id=item.CorpID }) |
+			@Html.ActionLink("Details", "Details", new { id=item.CorpID }) |
+			@Html.ActionLink("Delete", "Delete", new { id=item.CorpID })
+		</td>
+	</tr>
+}
+
+</table>
+
+	</div>
+</div>

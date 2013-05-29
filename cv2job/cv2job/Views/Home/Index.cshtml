@@ -1,8 +1,15 @@
-﻿@{
+﻿@model cv2job.Models.Home
+@{
     ViewBag.Title = "Home Page";
 }
 
-<!--
-<section id="login">
-                 
-                    </section-->
+@if (Request.IsAuthenticated)
+{
+   @Html.Partial("~/Views/Utilizadores/Index.cshtml", Model.Utilizador);
+    
+}
+else
+{
+    @Html.Partial("~/Views/Utilizadores/Login.cshtml", Model.Loginmodel);
+  
+}

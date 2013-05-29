@@ -15,6 +15,8 @@ namespace cv2job.Models
 
         public DbSet<Utilizador> Utilizadores { get; set; }
         public DbSet<Anuncio> Anuncios { get; set; }
+        public DbSet<Corporcao> Corporacoes { get; set; } 
+        
     }
 
 }

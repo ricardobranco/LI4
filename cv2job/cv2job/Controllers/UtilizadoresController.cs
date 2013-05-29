@@ -33,10 +33,11 @@ namespace cv2job.Controllers
 
         [Authorize]
         [InitializeSimpleMembership]
-         public ActionResult Details(int id = 0)
+         public ActionResult Perfil(int id = 0)
         {
             Cv2jobContext db = new Cv2jobContext();
             Utilizador user = db.Utilizadores.Find(id);
+            
             if (user == null)
             {
                 return HttpNotFound();
@@ -51,6 +52,7 @@ namespace cv2job.Controllers
         [AllowAnonymous]
         public ActionResult Login(string returnUrl)
         {
+
             ViewBag.ReturnUrl = returnUrl;
             return View();
         }
@@ -65,6 +67,10 @@ namespace cv2job.Controllers
         {
             if (ModelState.IsValid && WebSecurity.Login(model.UserName, model.Password, persistCookie: model.RememberMe))
             {
+                int currentuserid = WebSecurity.GetUserId(model.UserName);
+
+                ViewBag.logID = currentuserid;
+                
                 return RedirectToLocal(returnUrl);
             }
 

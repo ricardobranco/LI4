@@ -23,7 +23,7 @@
 
 					 <h3>Login to your Account</h3>
 								  <div class="form">
-									  @using (Html.BeginForm(new { ReturnUrl = ViewBag.ReturnUrl })) {
+									  @using (Html.BeginForm("Login","Utilizadores")) {
 									  @Html.AntiForgeryToken()
 									  @Html.ValidationSummary(true)
 									  <!-- Login form (not working)-->
@@ -64,7 +64,7 @@
 										  </div>
 									  </form>
 									  }
-									Don't have Account? <a href="register.html">Register</a>
+									Don't have Account? <a href="/Utilizadores/Register">Register</a>
 									</div> 
 						
 								  </div>

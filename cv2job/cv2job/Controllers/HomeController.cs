@@ -1,4 +1,6 @@
-﻿using System;
+﻿using cv2job.Filters;
+using cv2job.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,11 +10,25 @@ namespace cv2job.Controllers
 {
     public class HomeController : Controller
     {
+        [InitializeSimpleMembership]
         public ActionResult Index()
         {
-            ViewBag.Message = "Modify this template to jump-start your ASP.NET MVC application.";
+            Home home = new Home();
+            
+            if (Request.IsAuthenticated)
+            {
+                home.Utilizador = new Cv2jobContext().Utilizadores.ToList();
+                return View(home);
+            }
+            else
+            {
+                home.Loginmodel = new LoginModel();
+                return View(home);
 
-            return View();
+               
+            }
+            
+           
         }
 
         public ActionResult About()

@@ -9,33 +9,33 @@ using cv2job.Models;
 
 namespace cv2job.Controllers
 {
-    public class AnunciosController : Controller
+    public class CorporacoesController : Controller
     {
         private Cv2jobContext db = new Cv2jobContext();
 
         //
-        // GET: /Anuncios/
+        // GET: /Corporacoes/
 
-        public ActionResult Gerir()
+        public ActionResult Index()
         {
-            return View(db.Anuncios.ToList());
+            return View(db.Corporacoes.ToList());
         }
 
         //
-        // GET: /Anuncios/Details/5
+        // GET: /Corporacoes/Details/5
 
         public ActionResult Details(int id = 0)
         {
-            Anuncio anuncio = db.Anuncios.Find(id);
-            if (anuncio == null)
+            Corporcao corporcao = db.Corporacoes.Find(id);
+            if (corporcao == null)
             {
                 return HttpNotFound();
             }
-            return View(anuncio);
+            return View(corporcao);
         }
 
         //
-        // GET: /Anuncios/Create
+        // GET: /Corporacoes/Create
 
         public ActionResult Create()
         {
@@ -43,73 +43,73 @@ namespace cv2job.Controllers
         }
 
         //
-        // POST: /Anuncios/Create
+        // POST: /Corporacoes/Create
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(Anuncio anuncio)
+        public ActionResult Create(Corporcao corporcao)
         {
             if (ModelState.IsValid)
             {
-                db.Anuncios.Add(anuncio);
+                db.Corporacoes.Add(corporcao);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(anuncio);
+            return View(corporcao);
         }
 
         //
-        // GET: /Anuncios/Edit/5
+        // GET: /Corporacoes/Edit/5
 
         public ActionResult Edit(int id = 0)
         {
-            Anuncio anuncio = db.Anuncios.Find(id);
-            if (anuncio == null)
+            Corporcao corporcao = db.Corporacoes.Find(id);
+            if (corporcao == null)
             {
                 return HttpNotFound();
             }
-            return View(anuncio);
+            return View(corporcao);
         }
 
         //
-        // POST: /Anuncios/Edit/5
+        // POST: /Corporacoes/Edit/5
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(Anuncio anuncio)
+        public ActionResult Edit(Corporcao corporcao)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(anuncio).State = EntityState.Modified;
+                db.Entry(corporcao).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(anuncio);
+            return View(corporcao);
         }
 
         //
-        // GET: /Anuncios/Delete/5
+        // GET: /Corporacoes/Delete/5
 
         public ActionResult Delete(int id = 0)
         {
-            Anuncio anuncio = db.Anuncios.Find(id);
-            if (anuncio == null)
+            Corporcao corporcao = db.Corporacoes.Find(id);
+            if (corporcao == null)
             {
                 return HttpNotFound();
             }
-            return View(anuncio);
+            return View(corporcao);
         }
 
         //
-        // POST: /Anuncios/Delete/5
+        // POST: /Corporacoes/Delete/5
 
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Anuncio anuncio = db.Anuncios.Find(id);
-            db.Anuncios.Remove(anuncio);
+            Corporcao corporcao = db.Corporacoes.Find(id);
+            db.Corporacoes.Remove(corporcao);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

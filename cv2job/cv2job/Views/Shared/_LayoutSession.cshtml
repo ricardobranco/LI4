@@ -1,4 +1,9 @@
-﻿<!DOCTYPE html>
+﻿ @{
+    var currentuserid = WebSecurity.GetUserId(User.Identity.Name);
+    ViewBag.logID = currentuserid;
+    }
+
+<!DOCTYPE html>
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
@@ -14,8 +19,9 @@
   <!--<link rel="stylesheet" href="~/Content/style/font-awesome.css"> -->
 
 
+ 
 
-  <!-- jQuery UI -->
+ <link href="~/Content/style/default.css" rel="stylesheet" type="text/css"> 
   <link rel="stylesheet" href="~/Content/style/jquery-ui.css"> 
   <!-- Calendar -->
   <link rel="stylesheet" href="~/Content/style/fullcalendar.css">
@@ -31,10 +37,8 @@
   <link rel="stylesheet" href="~/Content/style/jquery.cleditor.css"> 
   <!-- Bootstrap toggle -->
   <link rel="stylesheet" href="~/Content/style/bootstrap-toggle-buttons.css">
- 
-    
-        <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
-    <link href="//netdna.bootstrapcdn.com/font-awesome/3.1.1/css/font-awesome.css" rel="stylesheet">
+  <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
+  <link href="//netdna.bootstrapcdn.com/font-awesome/3.1.1/css/font-awesome.css" rel="stylesheet">
 
      <!-- Main stylesheet -->
   <link href="~/Content/style/style.css" rel="stylesheet">
@@ -42,6 +46,8 @@
   <link href="~/Content/style/widgets.css" rel="stylesheet">   
   <!-- Responsive style (from Bootstrap) -->
   <link href="~/Content/style/bootstrap-responsive.css" rel="stylesheet">
+
+   
 
 
 
@@ -83,9 +89,14 @@
 			
 			<!-- Dropdown menu -->
 			<ul class="dropdown-menu">
-			  <li><a href="../Utilizadores/Details"><i class="icon-user"></i> Perfil</a></li>
+			  <li><a href="/Utilizadores/Perfil/@ViewBag.logID"><i class="icon-user"></i> Perfil</a></li>
 			  <li><a href="layout.html#"><i class="icon-cogs"></i> Settings</a></li>
-			  <li><a href="login.html"><i class="icon-off"></i> Logout</a></li>
+			  <li> @using (Html.BeginForm("LogOff", "Utilizadores", FormMethod.Post, new { id = "logoutForm" })) {
+                   @Html.AntiForgeryToken()
+                   <a href="javascript:document.getElementById('logoutForm').submit()"><i class="icon-off"></i> Logout</a>
+        }
+
+                </li>
 			</ul>
 		  </li>
 		  
@@ -162,7 +173,11 @@
 
 			<!-- Use the class nred, ngreen, nblue, nlightblue, nviolet or norange to add background color. You need to use this in <li> tag. -->
 
-			<li class="nred current"><a href="index.html#"><i class="icon-user"></i> Perfil</a></li>
+             
+              
+             
+
+			<li class="nred current"><a href="/Utilizadores/Perfil/@ViewBag.logID"><i class="icon-user"></i> Perfil</a></li>
 
 			<!-- Menu with sub menu -->
 			<li class="has_submenu nlightblue">
@@ -175,9 +190,16 @@
 
 			  <ul>
 				<li><a href="widgets1.html">Procurar</a></li>
-				<li><a href="widgets2.html">Gerir Anúncios</a></li>
+				<li><a href="/Anuncios/Gerir">Gerir Anúncios</a></li>
 			  </ul>
 			</li>
+
+
+            <li class="norange current"><a href="/Corporacoes/Index"><i class="icon-user"></i> Corporações</a></li>
+
+
+
+
 
 			<li class="ngreen"><a href="charts.html"><i class="icon-signout"></i> Sair</a></li>
 			<!--

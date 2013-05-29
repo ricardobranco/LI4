@@ -181,6 +181,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\CorporacoesController.cs" />
     <Compile Include="Controllers\UtilizadoresController.cs" />
     <Compile Include="Controllers\AnunciosController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -196,7 +197,14 @@
     <Compile Include="Migrations\201305240046431_newtable.Designer.cs">
       <DependentUpon>201305240046431_newtable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201305291523567_corporacoes.cs" />
+    <Compile Include="Migrations\201305291523567_corporacoes.Designer.cs">
+      <DependentUpon>201305291523567_corporacoes.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Corporcao.cs" />
+    <Compile Include="Models\GeocoderLocation.cs" />
+    <Compile Include="Models\Home.cs" />
     <Compile Include="Models\Utilizador.cs" />
     <Compile Include="Models\Anuncio.cs" />
     <Compile Include="Models\Cv2job.cs" />
@@ -213,6 +221,7 @@
     <Content Include="Content\style\css\responsive.css" />
     <Content Include="Content\style\css\styles.css" />
     <Content Include="Content\style\css\styles2.css" />
+    <Content Include="Content\style\default.css" />
     <Content Include="Content\style\font-awesome.css" />
     <Content Include="Content\style\fullcalendar.css" />
     <Content Include="Content\style\images\cleditor\buttons.gif" />
@@ -463,16 +472,21 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Web.config" />
-    <Content Include="Views\Anuncios\Index.cshtml" />
+    <Content Include="Views\Anuncios\Gerir.cshtml" />
     <Content Include="Views\Anuncios\Details.cshtml" />
     <Content Include="Views\Anuncios\Create.cshtml" />
     <Content Include="Views\Anuncios\Edit.cshtml" />
     <Content Include="Views\Anuncios\Delete.cshtml" />
     <Content Include="Views\Shared\_LayoutNSession.cshtml" />
     <Content Include="Views\Shared\_LayoutSession.cshtml" />
-    <Content Include="Views\Utilizadores\Details.cshtml" />
+    <Content Include="Views\Utilizadores\Perfil.cshtml" />
     <Content Include="Views\Utilizadores\Login.cshtml" />
     <Content Include="Views\Utilizadores\Index.cshtml" />
+    <Content Include="Views\Corporacoes\Index.cshtml" />
+    <Content Include="Views\Corporacoes\Details.cshtml" />
+    <Content Include="Views\Corporacoes\Create.cshtml" />
+    <Content Include="Views\Corporacoes\Edit.cshtml" />
+    <Content Include="Views\Corporacoes\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -486,6 +500,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201305240046431_newtable.resx">
       <DependentUpon>201305240046431_newtable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201305291523567_corporacoes.resx">
+      <DependentUpon>201305291523567_corporacoes.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
