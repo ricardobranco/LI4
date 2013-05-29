@@ -612,7 +612,7 @@
     width: 1070px;
   }
   .span10 {
-    width: 970px;
+    width: 90%;
   }
   .span9 {
     width: 870px;
@@ -632,8 +632,16 @@
   .span4 {
     width: 370px;
   }
+
+    .span3TAG {
+        width: 345px;
+    }
   .span3 {
     width: 270px;
+  }
+  .span2SKILL {
+    width: 39%;
+    padding-left: 5%
   }
   .span2 {
     width: 170px;

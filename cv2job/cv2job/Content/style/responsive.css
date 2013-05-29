@@ -1,0 +1,45 @@
+@media (max-width: 480px) {
+    .span4,.span8{ margin-top:0px !important;}
+    .nav-collapse .pull-right{float: none}
+    .btn.btn-navbar, .btn.btn-navbar:hover{background: #fff;border:none}
+    .urp-no-hide{display: none !important}
+}
+
+@media (max-width: 767px) {
+    .span4,.span8{ margin-top:20px !important;}
+    .nav-collapse .pull-right{float: none}
+    .btn.btn-navbar, .btn.btn-navbar:hover{background: #fff;border:none}
+    #footer {
+        margin-left: -20px;
+        margin-right: -20px;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+    .urp-no-hide{display: none !important}
+}
+
+
+@media (min-width: 768px) and (max-width: 979px) {  
+    .span4,.span8{ margin-top:20px !important;}
+    .nav-collapse .pull-right{float: none}
+    .btn.btn-navbar, .btn.btn-navbar:hover{background: #fff;border:none}
+    .addthis_counter,.addthis_button_compact{display: none !important}
+    .urp-no-hide{display: none !important}
+
+}
+
+@media (min-width: 1200px) { 
+    .span4,.span8{ /*margin-top:20px !important;*/}
+    .box .span4 img{width : 3489px; height :180px }
+    .pad .preview img{width:770px; height:398px}
+    .shareTool{/*overflow: hidden;*/height: 28px;}
+    .shareToolWrapper{height: 28px}
+    .navbar .brand img{margin-bottom: -11px}
+    .addthis_toolbox{float: right}
+    .copy{float: right}
+    .itemBox .pad,.ads .pad{margin-top: 30px;padding-top: 0px}
+}
+@media (min-width: 980px)  {  
+    .navbar .brand img{margin-bottom: -11px}
+
+}

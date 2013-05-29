@@ -1,8 +1,4 @@
-@import url('css/styles.css');
 @import url('../../../../fonts.googleapis.com/css%3Ffamily=Open+Sans:400italic,600italic,400,600.css');
-
-
-
 
 *{
 	border-radius: 0 !important;
@@ -11,10 +7,6 @@
 	text-shadow: none !important;
 	font-family: "Open Sans", Arial, Helvetica, sans-serif;
 	font-weight: 400;
-}
-
-.logoimg {
-	max-width: 28%;
 }
 
 .navbar *{
@@ -550,7 +542,7 @@ form label{
 /* Sidebar */
 
 .sidebar{
-	width: 12%;
+	width: 230px;
 	float: left;
 	display: block;
 	background:#111;
@@ -778,7 +770,7 @@ form label{
 
 .mainbar{
 	position: relative;
-	margin-left: 12%;
+	margin-left: 230px;
 	margin-right: 0px;
 	width: auto;
 	background:#fff;
@@ -943,7 +935,7 @@ form label{
 
 .mainbar .matter{
 	border-top: 1px solid #ddd;
-	padding: 35px 20px;
+	padding: 15px 0px;
 }
 
 /* Widget */
