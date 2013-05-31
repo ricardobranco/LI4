@@ -265,7 +265,7 @@ $(document).ready(function(){
 
   setTimeout(function() {
 
-            var unique_id = $.gritter.add({
+            /*var unique_id = $.gritter.add({
                 // (string | mandatory) the heading of the notification
                 title: 'Howdy! User',
                 // (string | mandatory) the text inside the notification
@@ -278,7 +278,7 @@ $(document).ready(function(){
                 time: '',
                 // (string | optional) the class name you want to apply to that specific message
                 class_name: 'gritter-custom'
-            });
+            });*/
 
             // You can have it return a unique id, this can be used to manually remove it later using
             setTimeout(function () {

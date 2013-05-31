@@ -606,7 +606,7 @@
     width: 1170px;
   }
   .span12 {
-    width: 1170px;
+    width: 100%;
   }
   .span11 {
     width: 1070px;
@@ -640,7 +640,7 @@
     width: 270px;
   }
   .span2SKILL {
-    width: 39%;
+    width: 34%;
     padding-left: 5%
   }
   .span2 {

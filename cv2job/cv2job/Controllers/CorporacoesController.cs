@@ -6,7 +6,9 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using cv2job.Models;
-
+using cv2job.Filters;
+using PagedList;
+using WebMatrix.WebData;
 namespace cv2job.Controllers
 {
     public class CorporacoesController : Controller
@@ -15,28 +17,41 @@ namespace cv2job.Controllers
 
         //
         // GET: /Corporacoes/
-
-        public ActionResult Index()
+        [Authorize]
+        [InitializeSimpleMembership]
+        public ActionResult Index(int? page)
         {
-            return View(db.Corporacoes.ToList());
+
+            Cv2jobContext db = new Cv2jobContext();
+            int pageSize = 28;
+            int pageFinal = (page ?? 1);
+            var dbCorp = db.Corporacoes;
+            ViewBag.Corporacoes = dbCorp.ToList().ToPagedList(pageFinal, pageSize);
+
+            return View(dbCorp.ToList());
+
         }
+
 
         //
         // GET: /Corporacoes/Details/5
 
+        [Authorize]
+        [InitializeSimpleMembership]
         public ActionResult Details(int id = 0)
         {
-            Corporcao corporcao = db.Corporacoes.Find(id);
-            if (corporcao == null)
+            Corporacao corporacao = db.Corporacoes.Find(id);
+            if (corporacao == null)
             {
                 return HttpNotFound();
             }
-            return View(corporcao);
+            return View(corporacao);
         }
 
         //
         // GET: /Corporacoes/Create
-
+        [Authorize]
+        [InitializeSimpleMembership]
         public ActionResult Create()
         {
             return View();
@@ -47,16 +62,21 @@ namespace cv2job.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(Corporcao corporcao)
+        public ActionResult Create(Corporacao corporacao)
         {
             if (ModelState.IsValid)
             {
-                db.Corporacoes.Add(corporcao);
+                Utilizador user = db.Utilizadores.Find(WebSecurity.CurrentUserId);
+                corporacao.Seguidores.Add(user);
+                corporacao.Colaboradores.Add(user);
+               
+                
+                db.Corporacoes.Add(corporacao);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(corporcao);
+            return View(corporacao);
         }
 
         //
@@ -64,28 +84,41 @@ namespace cv2job.Controllers
 
         public ActionResult Edit(int id = 0)
         {
-            Corporcao corporcao = db.Corporacoes.Find(id);
-            if (corporcao == null)
+            Corporacao corporacao = db.Corporacoes.Find(id);
+            if (corporacao == null)
             {
                 return HttpNotFound();
             }
-            return View(corporcao);
+            return View(corporacao);
         }
 
+        
+        [HttpPost]
+        public ActionResult adicionarColaborador(int id = 0)
+        {
+            Corporacao corporacao = db.Corporacoes.Find(id);
+            Utilizador user = db.Utilizadores.Where(u => u.UserName.Equals(Request["user"])).FirstOrDefault();
+            if (user != null && !corporacao.Colaboradores.Contains(user))
+                corporacao.Colaboradores.Add(user);
+            return View(corporacao);
+        }
+        
+        
+        
         //
         // POST: /Corporacoes/Edit/5
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(Corporcao corporcao)
+        public ActionResult Edit(Corporacao corporacao)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(corporcao).State = EntityState.Modified;
+                db.Entry(corporacao).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(corporcao);
+            return View(corporacao);
         }
 
         //
@@ -93,12 +126,12 @@ namespace cv2job.Controllers
 
         public ActionResult Delete(int id = 0)
         {
-            Corporcao corporcao = db.Corporacoes.Find(id);
-            if (corporcao == null)
+            Corporacao corporacao = db.Corporacoes.Find(id);
+            if (corporacao == null)
             {
                 return HttpNotFound();
             }
-            return View(corporcao);
+            return View(corporacao);
         }
 
         //
@@ -108,8 +141,8 @@ namespace cv2job.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Corporcao corporcao = db.Corporacoes.Find(id);
-            db.Corporacoes.Remove(corporcao);
+            Corporacao corporacao = db.Corporacoes.Find(id);
+            db.Corporacoes.Remove(corporacao);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

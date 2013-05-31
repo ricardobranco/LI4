@@ -10,7 +10,7 @@ using Microsoft.Web.WebPages.OAuth;
 using WebMatrix.WebData;
 using cv2job.Filters;
 using cv2job.Models;
-
+using PagedList;
 namespace cv2job.Controllers
 {
     [Authorize]
@@ -18,10 +18,14 @@ namespace cv2job.Controllers
     public class UtilizadoresController : Controller
     {
 
-        public ActionResult Index()
+        public ActionResult Index(int? page)
         {
 
             Cv2jobContext db = new Cv2jobContext();
+            int pageSize = 28;
+            int pageFinal = (page ?? 1);
+            ViewBag.Utilizadores = db.Utilizadores.ToList().ToPagedList(pageFinal, pageSize);
+
             return View(db.Utilizadores.ToList());
 
         }
@@ -37,7 +41,6 @@ namespace cv2job.Controllers
         {
             Cv2jobContext db = new Cv2jobContext();
             Utilizador user = db.Utilizadores.Find(id);
-            
             if (user == null)
             {
                 return HttpNotFound();

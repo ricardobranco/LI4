@@ -1,64 +1,112 @@
-﻿@model IEnumerable<cv2job.Models.Corporcao>
+﻿@model IEnumerable<cv2job.Models.Corporacao>
 
 @{
-    ViewBag.Title = "Gerir Anuncios";
+    ViewBag.Title = "Corporações";
 }
+@using PagedList.Mvc;
+@using PagedList;
 
-<div class="page-head">
-		<!-- Page heading -->
-		  <h2 class="pull-left">Index 
+<div class="page-head" style="padding-top: 3%;">
+    <!-- Page heading -->
+    <h2 class="pull-left">Corporaçoes 
 		  <!-- page meta -->
-		  <span class="page-meta"></span>
-		</h2>
+        <span class="page-meta"></span>
+    </h2>
 
 
-		<!-- Breadcrumb -->
-		<div class="bread-crumb pull-right">
-		  <a href="~/"><i class="icon-home"></i> Home</a> 
-		  <!-- Divider -->
-		  <span class="divider">/</span> 
-		  <a href="/Corporacoes/Index" class="bread-current">Corporações</a>
-		</div>
+    <!-- Breadcrumb -->
+    <div class="bread-crumb pull-right">
+        <a href="index.html"><i class="icon-home"></i>Home</a>
+        <!-- Divider -->
+        <span class="divider">/</span>
+        <a href="/Corporacoes/Index" class="bread-current">Corporações</a>
+    </div>
 
-		<div class="clearfix"></div>
+    <div class="clearfix"></div>
 
-		</div>
+</div>
+
 
 
 <div class="matter">
-	<div class="container-fluid">
-		
-	<div class="row-fluid">
-		
-<p>
-	@Html.ActionLink("Create New", "Create")
-</p>
 
-	</div>
+    <div class="container-fluid">
 
-<table>
-	<tr>
-		<th>
-			@Html.DisplayNameFor(model => model.Nome)
-		</th>
-		
-	</tr>
+        <a href="/Corporacoes/Create" class="btn btn-primary">Adicionar Corporação</a>
 
-@foreach (var item in Model) {
-	<tr>
-		<td>
-			@Html.DisplayFor(modelItem => item.Nome)
-		</td>
-		
-		<td>
-			@Html.ActionLink("Edit", "Edit", new { id=item.CorpID }) |
-			@Html.ActionLink("Details", "Details", new { id=item.CorpID }) |
-			@Html.ActionLink("Delete", "Delete", new { id=item.CorpID })
-		</td>
-	</tr>
-}
 
-</table>
 
-	</div>
+        <div class="widget worange">
+
+            <div class="widget-head">
+                <div class="pull-left">Corporações Criadas</div>
+                <div class="widget-icons pull-right">
+                    <a href="tables.html#" class="wminimize"><i class="icon-chevron-up"></i></a>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+
+            <div class="widget-content">
+
+                <table class="table  table-bordered ">
+                    <thead>
+                        <tr>
+                            <th>Nome</th>
+                            <th>Descrição</th>
+                            <th style="width: 20%; text-align: center">Ferramentas</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        @foreach (var item in ViewBag.Corporacoes)
+                        {
+                            <tr>
+                                <td>
+                                    <a href="/Corporacoes/Details/@item.CorpID">@item.Nome</a>
+                                </td>
+                                <td>
+                                    @{
+                                        String desc = item.Descricao;
+                                        int len=100;
+                                        if (desc.Length < 100)
+                                        {
+                                            len = desc.Length;
+                                        }
+                            
+                                        }
+                                   @desc.Substring(0,len)
+                                </td>
+                                <td style="text-align: center;">
+
+                                    <button class="btn btn-mini btn-success"><i class="icon-plus"></i></button>
+                                    <button class="btn btn-mini btn-warning"><i class="icon-pencil"></i></button>
+                                   
+                                        <button class="btn btn-mini btn-danger" value="Delete/@item.CorpID" onclick="return confirm('Are you sure?')"  ><i class="icon-remove"></i></button>
+                                
+                                </td>
+                            </tr>
+
+                    
+                 
+                        }
+
+                    </tbody>
+                </table>
+
+
+            </div>
+
+            <div class="widget-foot">
+
+                <div class="pull-right" style="margin-top: -1%; margin-bottom: -1%;">
+                    @Html.PagedListPager((IPagedList)ViewBag.Corporacoes, page => Url.Action("Index", new { page = page }))
+                </div>
+                <div class="clearfix"></div>
+
+            </div>
+
+        </div>
+
+
+    </div>
 </div>

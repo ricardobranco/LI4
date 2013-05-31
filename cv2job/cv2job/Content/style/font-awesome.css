@@ -22,7 +22,10 @@
  */
 @font-face {
   font-family: 'FontAwesome';
-  src: url('../fonts/fontawesome-webfont.ttf');
+  src: url('../font/fontawesome-webfont.eot%3Fv=3.0.1');
+  src: url('../font/fontawesome-webfont.eot%3F') format('embedded-opentype'),
+    url('../font/fontawesome-webfont.woff%3Fv=3.0.1') format('woff'),
+    url('../font/fontawesome-webfont.ttf%3Fv=3.0.1') format('truetype');
   font-weight: normal;
   font-style: normal;
 }

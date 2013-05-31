@@ -40,6 +40,12 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="PagedList">
+      <HintPath>..\packages\PagedList.1.15.0.0\lib\net40\PagedList.dll</HintPath>
+    </Reference>
+    <Reference Include="PagedList.Mvc">
+      <HintPath>..\packages\PagedList.Mvc.4.2.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.Entity" />
@@ -201,8 +207,36 @@
     <Compile Include="Migrations\201305291523567_corporacoes.Designer.cs">
       <DependentUpon>201305291523567_corporacoes.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201305301736036_anuncio_corp.cs" />
+    <Compile Include="Migrations\201305301736036_anuncio_corp.Designer.cs">
+      <DependentUpon>201305301736036_anuncio_corp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201305310404023_camposOBrig.cs" />
+    <Compile Include="Migrations\201305310404023_camposOBrig.Designer.cs">
+      <DependentUpon>201305310404023_camposOBrig.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201305310414318_mensagemErro.cs" />
+    <Compile Include="Migrations\201305310414318_mensagemErro.Designer.cs">
+      <DependentUpon>201305310414318_mensagemErro.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201305310426577_setor.cs" />
+    <Compile Include="Migrations\201305310426577_setor.Designer.cs">
+      <DependentUpon>201305310426577_setor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201305310624119_CriarCorp.cs" />
+    <Compile Include="Migrations\201305310624119_CriarCorp.Designer.cs">
+      <DependentUpon>201305310624119_CriarCorp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201305310632412_CriarCorpWeb.cs" />
+    <Compile Include="Migrations\201305310632412_CriarCorpWeb.Designer.cs">
+      <DependentUpon>201305310632412_CriarCorpWeb.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201305310714522_ConstCorp.cs" />
+    <Compile Include="Migrations\201305310714522_ConstCorp.Designer.cs">
+      <DependentUpon>201305310714522_ConstCorp.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Models\Corporcao.cs" />
+    <Compile Include="Models\Corporacao.cs" />
     <Compile Include="Models\GeocoderLocation.cs" />
     <Compile Include="Models\Home.cs" />
     <Compile Include="Models\Utilizador.cs" />
@@ -211,6 +245,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\PagedList.css" />
     <Content Include="Content\style\bootstrap-datetimepicker.min.css" />
     <Content Include="Content\style\bootstrap-responsive.css" />
     <Content Include="Content\style\bootstrap-toggle-buttons.css" />
@@ -420,11 +455,30 @@
     <None Include="Scripts\jquery-1.8.2.intellisense.js" />
     <Content Include="Images\arrow-down.png" />
     <Content Include="Images\logo.png" />
+    <Content Include="Scripts\bootstrap-datetimepicker.min.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\charts.js" />
+    <Content Include="Scripts\custom.js" />
+    <Content Include="Scripts\excanvas.min.js" />
+    <Content Include="Scripts\filter.js" />
+    <Content Include="Scripts\fullcalendar.min.js" />
+    <Content Include="Scripts\gmaps.js" />
     <Content Include="Scripts\jquery-1.8.2.js" />
     <Content Include="Scripts\jquery-1.8.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery-ui-1.10.2.custom.min.js" />
     <Content Include="Scripts\jquery-ui-1.8.24.js" />
     <Content Include="Scripts\jquery-ui-1.8.24.min.js" />
+    <Content Include="Scripts\jquery.cleditor.min.js" />
+    <Content Include="Scripts\jquery.flot.js" />
+    <Content Include="Scripts\jquery.flot.pie.js" />
+    <Content Include="Scripts\jquery.flot.resize.js" />
+    <Content Include="Scripts\jquery.flot.stack.js" />
+    <Content Include="Scripts\jquery.gritter.min.js" />
+    <Content Include="Scripts\jquery.js" />
+    <Content Include="Scripts\jquery.prettyPhoto.js" />
+    <Content Include="Scripts\jquery.rateit.min.js" />
+    <Content Include="Scripts\jquery.toggle.buttons.js" />
     <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
     <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
     <Content Include="Scripts\jquery.validate.js" />
@@ -434,6 +488,9 @@
     <Content Include="Scripts\knockout-2.2.0.debug.js" />
     <Content Include="Scripts\knockout-2.2.0.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\require.js" />
+    <Content Include="Scripts\scripts.js" />
+    <Content Include="Scripts\sparklines.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -489,7 +546,7 @@
     <Content Include="Views\Corporacoes\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\" />
+    <Folder Include="App_Data\Imagens\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
@@ -503,6 +560,27 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201305291523567_corporacoes.resx">
       <DependentUpon>201305291523567_corporacoes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201305301736036_anuncio_corp.resx">
+      <DependentUpon>201305301736036_anuncio_corp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201305310404023_camposOBrig.resx">
+      <DependentUpon>201305310404023_camposOBrig.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201305310414318_mensagemErro.resx">
+      <DependentUpon>201305310414318_mensagemErro.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201305310426577_setor.resx">
+      <DependentUpon>201305310426577_setor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201305310624119_CriarCorp.resx">
+      <DependentUpon>201305310624119_CriarCorp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201305310632412_CriarCorpWeb.resx">
+      <DependentUpon>201305310632412_CriarCorpWeb.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201305310714522_ConstCorp.resx">
+      <DependentUpon>201305310714522_ConstCorp.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

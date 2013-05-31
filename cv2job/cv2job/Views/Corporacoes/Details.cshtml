@@ -1,28 +1,28 @@
-﻿@model cv2job.Models.Corporcao
+﻿@model cv2job.Models.Corporacao
 
 @{
     ViewBag.Title = "Details";
 }
 
- 
-    <script type="text/javascript">
-      function initialize() {
+
+<script type="text/javascript">
+    function initialize() {
         var mapOptions = {
-          center: new google.maps.LatLng(-34.397, 150.644),
-          zoom: 8,
-          mapTypeId: google.maps.MapTypeId.ROADMAP
+            center: new google.maps.LatLng(-34.397, 150.644),
+            zoom: 8,
+            mapTypeId: google.maps.MapTypeId.ROADMAP
         };
         var map = new google.maps.Map(document.getElementsByClassName("gmap"),
             mapOptions);
-      }
-      google.maps.event.addDomListener(window, 'load', initialize);
-    </script>
+    }
+    google.maps.event.addDomListener(window, 'load', initialize);
+</script>
 
-
+<!--
 <h2>Details</h2>
 
 <fieldset>
-    <legend>Corporcao</legend>
+    <legend>Corporacao</legend>
 
     <div class="display-label">
          @Html.DisplayNameFor(model => model.Nome)
@@ -39,86 +39,295 @@
     </div>
 </fieldset>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id=Model.CorpID }) |
+    @Html.ActionLink("Edit", "Edit", new { id = Model.CorpID }) |
     @Html.ActionLink("Back to List", "Index")
 </p>
+    -->
 
+<style type="text/css">
+    #map-canvas {
+        height: 100%;
+    }
+</style>
+<script type="text/javascript"
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCoGKGxE6KNqZCGi_qZPt10WPoMJeDPD54&sensor=true">
+</script>
+<script type="text/javascript">
 
+    var map;
 
-    <script type="text/javascript"
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCoGKGxE6KNqZCGi_qZPt10WPoMJeDPD54&sensor=true">
-    </script>
-    <script type="text/javascript">
+    function initialize() {
+        var mapOptions = {
+            zoom: 12,
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+        };
+        map = new google.maps.Map(document.getElementById('map-canvas'),
+            mapOptions);
 
-        google.maps.visualRefresh = true;
-        var map;
+        // Try HTML5 geolocation
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(function (position) {
+                var pos = new google.maps.LatLng(position.coords.latitude,
+                                                 position.coords.longitude);
 
-
-        function initialize() {
-            var mapOptions = {
-                center: new google.maps.LatLng(-34.397, 150.644),
-                zoom: 10,
-                mapTypeControl: true,
-                draggable: true,
-                scaleControl: false,
-                scrollwheel: true,
-                navigationControl: true,
-                streetViewControl: true,
-                mapTypeId: google.maps.MapTypeId.ROADMAP
-            };
-            map = new google.maps.Map(document.getElementById("map-canvas"),
-                mapOptions);
-
-            if(navigator.geolocation) {
-                navigator.geolocation.getCurrentPosition(function(position) {
-                    var pos = new google.maps.LatLng(position.coords.latitude,
-                                                     position.coords.longitude);
-
-                    var infowindow = new google.maps.InfoWindow({
-                        map: map,
-                        position: pos,
-                    });
-
-                    map.setCenter(pos);
-                }, function() {
-                    handleNoGeolocation(true);
+                var infowindow = new google.maps.InfoWindow({
+                    map: map,
+                    position: pos,
                 });
-            } else {
-                // Browser doesn't support Geolocation
-                handleNoGeolocation(false);
-            }
-        
+
+                map.setCenter(pos);
+            }, function () {
+                handleNoGeolocation(true);
+            });
+        } else {
+            // Browser doesn't support Geolocation
+            handleNoGeolocation(false);
+        }
+    }
+
+    function handleNoGeolocation(errorFlag) {
+        if (errorFlag) {
+            var content = 'Error: The Geolocation service failed.';
+        } else {
+            var content = 'Error: Your browser doesn\'t support geolocation.';
         }
 
-        function handleNoGeolocation(errorFlag) {
-            if (errorFlag) {
-                var content = 'Error: The Geolocation service failed.';
-            } else {
-                var content = 'Error: Your browser doesn\'t support geolocation.';
-            }
+        var options = {
+            map: map,
+            position: new google.maps.LatLng(60, 105),
+            content: content
+        };
 
-            var options = {
-                map: map,
-                position: new google.maps.LatLng(60, 105),
-                content: content
-            };
+        var infowindow = new google.maps.InfoWindow(options);
+        map.setCenter(options.position);
+    }
 
-            var infowindow = new google.maps.InfoWindow(options);
-            map.setCenter(options.position);
-        }
-        google.maps.event.addDomListener(window, 'load', initialize);
-    </script>
- 
-    
-  
- <div class="span4">
-              <div class="widget wblue">
-                <div class="widget-head">
-                  <div class="pull-left">Google Map</div>
-                  <div class="clearfix"></div>
+    google.maps.event.addDomListener(window, 'load', initialize);
+</script>
+
+
+
+<div class="matter">
+    <div class="container-fluid">
+
+        <!--------------------------------------------------------------------------------------------- COMECA AQUI---------------------------------------------------------->
+
+
+
+        <!--     <div class="page">  
+        </div>-->
+
+        <div class="grid">
+            <div class="row ">
+                <div class="span12" itemscope="" itemtype="http://schema.org/Person">
+                    <div class="pull-left">
+                        <div class="span8" id="intro" style="margin-left: 0px;">
+                            <br>
+                            <h1>
+                                <span itemprop="name">@Model.Nome</span><br>
+                            </h1>
+                            <div style="padding-top: 5%"></div>
+                            <p itemprop="address" itemscope="" itemtype="http://schema.org/Address">
+                                <span itemprop="street-address">3678 Street name city , XX 010101 somewhere on</span> <span itemprop="location">planet earth</span>
+                            </p>
+                            <i class="icon-arrow-right-3 fg-color-blueLight" id="arrow1"></i>
+                            <ul class="unstyled">
+                                <li>
+                                    <i class="icon-link"></i><a href="http://html5-ninja.com" target="_blank" itemprop="url">html5-ninja.com</a>
+                                </li>
+                                <li>
+                                    <i class="icon-envelope-alt"></i><a href="mailto:zied.hosni.mail@gmail.com">zied.hosni.mail@gmail.com</a>
+                                </li>
+                                <li>
+                                    <i class="icon-mobile-phone"></i>&nbsp;&nbsp;066 666 999
+                                </li>
+                                <li>
+                                    <i class="icon-briefcase"></i>Internet
+                                </li>
+                            </ul>
+
+                        </div>
+
+                    </div>
+                    <div class="pull-right">
+                        <div class="span4">
+                            <img src="~/Images/google-logo.jpg" alt="me" itemprop="photo" style="padding-top: 15%">
+                            <div class="widget wblue">
+                                <div class="widget-head">
+                                    <div class="pull-left">Localização</div>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="widget-content" style="display: block; height: 300px">
+                                    <div id="map-canvas" />
+                                </div>
+                            </div>
+
+                            <button type="button" class="command-button bg-color-blueDark fg-color-white"
+                                id="download" onclick="javascript:pdf_url = location.href;
+                                location.href = 'http://pdfmyurl.com?url=' + escape(pdf_url) + '&amp;-O=Portrait&amp;--print-media-type'">
+                                <i class="icon-eye-open"></i>
+                                Seguir
+                            </button>
+                        </div>
+                    </div>
                 </div>
-                <div class="widget-content" style="display: block;height:300px">
-                    <div id="map-canvas"/>
+                <div class="span7" itemscope="" itemtype="http://schema.org/Person">
+                    <h2>Sobre</h2>
+                    <div class="hero-unit">
+                        <p>
+                            Google’s mission is to organize the world‘s information and make it universally accessible and useful.
+                            Since our founding in 1998, Google has grown by leaps and bounds. From offering search in a single language we 
+                            now offer dozens of products and services—including various forms of advertising and web applications for all kinds 
+                            of tasks—in scores of languages. And starting from two computer science students in a university dorm room, we now have 
+                            thousands of employees and offices around the world. A lot has changed since the first Google search engine appeared. 
+                            But some things haven’t changed: our dedication to our users and our belief in the possibilities of the Internet itself.
+                           
+                        </p>
+
+                    </div>
                 </div>
-              </div> 
+
             </div>
+
+        </div>
+
+
+        <div class="row">
+            <div class="span12">
+                <div class="pull-left">
+                    <div class="span7">
+                        <div class="widget worange">
+                            <!-- Widget title -->
+                            <div class="widget-head">
+                                <div class="pull-left">Últimos Anúncios</div>
+
+                                <div class="clearfix"></div>
+                            </div>
+
+                            <div class="widget-content">
+                                <!-- Widget content -->
+                                <div class="padd">
+
+                                    <ul class="recent">
+
+
+                                        <li>
+
+                                            <div class="recent-content">
+                                                <div class="recent-meta">Posted on 25/1/2120</div>
+                                                <div>
+                                                    Vivamus diam elit diam, consectetur fermentum sed dapibus eget, Vivamus consectetur dapibus adipiscing elit.
+                                                </div>
+
+
+
+
+
+                                                <div class="clearfix"></div>
+                                            </div>
+                                        </li>
+
+
+
+                                        <li>
+
+                                            <div class="recent-content">
+                                                <div class="recent-meta">Posted on 25/1/2120 by Ashok</div>
+                                                <div>
+                                                    Vivamus diam elit diam, consectetur fermentum sed dapibus eget, Vivamus consectetur dapibus adipiscing elit.
+                                                </div>
+
+                                                <div class="btn-group">
+                                                    <button class="btn btn-mini btn-success"><i class="icon-ok"></i></button>
+                                                    <button class="btn btn-mini btn-primary"><i class="icon-pencil"></i></button>
+                                                    <button class="btn btn-mini btn-danger"><i class="icon-remove"></i></button>
+                                                </div>
+
+                                                <button class="btn btn-mini btn-danger pull-right">Spam</button>
+
+                                                <div class="clearfix"></div>
+                                            </div>
+                                        </li>
+
+
+
+                                        <li>
+
+                                            <div class="recent-content">
+                                                <div class="recent-meta">Posted on 25/1/2120 by Ashok</div>
+                                                <div>
+                                                    Vivamus diam elit diam, consectetur fermentum sed dapibus eget, Vivamus consectetur dapibus adipiscing elit.
+                                                </div>
+
+                                                <div class="btn-group">
+                                                    <button class="btn btn-mini btn-success"><i class="icon-ok"></i></button>
+                                                    <button class="btn btn-mini btn-primary"><i class="icon-pencil"></i></button>
+                                                    <button class="btn btn-mini btn-danger"><i class="icon-remove"></i></button>
+                                                </div>
+
+                                                <button class="btn btn-mini btn-danger pull-right">Spam</button>
+
+                                                <div class="clearfix"></div>
+                                            </div>
+                                        </li>
+
+
+                                    </ul>
+
+                                </div>
+                            </div>
+
+                            <!-- Widget footer -->
+                            <div class="widget-foot">
+
+                                <div class="pagination pull-right">
+                                    <ul>
+                                        <li><a href="widgets1.html#">Prev</a></li>
+                                        <li><a href="widgets1.html#">1</a></li>
+                                        <li><a href="widgets1.html#">2</a></li>
+                                        <li><a href="widgets1.html#">3</a></li>
+                                        <li><a href="widgets1.html#">4</a></li>
+                                        <li><a href="widgets1.html#">Next</a></li>
+                                    </ul>
+                                </div>
+                                <div class="clearfix"></div>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="pull-right">
+                    <div class="span4">
+                        <h2>Others</h2>
+                        <p>Bacon ipsum dolor sit amet tongue pork loin turducken turkey tail. Short loin fatback jerky bacon drumstick leberkas kielbasa t-bone ball tip. Chicken ribeye capicola ham hock pork. Rump pancetta salami cow hamburger t-bone turducken ball tip pork loin short loin. Filet mignon tail strip steak beef.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- <footer>
+            <div class="nav-bar">
+                <div class="nav-bar-inner padding10">
+                    <span class="element">John Doe - <i class="icon-mail-2"></i>zied.hosni.mail@gmail.com
+                    </span>
+                    <i class="icon-arrow-left-3 place-right fg-color-white" style="font-size: 44px"></i>
+                </div>
+            </div>
+        </footer>-->
+
+
+        <!--------------------------------------------------------------------------------------------- ACABA AQUI---------------------------------------------------------->
+
+
+    </div>
+
+    <!-- Matter ends -->
+
+</div>
+
+
+
+
+
+

@@ -1,56 +1,63 @@
 ﻿@model IEnumerable<cv2job.Models.Utilizador>
+@using PagedList.Mvc;
+@using PagedList;
 
 @{
-	ViewBag.Title = "Index";
+    ViewBag.Title = "Index";
 }
-<div class="page-head">
-		<!-- Page heading -->
-		  <h2 class="pull-left">Index 
+
+<div class="page-head" style="padding-top: 3%">
+    <!-- Page heading -->
+    <h2 class="pull-left">Index 
 		  <!-- page meta -->
-		  <span class="page-meta"></span>
-		</h2>
+        <span class="page-meta"></span>
+    </h2>
 
 
-		<!-- Breadcrumb -->
-		<div class="bread-crumb pull-right">
-		  <a href="index.html"><i class="icon-home"></i> Home</a> 
-		  <!-- Divider -->
-		  <span class="divider">/</span> 
-		  <a href="#" class="bread-current">Dashboard</a>
-		</div>
+    <!-- Breadcrumb -->
+    <div class="bread-crumb pull-right">
+        <a href="index.html"><i class="icon-home"></i>Home</a>
+        <!-- Divider -->
+        <span class="divider">/</span>
+        <a href="#" class="bread-current">Dashboard</a>
+    </div>
 
-		<div class="clearfix"></div>
+    <div class="clearfix"></div>
 
-		</div>
+</div>
 
 
 
 <div class="matter">
-	<div class="container-fluid">
-		
-	
+    <div class="container-fluid">
 
-<table>
-	<tr>
-		<th>
-			@Html.DisplayNameFor(model => model.UserName)
-		</th>
-		
-	</tr>
 
-@foreach (var item in Model) {
-	<tr>
-		<td>
-			@Html.DisplayFor(modelItem => item.UserName)
-		</td>
-		<td>
-			
-            <a href="/Utilizadores/Perfil/@item.UserId">Perfil</a>
-		</td>
-	</tr>
-}
+        <table>
+            <tr>
+                <th>Utilizador
+                </th>
 
-</table>
+            </tr>
+            @foreach (var item in ViewBag.Utilizadores)
+            {
+                <tr>
+                    <td>
+                        <a href="/Utilizadores/Perfil/@item.UserId">@item.UserName</a>
+                    </td>
+                </tr>
 
-	</div>
+                    
+                 
+            }
+        </table>
+
+        <div class="pagination pull-right">
+            @Html.PagedListPager((IPagedList)ViewBag.Utilizadores, page => Url.Action("Index", new { page = page }))
+        </div>
+
+
+
+
+
+    </div>
 </div>

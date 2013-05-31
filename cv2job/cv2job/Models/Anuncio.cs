@@ -18,7 +18,7 @@ namespace cv2job.Models
         public String TipoEmprego { get; set; }
         public bool eRenumerado { get; set; }
         public decimal Renumeracao { get; set; }
-        
+        public Corporacao Corporacao { get; set; }
 
 
 
