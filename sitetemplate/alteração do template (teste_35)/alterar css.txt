@@ -1,0 +1,26 @@
+modern.css linha 1666
+	
+	margin-right: -10px;
+	margin-bottom: 0px;
+	height: 30px;
+	min-width: 40px;
+	min-height: 30px;
+
+modern.css adicionar:
+	.btn_comb {
+    		margin-top: 10px;
+		margin-left: 60px;
+	}
+
+
+style.css adicionar
+	.form-inline_ALT button{
+	margin-left: -20px;
+}
+
+
+
+alterar span12 para + de 100%
+
+
+	
