@@ -235,6 +235,10 @@
     <Compile Include="Migrations\201305310714522_ConstCorp.Designer.cs">
       <DependentUpon>201305310714522_ConstCorp.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201305310844287_namechanged.cs" />
+    <Compile Include="Migrations\201305310844287_namechanged.Designer.cs">
+      <DependentUpon>201305310844287_namechanged.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Corporacao.cs" />
     <Compile Include="Models\GeocoderLocation.cs" />
@@ -581,6 +585,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201305310714522_ConstCorp.resx">
       <DependentUpon>201305310714522_ConstCorp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201305310844287_namechanged.resx">
+      <DependentUpon>201305310844287_namechanged.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
