@@ -16,6 +16,7 @@ namespace cv2job.Models
         [DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
         public int UserId { get; set; }
         public string UserName { get; set; }
+        
     }
 
     public class RegisterExternalLoginModel

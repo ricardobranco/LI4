@@ -1,95 +1,104 @@
 ﻿@model IEnumerable<cv2job.Models.Anuncio>
 
 @{
-	ViewBag.Title = "Index";
+    ViewBag.Title = "Anúncios";
 }
+@using PagedList.Mvc;
+@using PagedList;
 
-
-<div class="page-head">
-		<!-- Page heading -->
-		  <h2 class="pull-left">Index 
+<div class="page-head" style="padding-top: 3%;">
+    <!-- Page heading -->
+    <h2 class="pull-left">Anúncios 
 		  <!-- page meta -->
-		  <span class="page-meta"></span>
-		</h2>
+        <span class="page-meta"></span>
+    </h2>
 
 
-		<!-- Breadcrumb -->
-		<div class="bread-crumb pull-right">
-		  <a href="index.html"><i class="icon-home"></i> Home</a> 
-		  <!-- Divider -->
-		  <span class="divider">/</span> 
-		  <a href="#" class="bread-current">Dashboard</a>
-		</div>
+    <!-- Breadcrumb -->
+    <div class="bread-crumb pull-right">
+        <a href="/"><i class="icon-home"></i>Home</a>
+        <!-- Divider -->
+        <span class="divider">/</span>
+        <a href="/Corporacoes/Gerir" class="bread-current">Anúncios</a>
+    </div>
 
-		<div class="clearfix"></div>
+    <div class="clearfix"></div>
 
-		</div>
+</div>
 
 
 
 <div class="matter">
-	<div class="container-fluid">
-		
-	<div class="row-fluid">
-		
-<p>
-	@Html.ActionLink("Create New", "Create")
-</p>
 
-	</div>
+    <div class="container-fluid">
 
-<table>
-	<tr>
-		<th>
-			@Html.DisplayNameFor(model => model.Titulo)
-		</th>
-		<th>
-			@Html.DisplayNameFor(model => model.Descricao)
-		</th>
-		<th>
-			@Html.DisplayNameFor(model => model.InfoAdiconal)
-		</th>
-		<th>
-			@Html.DisplayNameFor(model => model.TipoEmprego)
-		</th>
-		<th>
-			@Html.DisplayNameFor(model => model.eRenumerado)
-		</th>
-		<th>
-			@Html.DisplayNameFor(model => model.Renumeracao)
-		</th>
-		<th></th>
-	</tr>
+        <a href="/Anuncios/Create" class="btn btn-primary">Adicionar Anúncio</a>
 
-@foreach (var item in Model) {
-	<tr>
-		<td>
-			@Html.DisplayFor(modelItem => item.Titulo)
-		</td>
-		<td>
-			@Html.DisplayFor(modelItem => item.Descricao)
-		</td>
-		<td>
-			@Html.DisplayFor(modelItem => item.InfoAdiconal)
-		</td>
-		<td>
-			@Html.DisplayFor(modelItem => item.TipoEmprego)
-		</td>
-		<td>
-			@Html.DisplayFor(modelItem => item.eRenumerado)
-		</td>
-		<td>
-			@Html.DisplayFor(modelItem => item.Renumeracao)
-		</td>
-		<td>
-			@Html.ActionLink("Edit", "Edit", new { id=item.AnuncioID }) |
-			@Html.ActionLink("Details", "Details", new { id=item.AnuncioID }) |
-			@Html.ActionLink("Delete", "Delete", new { id=item.AnuncioID })
-		</td>
-	</tr>
-}
 
-</table>
 
-	</div>
+        <div class="widget wlightblue">
+
+            <div class="widget-head">
+                <div class="pull-left">Anúncios Criados</div>
+                <div class="widget-icons pull-right">
+                    <a href="tables.html#" class="wminimize"><i class="icon-chevron-up"></i></a>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+
+            <div class="widget-content">
+
+                <table class="table  table-bordered ">
+                    <thead>
+                        <tr>
+                            <th>Nome</th>
+                            <th>Descrição</th>
+                            <th style="width: 20%; text-align: center">Ferramentas</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        @foreach (var item in ViewBag.Anuncios)
+                        {
+                            <tr>
+                                <td>
+                                    <a href="/Corporacoes/Details/@item.AnuncioID">@item.Titulo</a>
+                                </td>
+                                <td style="text-align: center;">
+                                    <div class="btn-group">
+                                    <button class="btn btn-mini btn-success"><i class="icon-plus"></i></button>
+                                    <button class="btn btn-mini btn-warning"><i class="icon-pencil"></i></button>
+                                    @using (Html.BeginForm("Delete", "Anuncios", new { id=item.AnuncioID}))
+                                    {  @Html.AntiForgeryToken()
+                                
+                                       
+                                        <button class="btn btn-mini btn-danger" type="submit" name="id" ><i class="icon-remove"></i></button>
+                                    }
+                                        </div>
+                                </td>
+                            </tr>
+
+                    
+                 
+                        }
+
+                    </tbody>
+                </table>
+
+
+            </div>
+
+            <div class="widget-foot">
+
+                <div class="pull-right" style="margin-top: -1%; margin-bottom: -1%;">
+                    @Html.PagedListPager((IPagedList)ViewBag.Anuncios, page => Url.Action("Gerir", new { page = page }))
+                </div>
+                <div class="clearfix"></div>
+
+            </div>
+
+        </div>
+
+
+    </div>
 </div>

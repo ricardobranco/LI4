@@ -14,11 +14,9 @@ namespace cv2job.Models
     {
         public Corporacao()
         {
-            /*Seguidores = new List<Utilizador>();
-            Colaboradores = new List<Utilizador>();
-            Anuncios = new List<Anuncio>();*/
+            this.Seguidores = new List<Utilizador>();
+            this.Colaboradores = new List<Utilizador>();
         }
-
         
 
         [Key]

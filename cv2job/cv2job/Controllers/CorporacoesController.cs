@@ -24,7 +24,7 @@ namespace cv2job.Controllers
         {
 
             Cv2jobContext db = new Cv2jobContext();
-            int pageSize = 28;
+            int pageSize = 6;
             int pageFinal = (page ?? 1);
             var dbCorp = db.Corporacoes;
             ViewBag.Corporacoes = dbCorp.ToList().ToPagedList(pageFinal, pageSize);
@@ -144,18 +144,12 @@ namespace cv2job.Controllers
         {
             
             Corporacao corporacao = db.Corporacoes.Find(id);
-          /*  foreach (var user in corporacao.Colaboradores)
-            {
-                corporacao.Colaboradores.Remove(user);
-                db.SaveChanges();
-                
-            }
-            foreach (var user in corporacao.Seguidores)
-            {
-                corporacao.Seguidores.Remove(user);
-                db.SaveChanges();
-            }
-            foreach (var anuncio in corporacao.Anuncios)
+
+            corporacao.Seguidores.Clear();
+            db.SaveChanges();
+            corporacao.Colaboradores.Clear();
+            db.SaveChanges();
+           /* foreach (var anuncio in corporacao.Anuncios)
             {
                 corporacao.Anuncios.Remove(anuncio);
                 db.SaveChanges();

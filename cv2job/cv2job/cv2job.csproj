@@ -207,9 +207,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201306011509514_virtualicol.cs" />
-    <Compile Include="Migrations\201306011509514_virtualicol.Designer.cs">
-      <DependentUpon>201306011509514_virtualicol.cs</DependentUpon>
+    <Compile Include="Migrations\201306011601412_virtualicolinit.cs" />
+    <Compile Include="Migrations\201306011601412_virtualicolinit.Designer.cs">
+      <DependentUpon>201306011601412_virtualicolinit.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Corporacao.cs" />
@@ -529,8 +529,8 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201306011509514_virtualicol.resx">
-      <DependentUpon>201306011509514_virtualicol.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201306011601412_virtualicolinit.resx">
+      <DependentUpon>201306011601412_virtualicolinit.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

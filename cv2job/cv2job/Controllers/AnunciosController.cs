@@ -6,7 +6,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using cv2job.Models;
-
+using PagedList;
 namespace cv2job.Controllers
 {
     public class AnunciosController : Controller
@@ -16,11 +16,17 @@ namespace cv2job.Controllers
         //
         // GET: /Anuncios/
 
-        public ActionResult Gerir()
+        public ActionResult Gerir(int? page)
         {
-            return View(db.Anuncios.ToList());
-        }
 
+            int pageSize = 20;
+            int pageFinal = (page ?? 1);
+            var dbCorp = db.Anuncios;
+            ViewBag.Anuncios = dbCorp.ToList().ToPagedList(pageFinal, pageSize);
+
+            return View(dbCorp.ToList());
+
+        }
         //
         // GET: /Anuncios/Details/5
 
