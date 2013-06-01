@@ -12,10 +12,24 @@ namespace cv2job.Models
     [Table("Utilizadores")]
     public class Utilizador
     {
+        public Utilizador() {
+            this.CorpSeguidas = new List<Corporacao>();
+            this.CorpColab = new List<Corporacao>();
+            this.AnunciosSeguidos = new List<Anuncio>();
+            this.AnunciosCriados = new List<Anuncio>();
+        }
+
         [Key]
         [DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
         public int UserId { get; set; }
         public string UserName { get; set; }
+        public virtual ICollection<Corporacao> CorpSeguidas {get; set;}
+        public virtual ICollection<Corporacao> CorpColab { get; set; }
+        public virtual ICollection<Anuncio> AnunciosSeguidos { get; set; }
+        public virtual ICollection<Anuncio> AnunciosCriados { get; set; }
+        public DateTime Criado { get; set; }
+
+
         
     }
 

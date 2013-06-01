@@ -3,7 +3,8 @@
 @{
     ViewBag.Title = "Details";
 }
-
+@using PagedList.Mvc;
+@using PagedList;
 
 <script type="text/javascript">
     function initialize() {
@@ -127,10 +128,9 @@
                                 <span itemprop="name">@Model.Nome</span><br>
                             </h1>
                             <div style="padding-top: 5%"></div>
-                            @if (Model.Morada != null) { 
-                            <p itemprop="address" itemscope="" itemtype="http://schema.org/Address">
-                                <span itemprop="street-address">@Model.Morada</span> 
-                            </p>}
+                             <p itemprop="address" itemscope="" itemtype="http://schema.org/Address">
+                                    <span itemprop="street-address">@Model.Morada @Model.CodPostal @Model.Cidade</span>
+                                </p>
                             <i class="icon-arrow-right-3 fg-color-blueLight" id="arrow1"></i>
                             <ul class="unstyled">
                                 <li>
@@ -140,7 +140,7 @@
                                     <i class="icon-envelope-alt"></i><a href="mailto:@Model.Email">@Model.Email</a>
                                 </li>
                                 <li>
-                                    <i class="icon-mobile-phone"></i>&nbsp;&nbsp;@Model.Contacto
+                                    <i class="icon-mobile-phone"></i>&nbsp;@Model.Contacto
                                 </li>
                                 <li>
                                     <i class="icon-briefcase"></i>@Model.Sector
@@ -152,7 +152,7 @@
                     </div>
                     <div class="pull-right">
                         <div class="span4">
-                            <img src="@(Model.PathLogo==null?"":Model.PathLogo)" alt="me" itemprop="photo" style="padding-top: 15%">
+                            <img src="@(Model.PathLogo == null ? "" : Model.PathLogo)" alt="me" itemprop="photo" style="padding-top: 15%">
                             <div class="widget wblue">
                                 <div class="widget-head">
                                     <div class="pull-left">Localização</div>
@@ -177,7 +177,7 @@
                     <div class="hero-unit">
                         <p>
                             @Model.Descricao
-                           
+
                         </p>
 
                     </div>
@@ -206,66 +206,22 @@
 
                                     <ul class="recent">
 
+                                        @foreach (var item in ViewBag.AnunciosCriados)
+                                        {
+                                            <li>
 
-                                        <li>
+                                                <div class="recent-content">
+                                                    <div class="recent-meta">@item.Criado.ToShortDateString()</div>
+                                                    <div>
+                                                        <a href="/Anuncios/Details/@item.AnuncioID"> @item.Cargo</a>
+                                                    </div>
 
-                                            <div class="recent-content">
-                                                <div class="recent-meta">31/5/2013</div>
-                                                <div>
-                                                   Procura-se empregada de mesa.
+                                                    <div class="clearfix"></div>
                                                 </div>
+                                            </li>
 
+                                        }
 
-
-
-
-                                                <div class="clearfix"></div>
-                                            </div>
-                                        </li>
-
-
-
-                                        <li>
-
-                                            <div class="recent-content">
-                                                <div class="recent-meta">Posted on 25/1/2120 by Ashok</div>
-                                                <div>
-                                                    Vivamus diam elit diam, consectetur fermentum sed dapibus eget, Vivamus consectetur dapibus adipiscing elit.
-                                                </div>
-
-                                                <div class="btn-group">
-                                                    <button class="btn btn-mini btn-success"><i class="icon-ok"></i></button>
-                                                    <button class="btn btn-mini btn-primary"><i class="icon-pencil"></i></button>
-                                                    <button class="btn btn-mini btn-danger"><i class="icon-remove"></i></button>
-                                                </div>
-
-                                                <button class="btn btn-mini btn-danger pull-right">Spam</button>
-
-                                                <div class="clearfix"></div>
-                                            </div>
-                                        </li>
-
-
-
-                                        <li>
-
-                                            <div class="recent-content">
-                                                <div class="recent-meta">Posted on 25/1/2120 by Ashok</div>
-                                                <div>
-                                                    Vivamus diam elit diam, consectetur fermentum sed dapibus eget, Vivamus consectetur dapibus adipiscing elit.
-                                                </div>
-
-                                                <div class="btn-group">
-                                                    <button class="btn btn-mini btn-success"><i class="icon-ok"></i></button>
-                                                    <button class="btn btn-mini btn-primary"><i class="icon-pencil"></i></button>
-                                                    <button class="btn btn-mini btn-danger"><i class="icon-remove"></i></button>
-                                                </div>
-
-                                                <button class="btn btn-mini btn-danger pull-right">Spam</button>
-
-                                                <div class="clearfix"></div>
-                                            </div>
-                                        </li>
 
 
                                     </ul>
@@ -276,15 +232,8 @@
                             <!-- Widget footer -->
                             <div class="widget-foot">
 
-                                <div class="pagination pull-right">
-                                    <ul>
-                                        <li><a href="widgets1.html#">Prev</a></li>
-                                        <li><a href="widgets1.html#">1</a></li>
-                                        <li><a href="widgets1.html#">2</a></li>
-                                        <li><a href="widgets1.html#">3</a></li>
-                                        <li><a href="widgets1.html#">4</a></li>
-                                        <li><a href="widgets1.html#">Next</a></li>
-                                    </ul>
+                                <div class="pull-right" style="margin-top: -1%; margin-bottom: -1%;">
+                                    @Html.PagedListPager((IPagedList)ViewBag.AnunciosCriados, page => Url.Action("Gerir", new { page = page }))
                                 </div>
                                 <div class="clearfix"></div>
 

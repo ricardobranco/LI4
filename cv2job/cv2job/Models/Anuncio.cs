@@ -10,17 +10,24 @@ namespace cv2job.Models
     [Table("Anuncios")]
     public class Anuncio
     {
+        public Anuncio()
+        {
+            this.Criado = DateTime.Now;
+            this.Seguidores = new List<Utilizador>();
+            
+        }
+
         [Key]
         public int AnuncioID { get; set; }
-        public String Titulo { get; set; }
+        [Required(ErrorMessage = "Campo Obrigatório")]
+        public String Cargo { get; set; }
+        [Required(ErrorMessage = "Campo Obrigatório")]
+        public int CorporacaoID { get; set; }
+        public virtual Corporacao Corporacao { get; set; }
+        public virtual ICollection<Utilizador> Seguidores { get; set;}
         public String Descricao { get; set; }
-        public String InfoAdiconal { get; set; }
-        public String TipoEmprego { get; set; }
-        public bool eRenumerado { get; set; }
-        public decimal Renumeracao { get; set; }
-        public Corporacao Corporacao { get; set; }
-
-
-
+        public String Funcao { get; set; }
+        public DateTime Criado { get; set; }
+        public virtual Utilizador Criador { get; set; }
     }
 } 

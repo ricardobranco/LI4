@@ -23,12 +23,14 @@ namespace cv2job.Controllers
         public ActionResult Index(int? page)
         {
 
-            Cv2jobContext db = new Cv2jobContext();
             int pageSize = 6;
             int pageFinal = (page ?? 1);
-            var dbCorp = db.Corporacoes;
+            var user = db.Utilizadores.Find(WebSecurity.CurrentUserId);
+            var dbCorp = user.CorpColab;
+            var dbSeg = user.CorpSeguidas;
             ViewBag.Corporacoes = dbCorp.ToList().ToPagedList(pageFinal, pageSize);
-
+            ViewBag.CorpSeguidas = dbSeg.ToList().ToPagedList(pageFinal,pageSize);
+            
             return View(dbCorp.ToList());
 
         }
@@ -39,13 +41,18 @@ namespace cv2job.Controllers
 
         [Authorize]
         [InitializeSimpleMembership]
-        public ActionResult Details(int id = 0)
+        public ActionResult Details(int id ,int? page)
         {
             Corporacao corporacao = db.Corporacoes.Find(id);
             if (corporacao == null)
             {
                 return HttpNotFound();
             }
+                int pageSize = 20;
+                int pageFinal = (page ?? 1);
+                var anuncios = corporacao.Anuncios;
+                ViewBag.AnunciosCriados = anuncios.ToList().ToPagedList(pageFinal, pageSize);
+            
             return View(corporacao);
         }
 
@@ -82,6 +89,8 @@ namespace cv2job.Controllers
                 Utilizador user = db.Utilizadores.Find(WebSecurity.CurrentUserId);
                 corporacao.Seguidores.Add(user);
                 corporacao.Colaboradores.Add(user);
+                user.CorpColab.Add(corporacao);
+                user.CorpSeguidas.Add(corporacao);
                 
                 db.Corporacoes.Add(corporacao);
                 db.SaveChanges();
@@ -145,16 +154,25 @@ namespace cv2job.Controllers
             
             Corporacao corporacao = db.Corporacoes.Find(id);
 
-            corporacao.Seguidores.Clear();
-            db.SaveChanges();
+            foreach (var user in corporacao.Colaboradores)
+            {
+                user.CorpColab.Remove(corporacao);
+                
+            }
+            foreach (var user in corporacao.Colaboradores)
+            {
+                user.CorpSeguidas.Remove(corporacao);
+
+            }
             corporacao.Colaboradores.Clear();
             db.SaveChanges();
-           /* foreach (var anuncio in corporacao.Anuncios)
-            {
-                corporacao.Anuncios.Remove(anuncio);
-                db.SaveChanges();
-            }*/
-
+            
+            foreach(var anuncio in corporacao.Anuncios){
+                RedirectToAction("Delete", "Anuncios", new { id = anuncio.AnuncioID });
+            }
+            corporacao.Anuncios.Clear();
+            db.SaveChanges();
+            
 
             db.Corporacoes.Remove(corporacao);
             db.SaveChanges();

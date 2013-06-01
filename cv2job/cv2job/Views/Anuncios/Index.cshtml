@@ -19,7 +19,7 @@
         <a href="/"><i class="icon-home"></i>Home</a>
         <!-- Divider -->
         <span class="divider">/</span>
-        <a href="/Corporacoes/Gerir" class="bread-current">Anúncios</a>
+        <a href="/Anuncios" class="bread-current">Anúncios</a>
     </div>
 
     <div class="clearfix"></div>
@@ -52,7 +52,6 @@
                     <thead>
                         <tr>
                             <th>Nome</th>
-                            <th>Descrição</th>
                             <th style="width: 20%; text-align: center">Ferramentas</th>
                         </tr>
                     </thead>
@@ -62,19 +61,19 @@
                         {
                             <tr>
                                 <td>
-                                    <a href="/Corporacoes/Details/@item.AnuncioID">@item.Titulo</a>
+                                    <a href="/Anuncios/Details/@item.AnuncioID">@item.Cargo</a>
                                 </td>
                                 <td style="text-align: center;">
                                     <div class="btn-group">
-                                    <button class="btn btn-mini btn-success"><i class="icon-plus"></i></button>
-                                    <button class="btn btn-mini btn-warning"><i class="icon-pencil"></i></button>
-                                    @using (Html.BeginForm("Delete", "Anuncios", new { id=item.AnuncioID}))
-                                    {  @Html.AntiForgeryToken()
+
+
+                                        @using (Html.BeginForm("Delete", "Anuncios", new { id = item.AnuncioID }))
+                                        {  @Html.AntiForgeryToken()
                                 
                                        
-                                        <button class="btn btn-mini btn-danger" type="submit" name="id" ><i class="icon-remove"></i></button>
-                                    }
-                                        </div>
+                                            <button class="btn btn-mini btn-danger" value="Delete" type="submit"><i class="icon-remove"></i></button>
+                                        }
+                                    </div>
                                 </td>
                             </tr>
 

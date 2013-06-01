@@ -1,58 +1,250 @@
 ﻿@model cv2job.Models.Anuncio
 
 @{
-    ViewBag.Title = "Details"; 
-    Layout = "~/Views/Shared/_LayoutSession.cshtml";
+    ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
 
-<fieldset>
-    <legend>Anuncio</legend>
+<script type="text/javascript">
+    function initialize() {
+        var mapOptions = {
+            center: new google.maps.LatLng(-34.397, 150.644),
+            zoom: 8,
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+        };
+        var map = new google.maps.Map(document.getElementsByClassName("gmap"),
+            mapOptions);
+    }
+    google.maps.event.addDomListener(window, 'load', initialize);
+</script>
 
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.Titulo)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.Titulo)
+<style type="text/css">
+    #map-canvas {
+        height: 100%;
+    }
+</style>
+<script type="text/javascript"
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCoGKGxE6KNqZCGi_qZPt10WPoMJeDPD54&sensor=true">
+</script>
+<script type="text/javascript">
+
+    var map;
+
+    function initialize() {
+        var mapOptions = {
+            zoom: 12,
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+        };
+        map = new google.maps.Map(document.getElementById('map-canvas'),
+            mapOptions);
+
+        // Try HTML5 geolocation
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(function (position) {
+                var pos = new google.maps.LatLng(position.coords.latitude,
+                                                 position.coords.longitude);
+
+                var infowindow = new google.maps.InfoWindow({
+                    map: map,
+                    position: pos,
+                });
+
+                map.setCenter(pos);
+            }, function () {
+                handleNoGeolocation(true);
+            });
+        } else {
+            // Browser doesn't support Geolocation
+            handleNoGeolocation(false);
+        }
+    }
+
+    function handleNoGeolocation(errorFlag) {
+        if (errorFlag) {
+            var content = 'Error: The Geolocation service failed.';
+        } else {
+            var content = 'Error: Your browser doesn\'t support geolocation.';
+        }
+
+        var options = {
+            map: map,
+            position: new google.maps.LatLng(60, 105),
+            content: content
+        };
+
+        var infowindow = new google.maps.InfoWindow(options);
+        map.setCenter(options.position);
+    }
+
+    google.maps.event.addDomListener(window, 'load', initialize);
+</script>
+
+
+
+<div class="matter">
+    <div class="container-fluid">
+
+        <!--------------------------------------------------------------------------------------------- COMECA AQUI---------------------------------------------------------->
+
+        <div class="grid">
+            <div class="row ">
+                <div class="span12" itemscope="" itemtype="http://schema.org/Person">
+                    <div class="pull-left">
+                        <div class="span8" id="intro" style="margin-left: 0px;">
+                            <br>
+                            <h1>
+                                <span itemprop="name">@Model.Cargo</span><br>
+                            </h1>
+                            <div style="padding-top: 5%"></div>
+
+                            <p itemprop="address" itemscope="" itemtype="http://schema.org/Address">
+                                <span itemprop="street-address">
+                                    <!--LOCAL DE TRABALHO -->
+                                </span>
+                            </p>
+                            <i class="icon-arrow-right-3 fg-color-blueLight" id="arrow1"></i>
+                            <ul class="unstyled">
+                                <li>
+                                    <i class="icon-group"></i><a href="/Corporacoes/Details/@Model.CorporacaoID">@Model.Corporacao.Nome</a>
+                                </li>
+                            </ul>
+
+                        </div>
+
+                    </div>
+                    <div class="pull-right">
+                        <div class="span4">
+                            <img src="@(Model.Corporacao.PathLogo == null ? "" : Model.Corporacao.PathLogo)" alt="me" itemprop="photo" style="padding-top: 15%">
+                            <div class="widget wblue">
+                                <div class="widget-head">
+                                    <div class="pull-left">Localização</div>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="widget-content" style="display: block; height: 300px">
+                                    <div id="map-canvas" />
+                                </div>
+                            </div>
+
+                            <button type="button" class="command-button bg-color-blueDark fg-color-white"
+                                id="download" onclick="javascript:pdf_url = location.href;
+                                location.href = 'http://pdfmyurl.com?url=' + escape(pdf_url) + '&amp;-O=Portrait&amp;--print-media-type'">
+                                <i class="icon-eye-open"></i>
+                                Seguir
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="span7" itemscope="" itemtype="http://schema.org/Person">
+                    <h2>Descrição</h2>
+                    <div class="hero-unit">
+                        <p>
+                            @Model.Descricao
+
+                        </p>
+
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="row">
+            <div class="span12">
+                <div class="pull-left">
+                    <div class="span7">
+                        <div class="widget worange">
+                            <!-- Widget title -->
+                            <div class="widget-head">
+                                <div class="pull-left">Últimos Anúncios</div>
+
+                                <div class="clearfix"></div>
+                            </div>
+
+                            <div class="widget-content">
+                                <!-- Widget content -->
+                                <div class="padd">
+
+                                    <ul class="recent">
+                                      
+                                         <li>
+
+                                            <div class="recent-content">
+                                                <div class="recent-meta">31/5/2013</div>
+                                                <div>
+                                                    Procura-se empregada de mesa.
+                                                </div>
+
+
+
+
+
+                                                <div class="clearfix"></div>
+                                            </div>
+                                        </li>
+
+
+
+                                      
+
+
+                                    </ul>
+
+                                </div>
+                            </div>
+
+                            <!-- Widget footer -->
+                            <div class="widget-foot">
+
+                                <div class="pagination pull-right">
+                                    <ul>
+                                        <li><a href="widgets1.html#">Prev</a></li>
+                                        <li><a href="widgets1.html#">1</a></li>
+                                        <li><a href="widgets1.html#">2</a></li>
+                                        <li><a href="widgets1.html#">3</a></li>
+                                        <li><a href="widgets1.html#">4</a></li>
+                                        <li><a href="widgets1.html#">Next</a></li>
+                                    </ul>
+                                </div>
+                                <div class="clearfix"></div>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="pull-right">
+                    <div class="span4">
+                        <h2>Others</h2>
+                        <p>Bacon ipsum dolor sit amet tongue pork loin turducken turkey tail. Short loin fatback jerky bacon drumstick leberkas kielbasa t-bone ball tip. Chicken ribeye capicola ham hock pork. Rump pancetta salami cow hamburger t-bone turducken ball tip pork loin short loin. Filet mignon tail strip steak beef.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- <footer>
+            <div class="nav-bar">
+                <div class="nav-bar-inner padding10">
+                    <span class="element">John Doe - <i class="icon-mail-2"></i>zied.hosni.mail@gmail.com
+                    </span>
+                    <i class="icon-arrow-left-3 place-right fg-color-white" style="font-size: 44px"></i>
+                </div>
+            </div>
+        </footer>-->
+
+
+        <!--------------------------------------------------------------------------------------------- ACABA AQUI---------------------------------------------------------->
+
+
     </div>
 
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.Descricao)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.Descricao)
-    </div>
+    <!-- Matter ends -->
 
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.InfoAdiconal)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.InfoAdiconal)
-    </div>
+</div>
 
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.TipoEmprego)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.TipoEmprego)
-    </div>
 
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.eRenumerado)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.eRenumerado)
-    </div>
 
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.Renumeracao)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.Renumeracao)
-    </div>
-</fieldset>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id=Model.AnuncioID }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+
+
+

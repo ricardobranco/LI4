@@ -90,10 +90,11 @@
 			<ul class="dropdown-menu">
 			  <li><a href="/Utilizadores/Perfil/@ViewBag.logID"><i class="icon-user"></i> Perfil</a></li>
 			  <li><a href="layout.html#"><i class="icon-cogs"></i> Settings</a></li>
-			  <li> @using (Html.BeginForm("LogOff", "Utilizadores", FormMethod.Post, new { id = "logoutForm" })) {
+			  <li> @using (Html.BeginForm("LogOff", "Utilizadores", FormMethod.Post, new { id = "logoutForm", style="margin:0px"}))
+          {
                    @Html.AntiForgeryToken()
                    <a href="javascript:document.getElementById('logoutForm').submit()"><i class="icon-off"></i> Logout</a>
-        }
+          }
 
                 </li>
 			</ul>
@@ -189,7 +190,7 @@
 
 			  <ul>
 				<li><a href="widgets1.html">Procurar</a></li>
-				<li><a href="/Anuncios/Gerir">Gerir Anúncios</a></li>
+				<li><a href="/Anuncios/">Gerir Anúncios</a></li>
 			  </ul>
 			</li>
 

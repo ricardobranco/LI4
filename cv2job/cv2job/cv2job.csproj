@@ -211,6 +211,50 @@
     <Compile Include="Migrations\201306011601412_virtualicolinit.Designer.cs">
       <DependentUpon>201306011601412_virtualicolinit.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201306011651224_anuncio.cs" />
+    <Compile Include="Migrations\201306011651224_anuncio.Designer.cs">
+      <DependentUpon>201306011651224_anuncio.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201306011653060_LISTANUNCIO.cs" />
+    <Compile Include="Migrations\201306011653060_LISTANUNCIO.Designer.cs">
+      <DependentUpon>201306011653060_LISTANUNCIO.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201306011713384_LISTANUNCIO1.cs" />
+    <Compile Include="Migrations\201306011713384_LISTANUNCIO1.Designer.cs">
+      <DependentUpon>201306011713384_LISTANUNCIO1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201306011823385_LISTANUNCIO2.cs" />
+    <Compile Include="Migrations\201306011823385_LISTANUNCIO2.Designer.cs">
+      <DependentUpon>201306011823385_LISTANUNCIO2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201306011848435_LISTANUNCIO3.cs" />
+    <Compile Include="Migrations\201306011848435_LISTANUNCIO3.Designer.cs">
+      <DependentUpon>201306011848435_LISTANUNCIO3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201306011850090_LISTANUNCIO4.cs" />
+    <Compile Include="Migrations\201306011850090_LISTANUNCIO4.Designer.cs">
+      <DependentUpon>201306011850090_LISTANUNCIO4.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201306011939462_LISTANUNCIO5.cs" />
+    <Compile Include="Migrations\201306011939462_LISTANUNCIO5.Designer.cs">
+      <DependentUpon>201306011939462_LISTANUNCIO5.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201306011945086_LISTANUNCIO6.cs" />
+    <Compile Include="Migrations\201306011945086_LISTANUNCIO6.Designer.cs">
+      <DependentUpon>201306011945086_LISTANUNCIO6.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201306011955322_LISTANUNCIO7.cs" />
+    <Compile Include="Migrations\201306011955322_LISTANUNCIO7.Designer.cs">
+      <DependentUpon>201306011955322_LISTANUNCIO7.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201306012005225_LISTANUNCIO8.cs" />
+    <Compile Include="Migrations\201306012005225_LISTANUNCIO8.Designer.cs">
+      <DependentUpon>201306012005225_LISTANUNCIO8.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201306012027068_LISTANUNCIO9.cs" />
+    <Compile Include="Migrations\201306012027068_LISTANUNCIO9.Designer.cs">
+      <DependentUpon>201306012027068_LISTANUNCIO9.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Corporacao.cs" />
     <Compile Include="Models\GeocoderLocation.cs" />
@@ -505,7 +549,7 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Web.config" />
-    <Content Include="Views\Anuncios\Gerir.cshtml" />
+    <Content Include="Views\Anuncios\Index.cshtml" />
     <Content Include="Views\Anuncios\Details.cshtml" />
     <Content Include="Views\Anuncios\Create.cshtml" />
     <Content Include="Views\Anuncios\Edit.cshtml" />
@@ -531,6 +575,39 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201306011601412_virtualicolinit.resx">
       <DependentUpon>201306011601412_virtualicolinit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201306011651224_anuncio.resx">
+      <DependentUpon>201306011651224_anuncio.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201306011653060_LISTANUNCIO.resx">
+      <DependentUpon>201306011653060_LISTANUNCIO.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201306011713384_LISTANUNCIO1.resx">
+      <DependentUpon>201306011713384_LISTANUNCIO1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201306011823385_LISTANUNCIO2.resx">
+      <DependentUpon>201306011823385_LISTANUNCIO2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201306011848435_LISTANUNCIO3.resx">
+      <DependentUpon>201306011848435_LISTANUNCIO3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201306011850090_LISTANUNCIO4.resx">
+      <DependentUpon>201306011850090_LISTANUNCIO4.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201306011939462_LISTANUNCIO5.resx">
+      <DependentUpon>201306011939462_LISTANUNCIO5.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201306011945086_LISTANUNCIO6.resx">
+      <DependentUpon>201306011945086_LISTANUNCIO6.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201306011955322_LISTANUNCIO7.resx">
+      <DependentUpon>201306011955322_LISTANUNCIO7.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201306012005225_LISTANUNCIO8.resx">
+      <DependentUpon>201306012005225_LISTANUNCIO8.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201306012027068_LISTANUNCIO9.resx">
+      <DependentUpon>201306012027068_LISTANUNCIO9.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

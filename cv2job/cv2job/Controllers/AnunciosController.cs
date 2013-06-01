@@ -7,6 +7,8 @@ using System.Web;
 using System.Web.Mvc;
 using cv2job.Models;
 using PagedList;
+using WebMatrix.WebData;
+using cv2job.Filters;
 namespace cv2job.Controllers
 {
     public class AnunciosController : Controller
@@ -16,12 +18,15 @@ namespace cv2job.Controllers
         //
         // GET: /Anuncios/
 
-        public ActionResult Gerir(int? page)
+        [InitializeSimpleMembership]
+        [Authorize]
+        public ActionResult Index(int? page)
         {
+            var user = db.Utilizadores.Find(WebSecurity.CurrentUserId);
 
             int pageSize = 20;
             int pageFinal = (page ?? 1);
-            var dbCorp = db.Anuncios;
+            var dbCorp = user.AnunciosCriados;
             ViewBag.Anuncios = dbCorp.ToList().ToPagedList(pageFinal, pageSize);
 
             return View(dbCorp.ToList());
@@ -42,9 +47,12 @@ namespace cv2job.Controllers
 
         //
         // GET: /Anuncios/Create
-
+        [InitializeSimpleMembership]
+        [Authorize]
         public ActionResult Create()
         {
+            ViewBag.WhoIam = db.Utilizadores.Find(WebSecurity.CurrentUserId);
+           
             return View();
         }
 
@@ -53,13 +61,23 @@ namespace cv2job.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [InitializeSimpleMembership]
+        
         public ActionResult Create(Anuncio anuncio)
         {
+            Utilizador user = db.Utilizadores.Find(WebSecurity.CurrentUserId);
+            ViewBag.WhoIam = user;
+            
             if (ModelState.IsValid)
             {
+                anuncio.Corporacao = db.Corporacoes.Find(anuncio.CorporacaoID);
+                anuncio.Corporacao.Anuncios.Add(anuncio);
+                anuncio.Criador = user;
+                user.AnunciosSeguidos.Add(anuncio);
+                user.AnunciosCriados.Add(anuncio);
                 db.Anuncios.Add(anuncio);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Details", new { id = anuncio.AnuncioID});
             }
 
             return View(anuncio);
@@ -95,26 +113,19 @@ namespace cv2job.Controllers
         }
 
         //
-        // GET: /Anuncios/Delete/5
-
-        public ActionResult Delete(int id = 0)
-        {
-            Anuncio anuncio = db.Anuncios.Find(id);
-            if (anuncio == null)
-            {
-                return HttpNotFound();
-            }
-            return View(anuncio);
-        }
-
-        //
         // POST: /Anuncios/Delete/5
 
+     
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
+        public ActionResult Delete(int id)
         {
             Anuncio anuncio = db.Anuncios.Find(id);
+            foreach (var user in anuncio.Seguidores)
+            {
+                user.AnunciosSeguidos.Remove(anuncio);
+            }
+            anuncio.Criador.AnunciosCriados.Remove(anuncio);
             db.Anuncios.Remove(anuncio);
             db.SaveChanges();
             return RedirectToAction("Index");
