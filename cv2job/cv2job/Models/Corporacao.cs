@@ -14,9 +14,9 @@ namespace cv2job.Models
     {
         public Corporacao()
         {
-            Seguidores = new List<Utilizador>();
+            /*Seguidores = new List<Utilizador>();
             Colaboradores = new List<Utilizador>();
-            Anuncios = new List<Anuncio>();
+            Anuncios = new List<Anuncio>();*/
         }
 
         
@@ -39,14 +39,16 @@ namespace cv2job.Models
         public String Contacto { get; set; }
         public String PathLogo { get; set; }
 
+
+        public virtual ICollection<Utilizador> Seguidores { get; set; }
+        public virtual ICollection<Utilizador> Colaboradores { get; set; }
         
 
-        public List<Utilizador> Seguidores { get; set; }
-        public List<Utilizador> Colaboradores { get; set; }
+        /*
         public List<Anuncio> Anuncios { get; set; }
 
       
-    
+    */
     
     }
 

@@ -5,13 +5,13 @@ namespace cv2job.Migrations
     using System.Data.Entity.Migrations.Infrastructure;
     using System.Resources;
     
-    public sealed partial class newtable : IMigrationMetadata
+    public sealed partial class virtualicol : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(newtable));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(virtualicol));
         
         string IMigrationMetadata.Id
         {
-            get { return "201305240046431_newtable"; }
+            get { return "201306011509514_virtualicol"; }
         }
         
         string IMigrationMetadata.Source

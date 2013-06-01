@@ -15,7 +15,7 @@
     <AssemblyName>cv2job</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
-    <UseIISExpress>true</UseIISExpress>
+    <UseIISExpress>false</UseIISExpress>
     <IISExpressSSLPort />
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
@@ -29,6 +29,18 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <IncludeIisSettings>true</IncludeIisSettings>
+    <PublishDatabaseSettings>
+      <Objects>
+        <ObjectGroup Name="Cv2JobDBContext-Deployment" Order="1">
+          <Destination Path="" />
+          <Object Type="DbFullSql">
+            <PreSource Path="Data Source=.\SQLEXPRESS%3bAttachDbFilename=|DataDirectory|\Cv2Job.mdf%3bIntegrated Security=True%3bUser Instance=True" ScriptSchema="True" ScriptData="False" CopyAllFullTextCatalogs="False" DriDefaults="True" />
+            <Source Path="obj\Debug\AutoScripts\Cv2JobDBContext-Deployment_SchemaOnly.sql" Transacted="True" />
+          </Object>
+        </ObjectGroup>
+      </Objects>
+    </PublishDatabaseSettings>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -195,49 +207,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201305231633355_InitialCreate.cs" />
-    <Compile Include="Migrations\201305231633355_InitialCreate.Designer.cs">
-      <DependentUpon>201305231633355_InitialCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201305240046431_newtable.cs" />
-    <Compile Include="Migrations\201305240046431_newtable.Designer.cs">
-      <DependentUpon>201305240046431_newtable.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201305291523567_corporacoes.cs" />
-    <Compile Include="Migrations\201305291523567_corporacoes.Designer.cs">
-      <DependentUpon>201305291523567_corporacoes.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201305301736036_anuncio_corp.cs" />
-    <Compile Include="Migrations\201305301736036_anuncio_corp.Designer.cs">
-      <DependentUpon>201305301736036_anuncio_corp.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201305310404023_camposOBrig.cs" />
-    <Compile Include="Migrations\201305310404023_camposOBrig.Designer.cs">
-      <DependentUpon>201305310404023_camposOBrig.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201305310414318_mensagemErro.cs" />
-    <Compile Include="Migrations\201305310414318_mensagemErro.Designer.cs">
-      <DependentUpon>201305310414318_mensagemErro.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201305310426577_setor.cs" />
-    <Compile Include="Migrations\201305310426577_setor.Designer.cs">
-      <DependentUpon>201305310426577_setor.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201305310624119_CriarCorp.cs" />
-    <Compile Include="Migrations\201305310624119_CriarCorp.Designer.cs">
-      <DependentUpon>201305310624119_CriarCorp.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201305310632412_CriarCorpWeb.cs" />
-    <Compile Include="Migrations\201305310632412_CriarCorpWeb.Designer.cs">
-      <DependentUpon>201305310632412_CriarCorpWeb.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201305310714522_ConstCorp.cs" />
-    <Compile Include="Migrations\201305310714522_ConstCorp.Designer.cs">
-      <DependentUpon>201305310714522_ConstCorp.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201305310844287_namechanged.cs" />
-    <Compile Include="Migrations\201305310844287_namechanged.Designer.cs">
-      <DependentUpon>201305310844287_namechanged.cs</DependentUpon>
+    <Compile Include="Migrations\201306011509514_virtualicol.cs" />
+    <Compile Include="Migrations\201306011509514_virtualicol.Designer.cs">
+      <DependentUpon>201306011509514_virtualicol.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Corporacao.cs" />
@@ -551,43 +523,14 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\Imagens\" />
+    <Folder Include="Imagens\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201305231633355_InitialCreate.resx">
-      <DependentUpon>201305231633355_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201305240046431_newtable.resx">
-      <DependentUpon>201305240046431_newtable.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201305291523567_corporacoes.resx">
-      <DependentUpon>201305291523567_corporacoes.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201305301736036_anuncio_corp.resx">
-      <DependentUpon>201305301736036_anuncio_corp.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201305310404023_camposOBrig.resx">
-      <DependentUpon>201305310404023_camposOBrig.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201305310414318_mensagemErro.resx">
-      <DependentUpon>201305310414318_mensagemErro.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201305310426577_setor.resx">
-      <DependentUpon>201305310426577_setor.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201305310624119_CriarCorp.resx">
-      <DependentUpon>201305310624119_CriarCorp.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201305310632412_CriarCorpWeb.resx">
-      <DependentUpon>201305310632412_CriarCorpWeb.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201305310714522_ConstCorp.resx">
-      <DependentUpon>201305310714522_ConstCorp.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201305310844287_namechanged.resx">
-      <DependentUpon>201305310844287_namechanged.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201306011509514_virtualicol.resx">
+      <DependentUpon>201306011509514_virtualicol.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
@@ -606,9 +549,9 @@
         <WebProjectProperties>
           <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>0</DevelopmentServerPort>
+          <DevelopmentServerPort>17253</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:1108/</IISUrl>
+          <IISUrl>http://localhost/cv2job</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

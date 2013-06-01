@@ -77,12 +77,16 @@
                                    @desc.Substring(0,len)
                                 </td>
                                 <td style="text-align: center;">
-
+                                    <div class="btn-group">
                                     <button class="btn btn-mini btn-success"><i class="icon-plus"></i></button>
                                     <button class="btn btn-mini btn-warning"><i class="icon-pencil"></i></button>
-                                   
-                                        <button class="btn btn-mini btn-danger" value="Delete/@item.CorpID" onclick="return confirm('Are you sure?')"  ><i class="icon-remove"></i></button>
+                                    @using (Html.BeginForm("Delete", "Corporacoes", new { id=item.CorpID}))
+                                    {  @Html.AntiForgeryToken()
                                 
+                                       
+                                        <button class="btn btn-mini btn-danger" type="submit" name="id" value="@item.CorpID" ><i class="icon-remove"></i></button>
+                                    }
+                                        </div>
                                 </td>
                             </tr>
 

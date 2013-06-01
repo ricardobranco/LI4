@@ -127,22 +127,23 @@
                                 <span itemprop="name">@Model.Nome</span><br>
                             </h1>
                             <div style="padding-top: 5%"></div>
+                            @if (Model.Morada != null) { 
                             <p itemprop="address" itemscope="" itemtype="http://schema.org/Address">
-                                <span itemprop="street-address">3678 Street name city , XX 010101 somewhere on</span> <span itemprop="location">planet earth</span>
-                            </p>
+                                <span itemprop="street-address">@Model.Morada</span> 
+                            </p>}
                             <i class="icon-arrow-right-3 fg-color-blueLight" id="arrow1"></i>
                             <ul class="unstyled">
                                 <li>
-                                    <i class="icon-link"></i><a href="http://html5-ninja.com" target="_blank" itemprop="url">html5-ninja.com</a>
+                                    <i class="icon-link"></i><a href="@Model.Website" target="_blank" itemprop="url">@Model.Website</a>
                                 </li>
                                 <li>
-                                    <i class="icon-envelope-alt"></i><a href="mailto:zied.hosni.mail@gmail.com">zied.hosni.mail@gmail.com</a>
+                                    <i class="icon-envelope-alt"></i><a href="mailto:@Model.Email">@Model.Email</a>
                                 </li>
                                 <li>
-                                    <i class="icon-mobile-phone"></i>&nbsp;&nbsp;066 666 999
+                                    <i class="icon-mobile-phone"></i>&nbsp;&nbsp;@Model.Contacto
                                 </li>
                                 <li>
-                                    <i class="icon-briefcase"></i>Internet
+                                    <i class="icon-briefcase"></i>@Model.Sector
                                 </li>
                             </ul>
 
@@ -151,7 +152,7 @@
                     </div>
                     <div class="pull-right">
                         <div class="span4">
-                            <img src="~/Images/google-logo.jpg" alt="me" itemprop="photo" style="padding-top: 15%">
+                            <img src="@(Model.PathLogo==null?"":Model.PathLogo)" alt="me" itemprop="photo" style="padding-top: 15%">
                             <div class="widget wblue">
                                 <div class="widget-head">
                                     <div class="pull-left">Localização</div>
@@ -175,12 +176,7 @@
                     <h2>Sobre</h2>
                     <div class="hero-unit">
                         <p>
-                            Google’s mission is to organize the world‘s information and make it universally accessible and useful.
-                            Since our founding in 1998, Google has grown by leaps and bounds. From offering search in a single language we 
-                            now offer dozens of products and services—including various forms of advertising and web applications for all kinds 
-                            of tasks—in scores of languages. And starting from two computer science students in a university dorm room, we now have 
-                            thousands of employees and offices around the world. A lot has changed since the first Google search engine appeared. 
-                            But some things haven’t changed: our dedication to our users and our belief in the possibilities of the Internet itself.
+                            @Model.Descricao
                            
                         </p>
 
@@ -214,9 +210,9 @@
                                         <li>
 
                                             <div class="recent-content">
-                                                <div class="recent-meta">Posted on 25/1/2120</div>
+                                                <div class="recent-meta">31/5/2013</div>
                                                 <div>
-                                                    Vivamus diam elit diam, consectetur fermentum sed dapibus eget, Vivamus consectetur dapibus adipiscing elit.
+                                                   Procura-se empregada de mesa.
                                                 </div>
 
 

@@ -9,6 +9,7 @@ using cv2job.Models;
 using cv2job.Filters;
 using PagedList;
 using WebMatrix.WebData;
+using System.IO;
 namespace cv2job.Controllers
 {
     public class CorporacoesController : Controller
@@ -62,14 +63,25 @@ namespace cv2job.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(Corporacao corporacao)
+        public ActionResult Create(Corporacao corporacao, HttpPostedFileBase file)
         {
             if (ModelState.IsValid)
             {
+                if (file != null && file.ContentLength > 0)
+                {
+                    var filename = "Corp" + corporacao.CorpID+Path.GetExtension(file.FileName);
+
+                    var path = Path.Combine(Server.MapPath("~/App_Data/Imagens/"), filename);
+                    
+
+                    file.SaveAs(path);
+                    corporacao.PathLogo = filename;
+                }
+                
+               
                 Utilizador user = db.Utilizadores.Find(WebSecurity.CurrentUserId);
                 corporacao.Seguidores.Add(user);
                 corporacao.Colaboradores.Add(user);
-               
                 
                 db.Corporacoes.Add(corporacao);
                 db.SaveChanges();
@@ -92,7 +104,7 @@ namespace cv2job.Controllers
             return View(corporacao);
         }
 
-        
+        /*
         [HttpPost]
         public ActionResult adicionarColaborador(int id = 0)
         {
@@ -101,7 +113,7 @@ namespace cv2job.Controllers
             if (user != null && !corporacao.Colaboradores.Contains(user))
                 corporacao.Colaboradores.Add(user);
             return View(corporacao);
-        }
+        }*/
         
         
         
@@ -121,27 +133,35 @@ namespace cv2job.Controllers
             return View(corporacao);
         }
 
-        //
-        // GET: /Corporacoes/Delete/5
-
-        public ActionResult Delete(int id = 0)
-        {
-            Corporacao corporacao = db.Corporacoes.Find(id);
-            if (corporacao == null)
-            {
-                return HttpNotFound();
-            }
-            return View(corporacao);
-        }
+       
 
         //
         // POST: /Corporacoes/Delete/5
 
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
+        public ActionResult Delete(int id)
         {
+            
             Corporacao corporacao = db.Corporacoes.Find(id);
+          /*  foreach (var user in corporacao.Colaboradores)
+            {
+                corporacao.Colaboradores.Remove(user);
+                db.SaveChanges();
+                
+            }
+            foreach (var user in corporacao.Seguidores)
+            {
+                corporacao.Seguidores.Remove(user);
+                db.SaveChanges();
+            }
+            foreach (var anuncio in corporacao.Anuncios)
+            {
+                corporacao.Anuncios.Remove(anuncio);
+                db.SaveChanges();
+            }*/
+
+
             db.Corporacoes.Remove(corporacao);
             db.SaveChanges();
             return RedirectToAction("Index");

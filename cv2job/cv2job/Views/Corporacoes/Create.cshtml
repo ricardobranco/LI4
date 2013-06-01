@@ -42,7 +42,7 @@
                     <div class="widget-content" style="display: block;">
                         <div class="padd">
 
-                            @using (Html.BeginForm())
+                            @using (Html.BeginForm("Create", "Corporacoes", FormMethod.Post, new { @enctype = "multipart/form-data" }))
                             {
                                 @Html.AntiForgeryToken()
                                 @Html.ValidationSummary(true)
@@ -273,7 +273,7 @@
                                     <div class="control-group">
                                         <label class="control-label" for="inputCodPostal">Código Postal</label>
                                         <div class="controls">
-                                            <input type="text" style="width: 100%" id="inputCodPostal" name="CodPostal" maxlength="8" type="text" pattern="[0-9]{4}\-[0-9]{3}">
+                                            <input type="text" style="width: 100%" placeholder="xxxx-xxx" id="inputCodPostal" name="CodPostal" maxlength="8" type="text" pattern="[0-9]{4}\-[0-9]{3}">
                                         </div>
                                     </div>
 
@@ -309,7 +309,7 @@
                                         </div>
                                         <div class="fileupload-preview fileupload-exists thumbnail" style="max-width: 200px; max-height: 150px; line-height: 20px;"></div>
                                         <div>
-                                            <span class="btn btn-file"><span class="fileupload-new">Select image</span><span class="fileupload-exists">Change</span><input type="file" name="PathLogo" accept="image/*" /></span>
+                                            <span class="btn btn-file"><span class="fileupload-new">Select image</span><span class="fileupload-exists">Change</span><input type="file" name="file" accept="image/*" /></span>
                                             <a href="#" class="btn fileupload-exists" data-dismiss="fileupload">Remove</a>
                                         </div>
                                     </div>
