@@ -78,7 +78,7 @@ namespace cv2job.Controllers
             }
 
             // If we got this far, something failed, redisplay form
-            ModelState.AddModelError("", "The user name or password provided is incorrect.");
+            ModelState.AddModelError("", "O username ou a password estão incorretos.");
             return View(model);
         }
 
@@ -165,9 +165,9 @@ namespace cv2job.Controllers
         public ActionResult Manage(ManageMessageId? message)
         {
             ViewBag.StatusMessage =
-                message == ManageMessageId.ChangePasswordSuccess ? "Your password has been changed."
-                : message == ManageMessageId.SetPasswordSuccess ? "Your password has been set."
-                : message == ManageMessageId.RemoveLoginSuccess ? "The external login was removed."
+                message == ManageMessageId.ChangePasswordSuccess ? "A sua password foi alterada."
+                : message == ManageMessageId.SetPasswordSuccess ? "A sua password foi definida."
+                : message == ManageMessageId.RemoveLoginSuccess ? "O login externo foi removido."
                 : "";
             ViewBag.HasLocalPassword = OAuthWebSecurity.HasLocalAccount(WebSecurity.GetUserId(User.Identity.Name));
             ViewBag.ReturnUrl = Url.Action("Manage");
@@ -205,7 +205,7 @@ namespace cv2job.Controllers
                     }
                     else
                     {
-                        ModelState.AddModelError("", "The current password is incorrect or the new password is invalid.");
+                        ModelState.AddModelError("", "A password atual está incorreta ou a nova password é inválida.");
                     }
                 }
             }
@@ -228,7 +228,7 @@ namespace cv2job.Controllers
                     }
                     catch (Exception)
                     {
-                        ModelState.AddModelError("", String.Format("Unable to create local account. An account with the name \"{0}\" may already exist.", User.Identity.Name));
+                        ModelState.AddModelError("", String.Format("Não é possível criar a conta local. Uma conta com o nome \"{0}\" pode já existir.", User.Identity.Name));
                     }
                 }
             }
@@ -317,7 +317,7 @@ namespace cv2job.Controllers
                     }
                     else
                     {
-                        ModelState.AddModelError("UserName", "User name already exists. Please enter a different user name.");
+                        ModelState.AddModelError("UserName", "O username já existe. Por favor, insira um username diferente.");
                     }
                 }
             }
