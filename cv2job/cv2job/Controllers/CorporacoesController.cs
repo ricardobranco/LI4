@@ -77,15 +77,11 @@ namespace cv2job.Controllers
                 if (file != null && file.ContentLength > 0)
                 {
                     var filename = "Corp" + corporacao.CorpID+Path.GetExtension(file.FileName);
-
-                    var path = Path.Combine(Server.MapPath("~/App_Data/Imagens/"), filename);
-                    
-
+                    var path = Path.Combine(Server.MapPath("~/Imagens/Corp"), filename);
                     file.SaveAs(path);
                     corporacao.PathLogo = filename;
                 }
                 
-               
                 Utilizador user = db.Utilizadores.Find(WebSecurity.CurrentUserId);
                 corporacao.Seguidores.Add(user);
                 corporacao.Colaboradores.Add(user);

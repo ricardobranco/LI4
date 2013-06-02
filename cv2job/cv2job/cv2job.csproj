@@ -567,7 +567,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\Imagens\" />
-    <Folder Include="Imagens\" />
+    <Folder Include="Imagens\Corp\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
