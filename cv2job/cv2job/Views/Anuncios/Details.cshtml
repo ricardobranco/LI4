@@ -114,7 +114,7 @@
                     </div>
                     <div class="pull-right">
                         <div class="span4">
-                            <img src="@(Model.Corporacao.PathLogo == null ? "" : Model.Corporacao.PathLogo)" alt="me" itemprop="photo" style="padding-top: 15%">
+                            <img src="@(Model.Corporacao.PathLogo == null ? "" : "/Imagens/Corp/" + Model.Corporacao.PathLogo)" alt="me" itemprop="photo" style="padding-top: 15%">
                             <div class="widget wblue">
                                 <div class="widget-head">
                                     <div class="pull-left">Localização</div>
@@ -143,85 +143,55 @@
                         </p>
 
                     </div>
-                </div>
+                     <div>
+                            <h2>Requisitos</h2>
+                            <p>
+                                @Model.Requisitos
+                            </p>
 
-            </div>
+                        </div>
 
-        </div>
+                    <div class="widget wlightblue">
+                        <!-- Widget title -->
+                        <div class="widget-head">
+                            <div class="pull-left">Informações</div>
 
+                            <div class="clearfix"></div>
+                        </div>
 
-        <div class="row">
-            <div class="span12">
-                <div class="pull-left">
-                    <div class="span7">
-                        <div class="widget worange">
-                            <!-- Widget title -->
-                            <div class="widget-head">
-                                <div class="pull-left">Últimos Anúncios</div>
+                       
+                        <div class="widget-content">
+                            <!-- Widget content -->
 
-                                <div class="clearfix"></div>
-                            </div>
+                            <table class="table  table-bordered ">
+                                <tbody>
+                                    <tr>
+                                        <td>Experiência</td>
+                                        <td>@Model.Experiencia</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Função</td>
+                                        <td>@Model.Funcao</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Tipo de Trabalho</td>
+                                        <td>@Model.Tipo</td>
+                                    </tr>
 
-                            <div class="widget-content">
-                                <!-- Widget content -->
-                                <div class="padd">
-
-                                    <ul class="recent">
-                                      
-                                         <li>
-
-                                            <div class="recent-content">
-                                                <div class="recent-meta">31/5/2013</div>
-                                                <div>
-                                                    Procura-se empregada de mesa.
-                                                </div>
-
-
-
-
-
-                                                <div class="clearfix"></div>
-                                            </div>
-                                        </li>
-
-
-
-                                      
-
-
-                                    </ul>
-
-                                </div>
-                            </div>
-
-                            <!-- Widget footer -->
-                            <div class="widget-foot">
-
-                                <div class="pagination pull-right">
-                                    <ul>
-                                        <li><a href="widgets1.html#">Prev</a></li>
-                                        <li><a href="widgets1.html#">1</a></li>
-                                        <li><a href="widgets1.html#">2</a></li>
-                                        <li><a href="widgets1.html#">3</a></li>
-                                        <li><a href="widgets1.html#">4</a></li>
-                                        <li><a href="widgets1.html#">Next</a></li>
-                                    </ul>
-                                </div>
-                                <div class="clearfix"></div>
-
-                            </div>
+                                </tbody>
+                            </table>
 
                         </div>
                     </div>
+
                 </div>
-                <div class="pull-right">
-                    <div class="span4">
-                        <h2>Others</h2>
-                        <p>Bacon ipsum dolor sit amet tongue pork loin turducken turkey tail. Short loin fatback jerky bacon drumstick leberkas kielbasa t-bone ball tip. Chicken ribeye capicola ham hock pork. Rump pancetta salami cow hamburger t-bone turducken ball tip pork loin short loin. Filet mignon tail strip steak beef.</p>
-                    </div>
-                </div>
+
             </div>
+
         </div>
+
+
+
 
         <!-- <footer>
             <div class="nav-bar">

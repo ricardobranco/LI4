@@ -29,5 +29,8 @@ namespace cv2job.Models
         public String Funcao { get; set; }
         public DateTime Criado { get; set; }
         public virtual Utilizador Criador { get; set; }
+        public string Experiencia { get; set;}
+        public string Tipo { get; set; }
+        public string Requisitos { get; set; }
     }
 } 

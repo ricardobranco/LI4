@@ -1,54 +1,54 @@
-﻿@using cv2job.Models 
+﻿@using cv2job.Models
 @{
     var currentuserid = WebSecurity.GetUserId(User.Identity.Name);
     ViewBag.logID = currentuserid;
     var avatar = new Cv2jobContext().Utilizadores.Find(WebSecurity.CurrentUserId).Avatar;
-    }
+}
 
 <!DOCTYPE html>
 <html style="overflow-x: hidden;">
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <meta charset="utf-8"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
     <title>@ViewBag.Title</title>
 
 
 
-     <!-- Stylesheets -->
-  <link href="~/Content/style/bootstrap.css" rel="stylesheet">
-  <!-- Font awesome icon -->
-  <link rel="stylesheet" href="~/Content/style/font-awesome.css">
+    <!-- Stylesheets -->
+    <link href="~/Content/style/bootstrap.css" rel="stylesheet">
+    <!-- Font awesome icon -->
+    <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
+    <link href="//netdna.bootstrapcdn.com/font-awesome/3.1.1/css/font-awesome.css" rel="stylesheet">
 
 
- 
 
-  <link rel="stylesheet" href="~/Content/style/jquery-ui.css"> 
-  <!-- Calendar -->
-  <link rel="stylesheet" href="~/Content/style/fullcalendar.css">
-  <!-- prettyPhoto -->
-  <link rel="stylesheet" href="~/Content/style/prettyPhoto.css">   
-  <!-- Star rating -->
-  <link rel="stylesheet" href="~/Content/style/rateit.css">
-  <!-- Date picker -->
-  <link rel="stylesheet" href="~/Content/style/bootstrap-datetimepicker.min.css">
-  <!-- jQuery Gritter -->
-  <!--link rel="stylesheet" href="~/Content/style/jquery.gritter.css"-->
-  <!-- CLEditor -->
-  <link rel="stylesheet" href="~/Content/style/jquery.cleditor.css"> 
-  <!-- Bootstrap toggle -->
-  <link rel="stylesheet" href="~/Content/style/bootstrap-toggle-buttons.css">
-  <!--<link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.no-icons.min.css" rel="stylesheet">-->
-  <!--link href="//netdna.bootstrapcdn.com/font-awesome/3.1.1/css/font-awesome.css" rel="stylesheet"-->
+    <link rel="stylesheet" href="~/Content/style/jquery-ui.css">
+    <!-- Calendar -->
+    <link rel="stylesheet" href="~/Content/style/fullcalendar.css">
+    <!-- prettyPhoto -->
+    <link rel="stylesheet" href="~/Content/style/prettyPhoto.css">
+    <!-- Star rating -->
+    <link rel="stylesheet" href="~/Content/style/rateit.css">
+    <!-- Date picker -->
+    <link rel="stylesheet" href="~/Content/style/bootstrap-datetimepicker.min.css">
+    <!-- jQuery Gritter -->
+    <!--link rel="stylesheet" href="~/Content/style/jquery.gritter.css"-->
+    <!-- CLEditor -->
+    <link rel="stylesheet" href="~/Content/style/jquery.cleditor.css">
+    <!-- Bootstrap toggle -->
+    <link rel="stylesheet" href="~/Content/style/bootstrap-toggle-buttons.css">
+    <!--<link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.no-icons.min.css" rel="stylesheet">-->
+    <!--link href="//netdna.bootstrapcdn.com/font-awesome/3.1.1/css/font-awesome.css" rel="stylesheet"-->
 
-     <!-- Main stylesheet -->
-  <link href="~/Content/style/style.css" rel="stylesheet">
-  <!-- Widgets stylesheet -->
-  <link href="~/Content/style/widgets.css" rel="stylesheet">   
-  <!-- Responsive style (from Bootstrap) -->
-  <link href="~/Content/style/bootstrap-responsive.css" rel="stylesheet">
- 
-   
+    <!-- Main stylesheet -->
+    <link href="~/Content/style/style.css" rel="stylesheet">
+    <!-- Widgets stylesheet -->
+    <link href="~/Content/style/widgets.css" rel="stylesheet">
+    <!-- Responsive style (from Bootstrap) -->
+    <link href="~/Content/style/bootstrap-responsive.css" rel="stylesheet">
+
+
 
 
 
@@ -58,153 +58,154 @@
     @Styles.Render("~/c/themes/base/css")
     @Scripts.Render("~/bundles/modernizr")
 
-    
+
 </head>
 <body>
 
-   
- <div class="navbar navbar-fixed-top navbar-inverse">
-  <div class="navbar-inner">
-    <div class="container">
-      <!-- Menu button for smallar screens -->
-      <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-      </a>
-      <!-- Site name for smallar screens -->
-      <!--<a href="layout.html" class="brand">Metro <span class="bold">CV2JOB</span></a>-->
-      <a href="~/" class="span2 brand"><img class="logoimg" src="~/Images/logo.png"></a>
 
-      <!-- Navigation starts -->
-      <div class="nav-collapse collapse">        
+    <div class="navbar navbar-fixed-top navbar-inverse">
+        <div class="navbar-inner">
+            <div class="container">
+                <!-- Menu button for smallar screens -->
+                <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </a>
+                <!-- Site name for smallar screens -->
+                <!--<a href="layout.html" class="brand">Metro <span class="bold">CV2JOB</span></a>-->
+                <a href="~/" class="span2 brand">
+                    <img class="logoimg" src="~/Images/logo.png"></a>
+
+                <!-- Navigation starts -->
+                <div class="nav-collapse collapse">
 
 
 
-        <!-- Links -->
-        <ul class="nav pull-right">
-          <li class="dropdown pull-right">            
-            <a data-toggle="dropdown" class="dropdown-toggle" href="layout.html#">
-              <img src="/Imagens/Users/@avatar" alt="" class="nav-user-pic" /> @User.Identity.Name <b class="caret"></b>              
-            </a>
-            
-            <!-- Dropdown menu -->
-            <ul class="dropdown-menu">
-              <li><a href="/Utilizadores/Perfil/@ViewBag.logID"><i class="icon-user"></i> Perfil</a></li>
-              <li><a href="layout.html#"><i class="icon-cogs"></i> Settings</a></li>
-              <li> @using (Html.BeginForm("LogOff", "Utilizadores", FormMethod.Post, new { id = "logoutForm", style="margin:0px"}))
-          {
-                   @Html.AntiForgeryToken()
-                   <a href="javascript:document.getElementById('logoutForm').submit()"><i class="icon-off"></i> Logout</a>
-          }
+                    <!-- Links -->
+                    <ul class="nav pull-right">
+                        <li class="dropdown pull-right">
+                            <a data-toggle="dropdown" class="dropdown-toggle" href="layout.html#">
+                                <img src="/Imagens/Users/@avatar" alt="" class="nav-user-pic" />
+                                @User.Identity.Name <b class="caret"></b>
+                            </a>
 
-                </li>
-            </ul>
-          </li>
-          
-        </ul>
+                            <!-- Dropdown menu -->
+                            <ul class="dropdown-menu">
+                                <li><a href="/Utilizadores/Perfil/@ViewBag.logID"><i class="icon-user"></i>Perfil</a></li>
+                                <li><a href="layout.html#"><i class="icon-cogs"></i>Settings</a></li>
+                                <li>@using (Html.BeginForm("LogOff", "Utilizadores", FormMethod.Post, new { id = "logoutForm", style = "margin:0px" }))
+                                    {
+                                    @Html.AntiForgeryToken()
+                                    <a href="javascript:document.getElementById('logoutForm').submit()"><i class="icon-off"></i>Logout</a>
+                                    }
 
-        <!-- Notifications -->
-        <ul class="nav pull-right">
-          <!-- Message button with number of latest messages count-->
-            <li class="dropdown dropdown-big">
-              <a class="dropdown-toggle" href="layout.html#" data-toggle="dropdown">
-                <i class="icon-envelope-alt"></i> Mensagens <span class="badge badge-important">0</span> 
-              </a>
+                                </li>
+                            </ul>
+                        </li>
 
-                <ul class="dropdown-menu">
-                  <li>
-                    <!-- Heading - h5 -->
-                    <h5><i class="icon-envelope-alt"></i> Mensagens</h5>
-                    <!-- Use hr tag to add border -->
-                    <hr />
-                  </li>
-                  <li>
-                    <!-- List item heading h6 -->
-                    <a href="layout.html#">Ricardo Branco</a>
-                    <!-- List item para -->
-                    <p>Entrevista de Emprego</p>
-                    <hr />
-                  </li>
-                  <li>
-                    <a href="layout.html#">Pedro Maia</a>
-                    <p>Proposta para colaborador da apple</p>
-                    <hr />
-                  </li>
-                  <li>
-                    <div class="drop-foot">
-                      <a href="/Mensagens">Ver tudo</a>
-                    </div>
-                  </li>                                    
-                </ul>
-            </li>
+                    </ul>
 
-        </ul>
+                    <!-- Notifications -->
+                    <ul class="nav pull-right">
+                        <!-- Message button with number of latest messages count-->
+                        <li class="dropdown dropdown-big">
+                            <a class="dropdown-toggle" href="layout.html#" data-toggle="dropdown">
+                                <i class="icon-envelope-alt"></i>Mensagens <span class="badge badge-important">0</span>
+                            </a>
 
-      </div>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <!-- Heading - h5 -->
+                                    <h5><i class="icon-envelope-alt"></i>Mensagens</h5>
+                                    <!-- Use hr tag to add border -->
+                                    <hr />
+                                </li>
+                                <li>
+                                    <!-- List item heading h6 -->
+                                    <a href="layout.html#">Ricardo Branco</a>
+                                    <!-- List item para -->
+                                    <p>Entrevista de Emprego</p>
+                                    <hr />
+                                </li>
+                                <li>
+                                    <a href="layout.html#">Pedro Maia</a>
+                                    <p>Proposta para colaborador da apple</p>
+                                    <hr />
+                                </li>
+                                <li>
+                                    <div class="drop-foot">
+                                        <a href="/Mensagens">Ver tudo</a>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+
+                    </ul>
+
+                </div>
+
+            </div>
+        </div>
+
 
     </div>
-  </div>
 
-   
-</div>
- 
 
-<!-- Main content starts -->
+    <!-- Main content starts -->
 
-<div class="content">
+    <div class="content">
 
-    <!-- Sidebar -->
-    <div class="sidebar">
-        <div class="sidebar-dropdown"><a href="index.html#">Menu</a></div>
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="sidebar-dropdown"><a href="index.html#">Menu</a></div>
 
-        <div class="sidebar-inner">
+            <div class="sidebar-inner">
 
 
 
-          <!-- Search form -->
-          <div class="sidebar-widget">
-            <form class="form-inline">
-            
-            </form>
-          </div>
+                <!-- Search form -->
+                <div class="sidebar-widget">
+                    <form class="form-inline">
+                    </form>
+                </div>
 
-          <!--- Sidebar navigation -->
-          <!-- If the main navigation has sub navigation, then add the class "has_submenu" to "li" of main navigation. -->
-          <ul class="navi">
+                <!--- Sidebar navigation -->
+                <!-- If the main navigation has sub navigation, then add the class "has_submenu" to "li" of main navigation. -->
+                <ul class="navi">
 
-            <!-- Use the class nred, ngreen, nblue, nlightblue, nviolet or norange to add background color. You need to use this in <li> tag. -->
+                    <!-- Use the class nred, ngreen, nblue, nlightblue, nviolet or norange to add background color. You need to use this in <li> tag. -->
 
-             
-              
-             
 
-            <li class="nred current"><a href="/Utilizadores/Perfil/@ViewBag.logID"><i class="icon-user"></i> Perfil</a></li>
 
-            <!-- Menu with sub menu -->
-            <li class="has_submenu nlightblue">
-              <a href="index.html#">
-                <!-- Menu name with icon -->
-                <i class="icon-th"></i> Anúncios 
+
+
+                    <li class="nred current"><a href="/Utilizadores/Perfil/@ViewBag.logID"><i class="icon-user"></i>Perfil</a></li>
+
+                    <!-- Menu with sub menu -->
+                    <li class="has_submenu nlightblue">
+                        <a href="index.html#">
+                            <!-- Menu name with icon -->
+                            <i class="icon-th"></i>Anúncios 
                 <!-- Icon for dropdown -->
-                <span class="pull-right"><i class="icon-angle-right"></i></span>
-              </a>
+                            <span class="pull-right"><i class="icon-angle-right"></i></span>
+                        </a>
 
-              <ul>
-                <li><a href="widgets1.html">Procurar</a></li>
-                <li><a href="/Anuncios/">Gerir Anúncios</a></li>
-              </ul>
-            </li>
-
-
-            <li class="norange current"><a href="/Corporacoes/Index"><i class="icon-group"></i> Corporações</a></li>
+                        <ul>
+                            <li><a href="widgets1.html">Procurar</a></li>
+                            <li><a href="/Anuncios/">Gerir Anúncios</a></li>
+                        </ul>
+                    </li>
 
 
+                    <li class="norange current"><a href="/Corporacoes/Index"><i class="icon-group"></i>Corporações</a></li>
 
 
 
-            <li class="ngreen"><a href="charts.html"><i class="icon-signout"></i> Sair</a></li>
-            <!--
+
+
+                    <li class="ngreen"><a href="charts.html"><i class="icon-signout"></i>Sair</a></li>
+                    <!--
             <li class="norange"><a href="ui.html"><i class="icon-sitemap"></i> UI Elements</a></li>
 
             <li class="has_submenu nviolet">
@@ -244,65 +245,79 @@
 
             <li class="nlightblue"><a href="tables.html"><i class="icon-table"></i> Tables</a></li>
 -->
-          </ul>
-                
+                </ul>
+
+            </div>
+
         </div>
-        
+
+        <!-- Sidebar ends -->
+
+        <!-- Main bar -->
+        <div class="mainbar">
+
+            <!-- Page heading -->
+            <!-- Page heading ends -->
+            <!-- Matter -->
+
+            @RenderBody()
+
+            <!-- Matter ends -->
+        </div>
+        <!-- Mainbar ends -->
+        <div class="clearfix"></div>
     </div>
 
-    <!-- Sidebar ends -->
 
-    <!-- Main bar -->
-    <div class="mainbar">
-      
-        <!-- Page heading -->
-        <!-- Page heading ends -->
-      <!-- Matter -->
-         
-          @RenderBody()
-    
-      <!-- Matter ends -->
-    </div>
-      <!-- Mainbar ends -->	    	
-   <div class="clearfix"></div>
-</div>
- 
- 
-       
 
-    
+
+
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
-    
+
     @RenderSection("scripts", required: false)
     <!-- JS -->
 
-<!-- Scroll to top -->
-<span class="totop"><a href=""><i class="icon-chevron-up"></i></a></span> 
+    <!-- Scroll to top -->
+    <span class="totop"><a href=""><i class="icon-chevron-up"></i></a></span>
 
-<!-- JS -->
-<script src="~/Scripts/jquery.js"></script> <!-- jQuery -->
-<script src="~/Scripts/bootstrap.js"></script> <!-- Bootstrap -->
-<script src="~/Scripts/jquery-ui-1.10.2.custom.min.js"></script> <!-- jQuery UI -->
-<script src="~/Scripts/fullcalendar.min.js"></script> <!-- Full Google Calendar - Calendar -->
-<script src="~/Scripts/jquery.rateit.min.js"></script> <!-- RateIt - Star rating -->
-<script src="~/Scripts/jquery.prettyPhoto.js"></script> <!-- prettyPhoto -->
+    <!-- JS -->
+    <script src="~/Scripts/jquery.js"></script>
+    <!-- jQuery -->
+    <script src="~/Scripts/bootstrap.js"></script>
+    <!-- Bootstrap -->
+    <script src="~/Scripts/jquery-ui-1.10.2.custom.min.js"></script>
+    <!-- jQuery UI -->
+    <script src="~/Scripts/fullcalendar.min.js"></script>
+    <!-- Full Google Calendar - Calendar -->
+    <script src="~/Scripts/jquery.rateit.min.js"></script>
+    <!-- RateIt - Star rating -->
+    <script src="~/Scripts/jquery.prettyPhoto.js"></script>
+    <!-- prettyPhoto -->
 
-<!-- jQuery Flot -->
-<script src="~/Scripts/excanvas.min.js"></script>
-<script src="~/Scripts/jquery.flot.js"></script>
-<script src="~/Scripts/jquery.flot.resize.js"></script>
-<script src="~/Scripts/jquery.flot.pie.js"></script>
-<script src="~/Scripts/jquery.flot.stack.js"></script>
-<script src="~/Scripts/jquery.gritter.min.js"></script> <!-- jQuery Gritter -->
-<script src="~/Scripts/sparklines.js"></script> <!-- Sparklines -->
-<script src="~/Scripts/jquery.cleditor.min.js"></script> <!-- CLEditor -->
-<script src="~/Scripts/bootstrap-datetimepicker.min.js"></script> <!-- Date picker -->
-<script src="~/Scripts/jquery.toggle.buttons.js"></script> <!-- Bootstrap Toggle -->
-<script src="~/Scripts/filter.js"></script> <!-- Filter for support page -->
-<script src="~/Scripts/custom.js"></script> <!-- Filter for support page -->
+    <!-- jQuery Flot -->
+    <script src="~/Scripts/excanvas.min.js"></script>
+    <script src="~/Scripts/jquery.flot.js"></script>
+    <script src="~/Scripts/jquery.flot.resize.js"></script>
+    <script src="~/Scripts/jquery.flot.pie.js"></script>
+    <script src="~/Scripts/jquery.flot.stack.js"></script>
+    <script src="~/Scripts/jquery.gritter.min.js"></script>
+    <!-- jQuery Gritter -->
+    <script src="~/Scripts/sparklines.js"></script>
+    <!-- Sparklines -->
+    <script src="~/Scripts/jquery.cleditor.min.js"></script>
+    <!-- CLEditor -->
+    <script src="~/Scripts/bootstrap-datetimepicker.min.js"></script>
+    <!-- Date picker -->
+    <script src="~/Scripts/jquery.toggle.buttons.js"></script>
+    <!-- Bootstrap Toggle -->
+    <script src="~/Scripts/filter.js"></script>
+    <!-- Filter for support page -->
+    <script src="~/Scripts/custom.js"></script>
+    <!-- Filter for support page -->
 
-<script src="~/Scripts/charts.js"></script> <!-- Custom chart codes -->
+    <script src="~/Scripts/charts.js"></script>
+    <!-- Custom chart codes -->
 
 
 </body>

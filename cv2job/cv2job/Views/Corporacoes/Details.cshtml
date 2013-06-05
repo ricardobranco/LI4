@@ -2,9 +2,15 @@
 
 @{
     ViewBag.Title = "Details";
+    var texto = ViewBag.Seguir ? "Não Seguir" : "Seguir";
+    
+    
 }
 @using PagedList.Mvc;
 @using PagedList;
+
+
+
 
 <script type="text/javascript">
     function initialize() {
@@ -141,39 +147,41 @@
                                 </div>
                             </div>
 
-                            <button type="button" class="command-button bg-color-blueDark fg-color-white"
-                                id="download" onclick="javascript:pdf_url = location.href;
-                                location.href = 'http://pdfmyurl.com?url=' + escape(pdf_url) + '&amp;-O=Portrait&amp;--print-media-type'">
-                                <i class="icon-eye-open"></i>
-                                Seguir
-                            </button>
+
+                            <form>
+                                <button type="button" class="command-button bg-color-blueDark fg-color-white"
+                                id="download" onclick="location.href='@Url.Action("FollowUnfollow", "Corporacoes", new { id = Model.CorpID })'">
+                                    @if (ViewBag.Seguir)
+                                    {
+                                        <i class="icon-eye-close"></i>
+                            
+                                    }
+                                    else
+                                    {
+                                        <i class="icon-eye-open"></i>
+                                    }
+                                    @texto
+                                </button>
+                            </form>
                             <h2>Seguidores</h2>
                             <div class="row">
-                                <div class="span1">
-                                    <img src="/Imagens/Users/Users4.jpg" /></div>
-                                <div class="span1">
-                                    <img src="/Imagens/Users/default.jpg" /></div>
-                                <div class="span1">
-                                    <img src="/Imagens/Users/Users3.jpg" /></div>
-                                <div class="span1">
-                                    <img src="/Imagens/Users/Users6.jpg" /></div>
-                                <div class="span1">
-                                    <img src="/Imagens/Users/Users2.jpg" /></div>
-                                <div class="span1">
-                                    <img src="/Imagens/Users/Users1.jpg" /></div>
-                                <div class="span1">
-                                    <img src="/Imagens/Users/Users5.jpg" /></div>
+                                @foreach (var user in ViewBag.Seguidores)
+                                { 
+                                    <div class="span1">
+                                        <figure>
+                                            <a href="/Utilizadores/Perfil/@user.UserId">
+                                                <img src="/Imagens/Users/@user.Avatar" /></a>
+                                            
+                                        </figure>
+                                    </div> 
+                                    
+                                }
 
                             </div>
                             <div class="pagination">
-                                <ul>
-                                    <li><a href="ui.html#">Prev</a></li>
-                                    <li><a href="ui.html#">1</a></li>
-                                    <li><a href="ui.html#">2</a></li>
-                                    <li><a href="ui.html#">3</a></li>
-                                    <li><a href="ui.html#">4</a></li>
-                                    <li><a href="ui.html#">Next</a></li>
-                                </ul>
+                                <div class="pull-right" style="margin-top: -1%; margin-bottom: -1%;">
+                                    @Html.PagedListPager((IPagedList)ViewBag.AnunciosCriados, page => Url.Action("Gerir", new { page = page }))
+                                </div>
                             </div>
 
                         </div>

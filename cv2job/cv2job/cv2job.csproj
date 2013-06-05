@@ -243,6 +243,14 @@
     <Compile Include="Migrations\201306022050176_mENSAGem4.Designer.cs">
       <DependentUpon>201306022050176_mENSAGem4.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201306051741319_anuncio.cs" />
+    <Compile Include="Migrations\201306051741319_anuncio.Designer.cs">
+      <DependentUpon>201306051741319_anuncio.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201306051759333_anuncio2.cs" />
+    <Compile Include="Migrations\201306051759333_anuncio2.Designer.cs">
+      <DependentUpon>201306051759333_anuncio2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Corporacao.cs" />
     <Compile Include="Models\Educacao.cs" />
@@ -255,6 +263,7 @@
     <Compile Include="Models\Anuncio.cs" />
     <Compile Include="Models\Cv2job.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Shuffle\MyShuffle.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\PagedList.css" />
@@ -593,6 +602,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201306022050176_mENSAGem4.resx">
       <DependentUpon>201306022050176_mENSAGem4.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201306051741319_anuncio.resx">
+      <DependentUpon>201306051741319_anuncio.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201306051759333_anuncio2.resx">
+      <DependentUpon>201306051759333_anuncio2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
