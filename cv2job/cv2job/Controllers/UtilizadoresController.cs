@@ -439,5 +439,35 @@ namespace cv2job.Controllers
             }
         }
         #endregion
+
+
+
+        //Para executar comandos do sitema
+
+
+        public void GeraXML (Utilizador utilizador)
+        {
+            utilizador.InfoP = new InfoPessoal();
+            utilizador.InfoP.FirstName = utilizador.Nome;
+            utilizador.InfoP.Email = utilizador.Email;
+            utilizador.InfoE = new InfoExtra();
+
+            Candidato c = new Candidato(utilizador.UserName,utilizador.InfoP,utilizador.InfoE);
+            
+          
+            WriteXML xml=new WriteXML("C:\\Users\\Pedro\\Documents\\GitHub\\LI4\\cv2job\\cv\\xml\\"+utilizador.UserName+".xml",c);
+            xml.WritetoXml();
+
+
+
+
+            //Corro bat do java .
+            System.Diagnostics.Process.Start("C:\\cv\\runComand.bat", utilizador.UserName);
+
+            //Verifica  de object ficheiro foi criado
+            //Abre o ficheiro
+            Response.ContentType = "Application/pdf";
+            Response.TransmitFile("/cv/pdf/" + utilizador.UserName + ".pdf");
+        }
     }
 }

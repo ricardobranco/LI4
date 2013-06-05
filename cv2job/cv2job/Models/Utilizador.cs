@@ -6,6 +6,7 @@ using System.Data.Entity;
 using System.Globalization;
 using System.Web.Security;
 
+
 namespace cv2job.Models
 {
 
@@ -30,7 +31,8 @@ namespace cv2job.Models
         public string Avatar { get; set; }
         public string Nome { get; set; }
         public string Email { get; set; }
-        
+        public InfoPessoal InfoP{get;set;}
+        public InfoExtra InfoE{get;set;}
     }
 
     public class RegisterExternalLoginModel
@@ -91,6 +93,7 @@ namespace cv2job.Models
         [Display(Name = "Nome")]
         public string Nome { get; set; }
 
+
         [Required]
         [StringLength(100, ErrorMessage = "O {0} deve ter pelo menos {2} carateres.", MinimumLength = 6)]
         [DataType(DataType.Password)]
@@ -101,6 +104,10 @@ namespace cv2job.Models
         [Display(Name = "Confirmar password")]
         [Compare("Password", ErrorMessage = "A password e a password de confirmação não são iguais.")]
         public string ConfirmPassword { get; set; }
+
+
+
+
     }
 
     public class ExternalLogin
@@ -109,4 +116,7 @@ namespace cv2job.Models
         public string ProviderDisplayName { get; set; }
         public string ProviderUserId { get; set; }
     }
+
+
+
 }
