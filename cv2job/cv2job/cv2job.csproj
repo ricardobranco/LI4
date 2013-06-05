@@ -244,16 +244,20 @@
       <DependentUpon>201306022050176_mENSAGem4.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Candidato.cs" />
     <Compile Include="Models\Corporacao.cs" />
     <Compile Include="Models\Educacao.cs" />
     <Compile Include="Models\Feed.cs" />
     <Compile Include="Models\Home.cs" />
+    <Compile Include="Models\InfoExtra.cs" />
+    <Compile Include="Models\InfoPessoal.cs" />
     <Compile Include="Models\Mensagem.cs" />
     <Compile Include="Models\Skill.cs" />
     <Compile Include="Models\Trabalho.cs" />
     <Compile Include="Models\Utilizador.cs" />
     <Compile Include="Models\Anuncio.cs" />
     <Compile Include="Models\Cv2job.cs" />
+    <Compile Include="Models\WriteXML.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
