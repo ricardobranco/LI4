@@ -20,8 +20,8 @@ namespace cv2job.Controllers
                 Cv2jobContext db = new Cv2jobContext();
                 int pageSize = 28;
                 int pageFinal = (page ?? 1);
-                ViewBag.Utilizadores = db.Utilizadores.ToList().ToPagedList(pageFinal, pageSize);
-                home.Utilizador = db.Utilizadores.ToList();
+                ViewBag.Feeds = db.Feeds.ToList().ToPagedList(pageFinal, pageSize);
+                home.Feeds = db.Feeds.ToList();
                 return View(home);
             }
             else

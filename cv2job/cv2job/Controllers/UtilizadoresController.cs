@@ -17,15 +17,14 @@ namespace cv2job.Controllers
     [InitializeSimpleMembership]
     public class UtilizadoresController : Controller
     {
-
+        private Cv2jobContext db = new Cv2jobContext();
         public ActionResult Index(int? page)
         {
 
-            Cv2jobContext db = new Cv2jobContext();
             int pageSize = 28;
             int pageFinal = (page ?? 1);
             ViewBag.Utilizadores = db.Utilizadores.ToList().ToPagedList(pageFinal, pageSize);
-
+            ViewBag.Utilizador = db.Utilizadores.Find(WebSecurity.CurrentUserId);   
             return View(db.Utilizadores.ToList());
 
         }
@@ -116,7 +115,7 @@ namespace cv2job.Controllers
                 // Attempt to register the user
                 try
                 {
-                    WebSecurity.CreateUserAndAccount(model.UserName, model.Password);
+                    WebSecurity.CreateUserAndAccount(model.UserName, model.Password, new {Email = model.Email, Nome = model.Nome, Avatar = "default.jpg",Criado = DateTime.Now});
                     WebSecurity.Login(model.UserName, model.Password);
                     return RedirectToAction("Index", "Home");
                 }

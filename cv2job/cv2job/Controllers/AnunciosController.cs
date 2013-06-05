@@ -75,7 +75,14 @@ namespace cv2job.Controllers
                 anuncio.Criador = user;
                 user.AnunciosSeguidos.Add(anuncio);
                 user.AnunciosCriados.Add(anuncio);
+                Feed feed = new Feed();
+                feed.AutorID = anuncio.CorporacaoID;
+                feed.Imagem = "/Imagens/Corp/" + anuncio.Corporacao.PathLogo;
+                feed.Identidade = anuncio.Corporacao.Nome;
+                feed.Tipo = 3;
+                feed.Descricao = "Criou Anúncio para o Cargo de "+anuncio.Cargo;
                 db.Anuncios.Add(anuncio);
+                db.Feeds.Add(feed);
                 db.SaveChanges();
                 return RedirectToAction("Details", new { id = anuncio.AnuncioID});
             }

@@ -15,7 +15,7 @@
     <AssemblyName>cv2job</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
-    <UseIISExpress>false</UseIISExpress>
+    <UseIISExpress>true</UseIISExpress>
     <IISExpressSSLPort />
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
@@ -200,6 +200,10 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\CorporacoesController.cs" />
+    <Compile Include="Controllers\EducacoesController.cs" />
+    <Compile Include="Controllers\MensagensController.cs" />
+    <Compile Include="Controllers\SkillsController.cs" />
+    <Compile Include="Controllers\TrabalhosController.cs" />
     <Compile Include="Controllers\UtilizadoresController.cs" />
     <Compile Include="Controllers\AnunciosController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -207,58 +211,46 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201306011601412_virtualicolinit.cs" />
-    <Compile Include="Migrations\201306011601412_virtualicolinit.Designer.cs">
-      <DependentUpon>201306011601412_virtualicolinit.cs</DependentUpon>
+    <Compile Include="Migrations\201306020448038_utilizador.cs" />
+    <Compile Include="Migrations\201306020448038_utilizador.Designer.cs">
+      <DependentUpon>201306020448038_utilizador.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201306011651224_anuncio.cs" />
-    <Compile Include="Migrations\201306011651224_anuncio.Designer.cs">
-      <DependentUpon>201306011651224_anuncio.cs</DependentUpon>
+    <Compile Include="Migrations\201306021707371_Feeds.cs" />
+    <Compile Include="Migrations\201306021707371_Feeds.Designer.cs">
+      <DependentUpon>201306021707371_Feeds.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201306011653060_LISTANUNCIO.cs" />
-    <Compile Include="Migrations\201306011653060_LISTANUNCIO.Designer.cs">
-      <DependentUpon>201306011653060_LISTANUNCIO.cs</DependentUpon>
+    <Compile Include="Migrations\201306021709575_Feeds1.cs" />
+    <Compile Include="Migrations\201306021709575_Feeds1.Designer.cs">
+      <DependentUpon>201306021709575_Feeds1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201306011713384_LISTANUNCIO1.cs" />
-    <Compile Include="Migrations\201306011713384_LISTANUNCIO1.Designer.cs">
-      <DependentUpon>201306011713384_LISTANUNCIO1.cs</DependentUpon>
+    <Compile Include="Migrations\201306021825355_Feeds2.cs" />
+    <Compile Include="Migrations\201306021825355_Feeds2.Designer.cs">
+      <DependentUpon>201306021825355_Feeds2.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201306011823385_LISTANUNCIO2.cs" />
-    <Compile Include="Migrations\201306011823385_LISTANUNCIO2.Designer.cs">
-      <DependentUpon>201306011823385_LISTANUNCIO2.cs</DependentUpon>
+    <Compile Include="Migrations\201306021847503_Mensagem.cs" />
+    <Compile Include="Migrations\201306021847503_Mensagem.Designer.cs">
+      <DependentUpon>201306021847503_Mensagem.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201306011848435_LISTANUNCIO3.cs" />
-    <Compile Include="Migrations\201306011848435_LISTANUNCIO3.Designer.cs">
-      <DependentUpon>201306011848435_LISTANUNCIO3.cs</DependentUpon>
+    <Compile Include="Migrations\201306021851524_mENSAGem2.cs" />
+    <Compile Include="Migrations\201306021851524_mENSAGem2.Designer.cs">
+      <DependentUpon>201306021851524_mENSAGem2.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201306011850090_LISTANUNCIO4.cs" />
-    <Compile Include="Migrations\201306011850090_LISTANUNCIO4.Designer.cs">
-      <DependentUpon>201306011850090_LISTANUNCIO4.cs</DependentUpon>
+    <Compile Include="Migrations\201306021952326_mENSAGem3.cs" />
+    <Compile Include="Migrations\201306021952326_mENSAGem3.Designer.cs">
+      <DependentUpon>201306021952326_mENSAGem3.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201306011939462_LISTANUNCIO5.cs" />
-    <Compile Include="Migrations\201306011939462_LISTANUNCIO5.Designer.cs">
-      <DependentUpon>201306011939462_LISTANUNCIO5.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201306011945086_LISTANUNCIO6.cs" />
-    <Compile Include="Migrations\201306011945086_LISTANUNCIO6.Designer.cs">
-      <DependentUpon>201306011945086_LISTANUNCIO6.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201306011955322_LISTANUNCIO7.cs" />
-    <Compile Include="Migrations\201306011955322_LISTANUNCIO7.Designer.cs">
-      <DependentUpon>201306011955322_LISTANUNCIO7.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201306012005225_LISTANUNCIO8.cs" />
-    <Compile Include="Migrations\201306012005225_LISTANUNCIO8.Designer.cs">
-      <DependentUpon>201306012005225_LISTANUNCIO8.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201306012027068_LISTANUNCIO9.cs" />
-    <Compile Include="Migrations\201306012027068_LISTANUNCIO9.Designer.cs">
-      <DependentUpon>201306012027068_LISTANUNCIO9.cs</DependentUpon>
+    <Compile Include="Migrations\201306022050176_mENSAGem4.cs" />
+    <Compile Include="Migrations\201306022050176_mENSAGem4.Designer.cs">
+      <DependentUpon>201306022050176_mENSAGem4.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Corporacao.cs" />
-    <Compile Include="Models\GeocoderLocation.cs" />
+    <Compile Include="Models\Educacao.cs" />
+    <Compile Include="Models\Feed.cs" />
     <Compile Include="Models\Home.cs" />
+    <Compile Include="Models\Mensagem.cs" />
+    <Compile Include="Models\Skill.cs" />
+    <Compile Include="Models\Trabalho.cs" />
     <Compile Include="Models\Utilizador.cs" />
     <Compile Include="Models\Anuncio.cs" />
     <Compile Include="Models\Cv2job.cs" />
@@ -563,51 +555,44 @@
     <Content Include="Views\Corporacoes\Details.cshtml" />
     <Content Include="Views\Corporacoes\Create.cshtml" />
     <Content Include="Views\Corporacoes\Edit.cshtml" />
-    <Content Include="Views\Corporacoes\Delete.cshtml" />
+    <Content Include="Views\Mensagens\Index.cshtml" />
+    <Content Include="Views\Mensagens\Details.cshtml" />
+    <Content Include="Views\Mensagens\Create.cshtml" />
+    <Content Include="Views\Mensagens\Edit.cshtml" />
+    <Content Include="Views\Mensagens\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\Imagens\" />
+    <Folder Include="App_Data\" />
     <Folder Include="Imagens\Corp\" />
+    <Folder Include="Imagens\Users\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201306011601412_virtualicolinit.resx">
-      <DependentUpon>201306011601412_virtualicolinit.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201306020448038_utilizador.resx">
+      <DependentUpon>201306020448038_utilizador.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201306011651224_anuncio.resx">
-      <DependentUpon>201306011651224_anuncio.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201306021707371_Feeds.resx">
+      <DependentUpon>201306021707371_Feeds.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201306011653060_LISTANUNCIO.resx">
-      <DependentUpon>201306011653060_LISTANUNCIO.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201306021709575_Feeds1.resx">
+      <DependentUpon>201306021709575_Feeds1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201306011713384_LISTANUNCIO1.resx">
-      <DependentUpon>201306011713384_LISTANUNCIO1.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201306021825355_Feeds2.resx">
+      <DependentUpon>201306021825355_Feeds2.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201306011823385_LISTANUNCIO2.resx">
-      <DependentUpon>201306011823385_LISTANUNCIO2.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201306021847503_Mensagem.resx">
+      <DependentUpon>201306021847503_Mensagem.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201306011848435_LISTANUNCIO3.resx">
-      <DependentUpon>201306011848435_LISTANUNCIO3.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201306021851524_mENSAGem2.resx">
+      <DependentUpon>201306021851524_mENSAGem2.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201306011850090_LISTANUNCIO4.resx">
-      <DependentUpon>201306011850090_LISTANUNCIO4.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201306021952326_mENSAGem3.resx">
+      <DependentUpon>201306021952326_mENSAGem3.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201306011939462_LISTANUNCIO5.resx">
-      <DependentUpon>201306011939462_LISTANUNCIO5.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201306011945086_LISTANUNCIO6.resx">
-      <DependentUpon>201306011945086_LISTANUNCIO6.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201306011955322_LISTANUNCIO7.resx">
-      <DependentUpon>201306011955322_LISTANUNCIO7.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201306012005225_LISTANUNCIO8.resx">
-      <DependentUpon>201306012005225_LISTANUNCIO8.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201306012027068_LISTANUNCIO9.resx">
-      <DependentUpon>201306012027068_LISTANUNCIO9.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201306022050176_mENSAGem4.resx">
+      <DependentUpon>201306022050176_mENSAGem4.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
@@ -628,7 +613,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>17253</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost/cv2job</IISUrl>
+          <IISUrl>http://localhost:17253/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

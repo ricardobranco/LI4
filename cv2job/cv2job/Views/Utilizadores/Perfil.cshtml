@@ -3,29 +3,10 @@
 @{
     ViewBag.Title = @Model.UserName; 
 }
-<!--
-<h2>Details</h2>
-
-<fieldset>
-    <legend>Utilizador</legend>
-
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.UserName)
-    </div>
-    
-</fieldset>
-
--->
 
 <div class="matter">
     <div class="container-fluid">
 
-        <!--------------------------------------------------------------------------------------------- COMECA AQUI---------------------------------------------------------->
-
-
-
-        <!--     <div class="page">  
-        </div>-->
 
         <div class="grid">
             <div class="row ">
@@ -36,39 +17,49 @@
                         <div class="span8" id="intro" style="margin-left: 0px;">
                             <br>
                             <h1>
-                                <span itemprop="name">John Doe</span><br>
-                                <small itemprop="role">PRESIDENT OF THE UNIVERSE</small>
+                                <span itemprop="name">@Model.Nome</span><br>
                             </h1>
                             <p itemprop="address" itemscope="" itemtype="http://schema.org/Address">
-                                <span itemprop="street-address">3678 Street name city , XX 010101 somewhere on</span> <span itemprop="location">planet earth</span>
+                                <span itemprop="street-address">Universidade do Minho</span> <span itemprop="location">Braga</span>
                             </p>
                             <i class="icon-arrow-right-3 fg-color-blueLight" id="arrow1"></i>
                             <ul class="unstyled">
                                 <li>
-                                    <i class="icon-link"></i><a href="http://html5-ninja.com" target="_blank" itemprop="url">html5-ninja.com</a>
+                                    <i class="icon-link"></i><a href="http://cv2job.sytes.net" target="_blank" itemprop="url">cv2job.net</a>
                                 </li>
                                 <li>
-                                    <i class="icon-envelope-alt"></i><a href="mailto:zied.hosni.mail@gmail.com">zied.hosni.mail@gmail.com</a>
+                                    <i class="icon-envelope-alt"></i><a href="mailto:@Model.Email">@Model.Email</a>
                                 </li>
                                 <li>
-                                    <i class="icon-mobile-phone"></i>&nbsp;&nbsp;066 666 999
+                                    <i class="icon-mobile-phone"></i>&nbsp;&nbsp;918381508
                                 </li>
 
 
                             </ul>
-                            
+
                         </div>
 
                     </div>
                     <div class="pull-right">
                         <div class="span4">
-                            <img src="~/Images/me.jpg" alt="me" itemprop="photo" style="padding-top: 20%;">
-                            <button type="button" class="command-button bg-color-blueDark fg-color-white"
+                            <img src="~/Imagens/Users/@Model.Avatar" alt="me" itemprop="photo" style="padding-top: 20%;width:100%">
+                            @if (Model.UserId == WebSecurity.CurrentUserId)
+                            {
+                                <button type="button" class="command-button bg-color-blueDark fg-color-white"
                                 id="download" onclick="javascript:pdf_url = location.href;
                                 location.href = 'http://pdfmyurl.com?url=' + escape(pdf_url) + '&amp;-O=Portrait&amp;--print-media-type'">
                                 <i class="icon-download place-right"></i>
-                                Download
+                                Download Cv
+                            </button>}
+                            else
+                            {
+                                <button type="button" class="command-button bg-color-blueDark fg-color-white"
+                                id="download" onclick="javascript:pdf_url = location.href;
+                                location.href = 'http://pdfmyurl.com?url=' + escape(pdf_url) + '&amp;-O=Portrait&amp;--print-media-type'">
+                                <i class="icon-eye-open"></i>
+                                Seguir
                             </button>
+                            }
 
                         </div>
 
@@ -77,155 +68,115 @@
                     </div>
                     <div class="pull-left">
                         <div class="span8" style="margin-left: 0px;">
-                            
-                            <h2>About me</h2>
-                        <div class="hero-unit">
-                            <p>
-                                Bacon ipsum dolor sit amet tongue 
-                                pork loin turducken turkey tail. 
-                                Short loin fatback jerky bacon 
-                                drumstick leberkas kielbasa t-bone 
-                                ball tip. Chicken ribeye capicola 
-                                ham hock pork. 
-                                Rump pancetta salami cow hamburger 
-                                t-bone turducken ball tip pork loin 
-                                short loin. Filet mignon tail strip 
-                                steak beef. 
+
+                            <h2>Sobre Mim</h2>
+                            <div class="hero-unit">
+                                <p>
+                                   Estudante do 3º ano de Engenharia Informática da Universidade do Minho.
+                                    <br />
+                                    Director do Departamento de Comunicação e Imagem do Cesium
+                                    <br />
+                                    Caloiro na Centuria
+                                     
+
                            
-                            </p>
+                                </p>
 
-                        </div>
+                            </div>
 
 
-            <div class="row">
-    <div class="span3TAG">
-                <h2>Work experience</h2>
-                <div class="row">
-                    <div class="span3TAG">
-                        <div class="replies">
-                            <div class="bg-color-orange">
-                                <div class="avatar">
-                                    <img src="~/Images/google.jpg" alt="google"></div>
-                                <div class="reply">
-                                    <div class="date">2006</div>
-                                    <div class="author">Google</div>
-                                    <div class="text">Bacon ipsum dolor sit amet tongue pork loin turducken turkey tail.</div>
-                                    <a href="" style="padding-left: 95%;"><i class="icon-remove"></i></a>
-                                    
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="span3TAG">
-                        <div class="replies">
-                            <div class="bg-color-orange">
-                                <div class="avatar">
-                                    <img src="~/Images/little-ninja.png" alt="HTML5 Ninja"></div>
-                                <div class="reply">
-                                    <div class="date">2012</div>
-                                    <div class="author">HTML5 Ninja</div>
-                                    <div class="text">Bacon ipsum dolor sit amet tongue pork loin turducken turkey tail.</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="span3TAG">
-                        <div class="replies">
-                            <div class="bg-color-orange">
-                                <div class="avatar">
-                                    <img src="WvoNk0zSDbAK4y7w.html" alt=""></div>
-                                <div class="reply">
-                                    <div class="date">2006</div>
-                                    <div class="author">Bacon ipsum dolor</div>
-                                    <div class="text">Bacon ipsum dolor sit amet tongue pork loin turducken turkey tail.</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="span3TAG">
-                        <div class="replies">
-                            <div class="bg-color-orange">
-                                <div class="avatar">
-                                    <img src="WvoNk0zSDbAK4y7w.html" alt=""></div>
-                                <div class="reply">
-                                    <div class="date">2006</div>
-                                    <div class="author">Bacon ipsum dolor</div>
-                                    <div class="text">Bacon ipsum dolor sit amet tongue pork loin turducken turkey tail.</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="span3TAG">
-                        <div class="replies">
-                            <div class="bg-color-orange">
-                                <div class="avatar"></div>
-                                <div class="reply">
-                                    <div class="text "><a href="/Home">
-                                        <h2><i class="icon-plus"></i>Adicionar asdasd</h2>
-                                    </a></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+                            <div class="row">
+                                <div class="span3TAG">
+                                    <h2>Experiência de Trabalho</h2>
+                                    <div class="row">
+                                        <div class="span3TAG">
+                                            <div class="replies">
+                                                <div class="bg-color-orange">
+                                                    <div class="avatar">
+                                                        <img src="~/Imagens/Corp/cesium.jpg" alt="google">
+                                                    </div>
+                                                    <div class="reply">
+                                                        <div class="date">2010-</div>
+                                                        <div class="author">Cesium</div>
+                                                        <div class="text">Director do Departamento de Comunicação e Imagem</div>
+                                                        <a href="" style="padding-left: 95%;"><i class="icon-remove"></i></a>
 
-            <div class="span3TAG">
-                <h2>Education</h2>
-                <div class="row">
-                    <div class="span3TAG">
-                        <div class="replies">
-                            <div class="bg-color-greenLight">
-                                <div class="avatar">
-                                    <img src="WvoNk0zSDbAK4y7w.html"></div>
-                                <div class="reply">
-                                    <div class="date">2006</div>
-                                    <div class="author">Mortal Kombat University</div>
-                                    <div class="text">Bacon ipsum dolor sit amet tongue pork loin turducken turkey tail.</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                      
+                                        <div class="span3TAG">
+                                            <div class="replies">
+                                                <div class="bg-color-orange">
+                                                    <div class="avatar"></div>
+                                                    <div class="reply" style="padding-top:2%">
+                                                        <div class="text ">
+                                                            <a href="/Home">
+                                                                <h2><i class="icon-plus"></i>Adicionar Local</h2>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="span3TAG">
-                        <div class="replies">
-                            <div class="bg-color-greenLight">
-                                <div class="avatar">
-                                    <img src="WvoNk0zSDbAK4y7w.html"></div>
-                                <div class="reply">
-                                    <div class="date">2012</div>
-                                    <div class="author">Best High School in the world</div>
-                                    <div class="text">Bacon ipsum dolor sit amet tongue pork loin turducken turkey tail.</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="span3TAG">
-                        <div class="replies">
-                            <div class="bg-color-greenLight">
-                                <div class="avatar">
-                                    <img src="WvoNk0zSDbAK4y7w.html" alt=""></div>
-                                <div class="reply">
-                                    <div class="text">Bacon ipsum dolor sit amet tongue pork loin turducken turkey tail.</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="span3TAG">
-                        <div class="replies">
-                            <div class="bg-color-greenLight">
-                                <div class="avatar"></div>
-                                <div class="reply">
-                                    <div class="text "><a href="/Home">
-                                        <h2><i class="icon-plus"></i>Adicionar asdasd</h2>
-                                    </a></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
 
-        </div>
+                                <div class="span3TAG">
+                                    <h2>Edução</h2>
+                                    <div class="row">
+                                        <div class="span3TAG">
+                                            <div class="replies">
+                                                <div class="bg-color-greenLight">
+                                                    <div class="avatar">
+                                                        <img src="~/Imagens/Corp/Corp201362201458.jpg" alt="google">
+                                                    </div>
+                                                    <div class="reply">
+                                                        <div class="date">2010-</div>
+                                                        <div class="author">Univerisade do Minho</div>
+                                                        <div class="text">Licencitura em Engenharia Informática</div>
+                                                        <a href="" style="padding-left: 95%;"><i class="icon-remove"></i></a>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="span3TAG">
+                                            <div class="replies">
+                                                <div class="bg-color-greenLight">
+                                                    <div class="avatar">
+                                                        <img src="~/Imagens/Corp/monserrate.jpg" alt="google">
+                                                    </div>
+                                                    <div class="reply">
+                                                        <div class="date">2007-2010</div>
+                                                        <div class="author">Escola Secundária de Monserrate</div>
+                                                        <div class="text">Técnico de equipamentos informáticos</div>
+                                                        <a href="" style="padding-left: 95%;"><i class="icon-remove"></i></a>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                      
+                                        <div class="span3TAG">
+                                            <div class="replies">
+                                                <div class="bg-color-greenLight">
+                                                    <div class="avatar"></div>
+                                                    <div class="reply" style="padding-top:2%;margin-left:12%">
+                                                        <div class="text ">
+                                                            <a href="/Home">
+                                                                <h2><i class="icon-plus"></i>Adicionar Instituição</h2>
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
 
 
 
@@ -241,27 +192,13 @@
                                 <h2>Skills</h2>
                                 <div class="row">
                                     <div class="span2SKILL">
-                                        <h3>PHP</h3>
+                                        <h3>C</h3>
                                         <div class="static-rating small">
                                             <div class="rating-value" style="width: 75%"></div>
                                         </div>
                                     </div>
                                     <div class="span2SKILL">
-                                        <h3>MySQL</h3>
-                                        <div class="static-rating small">
-                                            <div class="rating-value" style="width: 75%"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="span2SKILL">
-                                        <h3>Power</h3>
-                                        <div class="static-rating small">
-                                            <div class="rating-value" style="width: 100%"></div>
-                                        </div>
-                                    </div>
-                                    <div class="span2SKILL">
-                                        <h3>UFO'sSecret</h3>
+                                        <h3>Java</h3>
                                         <div class="static-rating small">
                                             <div class="rating-value" style="width: 75%"></div>
                                         </div>
@@ -269,17 +206,26 @@
                                 </div>
                                 <div class="row">
                                     <div class="span2SKILL">
-                                        <h3>BigBang</h3>
+                                        <h3>Haskell</h3>
+                                        <div class="static-rating small">
+                                            <div class="rating-value" style="width: 80%"></div>
+                                        </div>
+                                    </div>
+                                    <div class="span2SKILL">
+                                        <h3>Ruby on Rails</h3>
                                         <div class="static-rating small">
                                             <div class="rating-value" style="width: 50%"></div>
                                         </div>
                                     </div>
+                                </div>
+                                <div class="row">
                                     <div class="span2SKILL">
-                                        <h3>Dictator</h3>
+                                        <h3>C#</h3>
                                         <div class="static-rating small">
-                                            <div class="rating-value" style="width: 35%"></div>
+                                            <div class="rating-value" style="width: 50%"></div>
                                         </div>
                                     </div>
+                                  
                                 </div>
                             </div>
 
@@ -289,7 +235,7 @@
 
                     </div>
 
-                   
+
 
 
 
@@ -297,7 +243,7 @@
             </div>
         </div>
 
-       
+        <!--
         <div class="row clear">
             <div class="span5">
                 <h2>More details</h2>
@@ -308,16 +254,8 @@
                 <p>Bacon ipsum dolor sit amet tongue pork loin turducken turkey tail. Short loin fatback jerky bacon drumstick leberkas kielbasa t-bone ball tip. Chicken ribeye capicola ham hock pork. Rump pancetta salami cow hamburger t-bone turducken ball tip pork loin short loin. Filet mignon tail strip steak beef.</p>
             </div>
         </div>
+        -->
 
-        <footer>
-            <div class="nav-bar">
-                <div class="nav-bar-inner padding10">
-                    <span class="element">John Doe - <i class="icon-mail-2"></i>zied.hosni.mail@gmail.com
-                    </span>
-                    <i class="icon-arrow-left-3 place-right fg-color-white" style="font-size: 44px"></i>
-                </div>
-            </div>
-        </footer>
 
 
         <!--------------------------------------------------------------------------------------------- ACABA AQUI---------------------------------------------------------->

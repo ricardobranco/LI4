@@ -76,7 +76,18 @@ namespace cv2job.Controllers
             {
                 if (file != null && file.ContentLength > 0)
                 {
-                    var filename = "Corp" + corporacao.CorpID+Path.GetExtension(file.FileName);
+                    int dia, mes, ano, hora, min, segundo;
+                    DateTime now = DateTime.Now;
+                    dia = now.Day;
+                    mes = now.Month;
+                    ano = now.Year;
+                    hora = now.Hour;
+                    min = now.Minute;
+                    segundo = now.Second;
+                    string data = "" + ano + mes + dia + hora + min + segundo;
+
+
+                    var filename = "Corp" +data+Path.GetExtension(file.FileName);
                     var path = Path.Combine(Server.MapPath("~/Imagens/Corp"), filename);
                     file.SaveAs(path);
                     corporacao.PathLogo = filename;

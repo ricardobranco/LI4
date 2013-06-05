@@ -8,14 +8,14 @@
 			  <div class="row">
 				<div class="span6">
 				  <h2>Registe-se Já!</h2>
-                  <br />
+				  <br />
 				  <p>O CV2JOB ajuda-te a comunicar e a partilhar os teus dados com empresas que andam a tua procura!</p>
 				  <br />
-                  <p>Registe-se e pode: </p>
-                  <p>  Manter-se informado sobre seus contactos e o seu setor </p>
-                  <p>  Localizar as pessoas, empresas e o conhecimento de que você precisa </p>
-                  <p>  Gerir a sua identidade profissional online </p>
-                  <p>  E ainda gerar o seu Curriculum Vitae! </p>
+				  <p>Registe-se e pode: </p>
+				  <p>  Manter-se informado sobre seus contactos e o seu setor </p>
+				  <p>  Localizar as pessoas, empresas e o conhecimento de que você precisa </p>
+				  <p>  Gerir a sua identidade profissional online </p>
+				  <p>  E ainda gerar o seu Curriculum Vitae! </p>
 
 				</div>
 
@@ -37,8 +37,24 @@
 
 											  </div>											 
 										  </div>
-										  <!-- Password -->
-										 <div class="control-group">
+										  
+                                          <div class="control-group">
+											  @Html.LabelFor(m => m.Nome, "Nome", new { @class = "control-label"})
+											  <div class="controls">@Html.TextBoxFor(m => m.Nome,new { @class = "input-large",@id="username" })
+												  @Html.ValidationMessageFor(m => m.Nome)
+											  </div>											 
+										  </div>
+										  
+                                           <div class="control-group">
+											  @Html.LabelFor(m => m.Email, "Email", new { @class = "control-label"})
+											  <div class="controls">@Html.TextBoxFor(m => m.Email,new { @class = "input-large",@id="username" })
+												  @Html.ValidationMessageFor(m => m.Email)
+											  </div>											 
+										  </div>
+										  
+                                          
+                                          <!-- Password -->
+										  <div class="control-group">
 											   @Html.LabelFor(m => m.Password, new { @class="control-label",@for="email"})
 				
 											
@@ -48,7 +64,7 @@
 											  
 											</div>
 										  </div>
-                                         <div class="control-group">
+										 <div class="control-group">
 											   @Html.LabelFor(m => m.ConfirmPassword, "Confirmar Password", new { @class="control-label",@for="email"})
 				
 											

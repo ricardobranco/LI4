@@ -1,0 +1,61 @@
+﻿@model cv2job.Models.Mensagem
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<fieldset>
+    <legend>Mensagem</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.EmissorID)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.EmissorID)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ReceptorID)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ReceptorID)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Assunto)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Assunto)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.CorpoMsg)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.CorpoMsg)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.DataEnvio)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.DataEnvio)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Lida)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Lida)
+    </div>
+</fieldset>
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    <p>
+        <input type="submit" value="Delete" /> |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+}

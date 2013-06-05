@@ -8,28 +8,28 @@ using System.Web.Security;
 
 namespace cv2job.Models
 {
-    
+
     [Table("Utilizadores")]
     public class Utilizador
     {
-        public Utilizador() {
-            this.CorpSeguidas = new List<Corporacao>();
-            this.CorpColab = new List<Corporacao>();
-            this.AnunciosSeguidos = new List<Anuncio>();
-            this.AnunciosCriados = new List<Anuncio>();
-        }
+        
 
         [Key]
         [DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
         public int UserId { get; set; }
         public string UserName { get; set; }
-        public virtual ICollection<Corporacao> CorpSeguidas {get; set;}
+        public virtual ICollection<Corporacao> CorpSeguidas { get; set; }
         public virtual ICollection<Corporacao> CorpColab { get; set; }
         public virtual ICollection<Anuncio> AnunciosSeguidos { get; set; }
         public virtual ICollection<Anuncio> AnunciosCriados { get; set; }
+        public virtual IDictionary<Utilizador,ICollection<Mensagem>> Mensagens { get; set; }
+        public virtual ICollection<Skill> Skills { get; set; }
+        public virtual ICollection<Educacao> Educacoes { get; set; }
+        public virtual ICollection<Trabalho> Trabalhos { get; set; }
         public DateTime Criado { get; set; }
-
-
+        public string Avatar { get; set; }
+        public string Nome { get; set; }
+        public string Email { get; set; }
         
     }
 
@@ -79,8 +79,17 @@ namespace cv2job.Models
     public class RegisterModel
     {
         [Required]
-        [Display(Name = "User name")]
+        [Display(Name = "Username")]
         public string UserName { get; set; }
+
+        [Required]
+        [Display(Name = "Email")]
+        [DataType(DataType.EmailAddress)]
+        public string Email { get; set; }
+
+        [Required]
+        [Display(Name = "Nome")]
+        public string Nome { get; set; }
 
         [Required]
         [StringLength(100, ErrorMessage = "O {0} deve ter pelo menos {2} carateres.", MinimumLength = 6)]

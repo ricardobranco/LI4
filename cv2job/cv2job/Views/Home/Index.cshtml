@@ -1,15 +1,102 @@
 ﻿@model cv2job.Models.Home
+@using PagedList.Mvc;
+@using PagedList;
 @{
     ViewBag.Title = "Home Page";
 }
 
 @if (Request.IsAuthenticated)
 {
-   @Html.Partial("~/Views/Utilizadores/Index.cshtml", Model.Utilizador);
+  
+    
+    <div class="page-head" style="padding-top: 3%">
+        <!-- Page heading -->
+
+
+
+        <!-- Breadcrumb -->
+        <div class="bread-crumb pull-right">
+            <a href="/"><i class="icon-home"></i>Home</a>
+
+        </div>
+
+        <div class="clearfix"></div>
+
+    </div>
+
+
+
+    <div class="matter">
+        <div class="container-fluid">
+            <div class="grid">
+                <div class="row ">
+                    <div class="span8" itemscope="">
+
+
+                     
+
+                            <div class="widget wgreen">
+                                <!-- Widget title -->
+                                <div class="widget-head">
+                                    <div class="pull-left">Actividade Recente</div>
+
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="widget-content">
+                                    <div class="padd">
+
+                                        @foreach (var feed in Model.Feeds) { 
+                                        <div class="user">
+                                            <div class="user-pic">
+                                                <!-- User pic -->
+                                                <a href="/Corporacoes/Details/@feed.AutorID">
+                                                    <img src="@feed.Imagem" alt=""></a>
+                                            </div>
+
+                                            <div class="user-details">
+                                                <h6>@feed.Data.ToShortDateString()</h6>
+                                                <p><a href="/Corporacoes/Details/@feed.AutorID">@feed.Identidade</a></p>
+                                                <p>@feed.Descricao</p>
+                                            </div>
+                                            <div class="clearfix"></div>
+                                        </div>
+
+                                        <hr>
+
+                                        }
+
+
+
+                                    </div>
+                                </div>
+
+                                <!-- Widget footer -->
+                                <div class="widget-foot">
+
+                                    <div class="pagination pull-right">
+                                        @Html.PagedListPager((IPagedList)ViewBag.Feeds, page => Url.Action("Index", new { page = page }))
+                                    </div>
+                                    <div class="clearfix"></div>
+
+                                </div>
+
+                            </div>
+                     
+                    </div>
+                    
+                    <div class="span4"></div>
+                </div>
+            </div>
+        </div>
+    </div>
     
 }
 else
 {
     @Html.Partial("~/Views/Utilizadores/Login.cshtml", Model.Loginmodel);
-  
+
 }
+
+
+
+

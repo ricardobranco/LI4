@@ -1,0 +1,94 @@
+﻿@model cv2job.Models.Mensagem
+@using cv2job.Models
+@{
+    var dv = new Cv2jobContext();
+}
+
+<div class="page-head" style="padding-top: 3%;">
+    <!-- Page heading -->
+    <h2 class="pull-left">Caixa de Mensagens 
+		  <!-- page meta -->
+        <span class="page-meta"></span>
+    </h2>
+
+
+    <!-- Breadcrumb -->
+    <div class="bread-crumb pull-right">
+        <a href="/"><i class="icon-home"></i>Nova Mensagem</a>
+        <!-- Divider -->
+        <span class="divider">/</span>
+        <a href="/Mensagens" class="bread-current">Mensagens</a>
+        <span class="divider">/</span>
+        <a href="/Create" class="bread-current">Nova Mensagem</a>
+    </div>
+
+    <div class="clearfix"></div>
+
+</div>
+
+
+
+<div class="matter">
+
+    <div class="container-fluid">
+
+        <div class="row-fluid">
+
+            <div class="span12">
+
+
+                <div class="widget">
+
+                    <div class="widget-foot" style="padding: 0px">
+                    </div>
+
+                    <div class="widget-content" style="display: block;">
+                        <div class="padd">
+
+
+                            <!-- Form starts.  -->
+
+                            <form class="form-horizontal">
+                                <div class="control-group">
+                                    <label class="control-label" for="inputNome">Destinatário</label>
+                                    <div class="controls">
+                                        <input type="text" style="width: 100%" id="inputNome" name="Nome" maxlength="30">
+                                    </div>
+                                </div>
+
+                                <div class="control-group">
+                                    <label class="control-label" for="inputAssunto">Assunto</label>
+                                    <div class="controls">
+                                        <input type="text" style="width: 100%" id="inputAssunto" name="Nome" maxlength="30">
+                                    </div>
+                                </div>
+
+                                <div class="control-group">
+                                    <div class="controls">
+                                        <textarea style="width: 100%; height: 400px" name="Descricao"></textarea>
+                                    </div>
+                                </div>
+
+
+
+
+                                <hr>
+
+                                <button type="submit" class="btn btn-success">Enviar</button>
+                                <button type="submit" class="btn btn-info">Limpar</button>
+
+                            </form>
+
+                        </div>
+                    </div>
+                    <div class="widget-foot">
+                        <!-- Footer goes here -->
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>

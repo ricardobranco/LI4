@@ -19,31 +19,6 @@
     google.maps.event.addDomListener(window, 'load', initialize);
 </script>
 
-<!--
-<h2>Details</h2>
-
-<fieldset>
-    <legend>Corporacao</legend>
-
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.Nome)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.Nome)
-    </div>
-
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.Descricao)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.Descricao)
-    </div>
-</fieldset>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.CorpID }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
-    -->
 
 <style type="text/css">
     #map-canvas {
@@ -128,9 +103,9 @@
                                 <span itemprop="name">@Model.Nome</span><br>
                             </h1>
                             <div style="padding-top: 5%"></div>
-                             <p itemprop="address" itemscope="" itemtype="http://schema.org/Address">
-                                    <span itemprop="street-address">@Model.Morada @Model.CodPostal @Model.Cidade</span>
-                                </p>
+                            <p itemprop="address" itemscope="" itemtype="http://schema.org/Address">
+                                <span itemprop="street-address">@Model.Morada @Model.CodPostal @Model.Cidade</span>
+                            </p>
                             <i class="icon-arrow-right-3 fg-color-blueLight" id="arrow1"></i>
                             <ul class="unstyled">
                                 <li>
@@ -152,7 +127,10 @@
                     </div>
                     <div class="pull-right">
                         <div class="span4">
-                            <img src="@(Model.PathLogo == null ? "" : Model.PathLogo)" alt="me" itemprop="photo" style="padding-top: 15%">
+                            @if (Model.PathLogo != null)
+                            { 
+                                <img src="/Imagens/Corp/@Model.PathLogo" alt="me" itemprop="photo" style="padding-top: 15%">
+                            }
                             <div class="widget wblue">
                                 <div class="widget-head">
                                     <div class="pull-left">Localização</div>
@@ -169,19 +147,100 @@
                                 <i class="icon-eye-open"></i>
                                 Seguir
                             </button>
+                            <h2>Seguidores</h2>
+                            <div class="row">
+                                <div class="span1">
+                                    <img src="/Imagens/Users/Users4.jpg" /></div>
+                                <div class="span1">
+                                    <img src="/Imagens/Users/default.jpg" /></div>
+                                <div class="span1">
+                                    <img src="/Imagens/Users/Users3.jpg" /></div>
+                                <div class="span1">
+                                    <img src="/Imagens/Users/Users6.jpg" /></div>
+                                <div class="span1">
+                                    <img src="/Imagens/Users/Users2.jpg" /></div>
+                                <div class="span1">
+                                    <img src="/Imagens/Users/Users1.jpg" /></div>
+                                <div class="span1">
+                                    <img src="/Imagens/Users/Users5.jpg" /></div>
+
+                            </div>
+                            <div class="pagination">
+                                <ul>
+                                    <li><a href="ui.html#">Prev</a></li>
+                                    <li><a href="ui.html#">1</a></li>
+                                    <li><a href="ui.html#">2</a></li>
+                                    <li><a href="ui.html#">3</a></li>
+                                    <li><a href="ui.html#">4</a></li>
+                                    <li><a href="ui.html#">Next</a></li>
+                                </ul>
+                            </div>
+
                         </div>
                     </div>
+
                 </div>
+
                 <div class="span7" itemscope="" itemtype="http://schema.org/Person">
                     <h2>Sobre</h2>
-                    <div class="hero-unit">
+                    <div class="hero-unit" style="width: 96%">
                         <p>
                             @Model.Descricao
 
                         </p>
 
                     </div>
+                    <div class="widget worange" style="width: 102%">
+                        <!-- Widget title -->
+                        <div class="widget-head">
+                            <div class="pull-left">Últimos Anúncios</div>
+
+                            <div class="clearfix"></div>
+                        </div>
+
+                        <div class="widget-content">
+                            <!-- Widget content -->
+                            <div class="padd">
+
+                                <ul class="recent">
+
+                                    @foreach (var item in ViewBag.AnunciosCriados)
+                                    {
+                                        <li>
+
+                                            <div class="recent-content">
+                                                <div class="recent-meta">@item.Criado.ToShortDateString()</div>
+                                                <div>
+                                                    <a href="/Anuncios/Details/@item.AnuncioID">@item.Cargo</a>
+                                                </div>
+
+                                                <div class="clearfix"></div>
+                                            </div>
+                                        </li>
+
+                                    }
+
+
+
+                                </ul>
+
+                            </div>
+                        </div>
+
+                        <!-- Widget footer -->
+                        <div class="widget-foot">
+
+                            <div class="pull-right" style="margin-top: -1%; margin-bottom: -1%;">
+                                @Html.PagedListPager((IPagedList)ViewBag.AnunciosCriados, page => Url.Action("Gerir", new { page = page }))
+                            </div>
+                            <div class="clearfix"></div>
+
+                        </div>
+
+                    </div>
+
                 </div>
+
 
             </div>
 
@@ -191,63 +250,8 @@
         <div class="row">
             <div class="span12">
                 <div class="pull-left">
-                    <div class="span7">
-                        <div class="widget worange">
-                            <!-- Widget title -->
-                            <div class="widget-head">
-                                <div class="pull-left">Últimos Anúncios</div>
-
-                                <div class="clearfix"></div>
-                            </div>
-
-                            <div class="widget-content">
-                                <!-- Widget content -->
-                                <div class="padd">
-
-                                    <ul class="recent">
-
-                                        @foreach (var item in ViewBag.AnunciosCriados)
-                                        {
-                                            <li>
-
-                                                <div class="recent-content">
-                                                    <div class="recent-meta">@item.Criado.ToShortDateString()</div>
-                                                    <div>
-                                                        <a href="/Anuncios/Details/@item.AnuncioID"> @item.Cargo</a>
-                                                    </div>
-
-                                                    <div class="clearfix"></div>
-                                                </div>
-                                            </li>
-
-                                        }
-
-
-
-                                    </ul>
-
-                                </div>
-                            </div>
-
-                            <!-- Widget footer -->
-                            <div class="widget-foot">
-
-                                <div class="pull-right" style="margin-top: -1%; margin-bottom: -1%;">
-                                    @Html.PagedListPager((IPagedList)ViewBag.AnunciosCriados, page => Url.Action("Gerir", new { page = page }))
-                                </div>
-                                <div class="clearfix"></div>
-
-                            </div>
-
-                        </div>
-                    </div>
                 </div>
-                <div class="pull-right">
-                    <div class="span4">
-                        <h2>Others</h2>
-                        <p>Bacon ipsum dolor sit amet tongue pork loin turducken turkey tail. Short loin fatback jerky bacon drumstick leberkas kielbasa t-bone ball tip. Chicken ribeye capicola ham hock pork. Rump pancetta salami cow hamburger t-bone turducken ball tip pork loin short loin. Filet mignon tail strip steak beef.</p>
-                    </div>
-                </div>
+
             </div>
         </div>
 

@@ -9,5 +9,7 @@ namespace cv2job.Models
     {
         public LoginModel Loginmodel { get; set; }
         public IEnumerable<Utilizador> Utilizador { get; set; }
-    }
+        public IEnumerable<Feed> Feeds { get; set; }
+
+       }
 }
