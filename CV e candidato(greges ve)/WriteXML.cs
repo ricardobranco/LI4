@@ -20,15 +20,9 @@ namespace ConsoleApplication4
         /// </summary>
         /// <param name="pathfile">PathOut</param>
         public WriteXML(String pathfile,Candidato cd) {
-
-            
-            if (!System.IO.File.Exists(pathfile))
-                System.IO.File.Create(pathfile).Close();
-
+            System.IO.File.Create(pathfile).Close();
             this.t = System.IO.File.AppendText(pathfile);
             this.person = cd;
-        
-        
         }
         
         

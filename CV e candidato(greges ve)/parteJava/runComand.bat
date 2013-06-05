@@ -1,0 +1,1 @@
+"C:\Program Files\Java\jdk1.7.0_17\bin\java.exe" -jar C:\CV\europass-soapws-client.jar -F C:\CV\lixo.xml -O C:\CV\ -L _pt_PT -T exml -M to-pdf-exml-cv
