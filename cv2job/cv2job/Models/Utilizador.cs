@@ -31,8 +31,8 @@ namespace cv2job.Models
         public string Avatar { get; set; }
         public string Nome { get; set; }
         public string Email { get; set; }
-        public InfoPessoal InfoP{get;set;}
-        public InfoExtra InfoE{get;set;}
+        public InfoPessoal InfoP {get;set;}
+        public InfoExtra InfoE {get;set;}
     }
 
     public class RegisterExternalLoginModel

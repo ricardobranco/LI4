@@ -11,6 +11,8 @@ using WebMatrix.WebData;
 using cv2job.Filters;
 using cv2job.Models;
 using PagedList;
+using System.IO;
+using System.Diagnostics;
 namespace cv2job.Controllers
 {
     [Authorize]
@@ -444,9 +446,13 @@ namespace cv2job.Controllers
 
         //Para executar comandos do sitema
 
-
-        public void GeraXML (Utilizador utilizador)
+        [Authorize]
+        [InitializeSimpleMembership]
+        public FileResult GeraXML ()
         {
+            var utilizador = db.Utilizadores.Find(WebSecurity.CurrentUserId);
+            
+
             utilizador.InfoP = new InfoPessoal();
             utilizador.InfoP.FirstName = utilizador.Nome;
             utilizador.InfoP.Email = utilizador.Email;
@@ -454,20 +460,36 @@ namespace cv2job.Controllers
 
             Candidato c = new Candidato(utilizador.UserName,utilizador.InfoP,utilizador.InfoE);
             
-          
-            WriteXML xml=new WriteXML("C:\\Users\\Pedro\\Documents\\GitHub\\LI4\\cv2job\\cv\\xml\\"+utilizador.UserName+".xml",c);
+            
+            var path = Path.Combine(Server.MapPath("~/Europass/"),utilizador.UserName+".xml");
+            WriteXML xml=new WriteXML(path,c);
             xml.WritetoXml();
 
-
+            
 
 
             //Corro bat do java .
-            System.Diagnostics.Process.Start("C:\\cv\\runComand.bat", utilizador.UserName);
 
-            //Verifica  de object ficheiro foi criado
+            path = Path.Combine(Server.MapPath("~/Europass/"),utilizador.UserName);
+
+            if (!Directory.Exists(path))
+            {
+                Directory.CreateDirectory(path);
+            }
+            path = Server.MapPath("~/Europass/runComand2.bat");  
+            Process process = Process.Start(path,utilizador.UserName);
+            while (!process.HasExited)
+            { }
+
+            //Verifica  se object ficheiro foi criado
+            path = Path.Combine(Server.MapPath("~/Europass/"), utilizador.UserName, utilizador.UserName + ".pdf");
+            bool existe = System.IO.File.Exists(path);
+
+
             //Abre o ficheiro
             Response.ContentType = "Application/pdf";
-            Response.TransmitFile("/cv/pdf/" + utilizador.UserName + ".pdf");
+            // Response.TransmitFile(path);
+            return File(path, Response.ContentType, utilizador.UserName + ".pdf");
         }
     }
 }

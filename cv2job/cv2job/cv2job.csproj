@@ -251,6 +251,10 @@
     <Compile Include="Migrations\201306051759333_anuncio2.Designer.cs">
       <DependentUpon>201306051759333_anuncio2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201306051834430_utilizador1.cs" />
+    <Compile Include="Migrations\201306051834430_utilizador1.Designer.cs">
+      <DependentUpon>201306051834430_utilizador1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Candidato.cs" />
     <Compile Include="Models\Corporacao.cs" />
@@ -463,6 +467,7 @@
     <Content Include="Content\themes\base\minified\jquery.ui.slider.min.css" />
     <Content Include="Content\themes\base\minified\jquery.ui.tabs.min.css" />
     <Content Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
+    <Content Include="Europass\europass-soapws-client.jar" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\fonts\fontawesome-webfont.eot" />
@@ -477,6 +482,8 @@
     <Content Include="Content\style_NS\prettyPhoto.css.orig" />
     <Content Include="Content\style_NS\rateit.css.orig" />
     <Content Include="Content\style_NS\style.css.orig" />
+    <Content Include="Europass\europass-soapws-client.log" />
+    <Content Include="Europass\runComand1.bat" />
     <None Include="Scripts\jquery-1.8.2.intellisense.js" />
     <Content Include="Images\arrow-down.png" />
     <Content Include="Images\logo.png" />
@@ -576,6 +583,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Europass\pdf\" />
+    <Folder Include="Europass\xml\" />
     <Folder Include="Imagens\Corp\" />
     <Folder Include="Imagens\Users\" />
   </ItemGroup>
@@ -612,6 +621,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201306051759333_anuncio2.resx">
       <DependentUpon>201306051759333_anuncio2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201306051834430_utilizador1.resx">
+      <DependentUpon>201306051834430_utilizador1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

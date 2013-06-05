@@ -8,7 +8,7 @@ using System.Drawing;
 
 namespace cv2job.Models
 {
-    class InfoPessoal
+    public class InfoPessoal
     {
         /// <summary>
         /// Classe de Informação Pessoal de um candidato

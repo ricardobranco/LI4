@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace cv2job.Models
 {
-    class InfoExtra
+   public class InfoExtra
     {
         public String LinguaMaterna { get; set;}
         public List<String> LinguaExtra{get;set;}

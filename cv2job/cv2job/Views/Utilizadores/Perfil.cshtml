@@ -46,8 +46,7 @@
                             @if (Model.UserId == WebSecurity.CurrentUserId)
                             {
                                 <button type="button" class="command-button bg-color-blueDark fg-color-white"
-                                id="download" onclick="javascript:pdf_url = location.href;
-                                location.href = 'http://pdfmyurl.com?url=' + escape(pdf_url) + '&amp;-O=Portrait&amp;--print-media-type'">
+                                id="download" onclick="location.href='@Url.Action("GeraXML", "Utilizadores", new { })'">
                                 <i class="icon-download place-right"></i>
                                 Download Cv
                             </button>}
