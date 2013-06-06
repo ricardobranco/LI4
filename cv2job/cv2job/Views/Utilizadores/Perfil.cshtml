@@ -284,9 +284,10 @@
                                     </li> 
                                     
                                 }
-                                else { 
+                                else
+                                { 
                                     <li>
-                                         <a href="#editInfos" role="button" data-toggle="modal"><i class="icon-plus"></i></a>
+                                        <a href="#editInfos" role="button" data-toggle="modal"><i class="icon-plus"></i></a>
                                     </li>
                                 }
 
@@ -346,7 +347,7 @@
                             <div id="editInfos" class="modal hide fade in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel2" aria-hidden="false" style="display: none;">
                                 <div class="modal-header">
                                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                                    <h3 id="myModalLabel2">Editar Contactos</h3>
+                                    <h3 id="myModalLabel2">Outras Informações</h3>
                                 </div>
                                 @using (Html.BeginForm("EditInfo", "Utilizadores", new { id = Model.UserId }, FormMethod.Post))
                                 { 
@@ -366,12 +367,12 @@
                                             <label>Data de Nascimento</label>
                                             <input data-format="dd/MM/yyyy" name="DataNascimento" type="text">
                                             <span class="add-on">
-                                                <i data-time-icon="icon-time" data-date-icon="icon-calendar"  class="icon-calendar"></i>
+                                                <i data-time-icon="icon-time" data-date-icon="icon-calendar" class="icon-calendar"></i>
                                             </span>
                                         </div>
 
 
-                                       
+
 
 
 
@@ -388,9 +389,63 @@
                         </div>
 
                     </div>
+
+                    <script language="javascript" type="text/javascript">
+
+                        function mouseOverImage() {
+                            document.getElementById("icone1").style.display = "block";
+                        }
+
+                        function mouseOutImage() {
+
+                            document.getElementById("icone1").style.display = "none";
+                        }
+                    </script>
+
+
                     <div class="pull-right">
                         <div class="span4">
-                            <img src="~/Imagens/Users/@Model.Avatar" alt="me" itemprop="photo" style="padding-top: 20%;width:100%">
+
+                            <div id="foto" onmouseover="mouseOverImage()" onmouseout="mouseOutImage()">
+                                <img src="~/Imagens/Users/@Model.Avatar" alt="me" itemprop="photo" style="padding-top: 20%;width:100%">
+                            </div>
+
+                            <div id="icone1" onmouseover="mouseOverImage()" onmouseout="mouseOutImage()" style="display: block; margin-top: -7%; margin-left: 2%; display: none;">
+                                <a href="#modelAvatar" role="button" data-toggle="modal"><i class="icon-pencil"></i></a>
+                            </div>
+
+                            <div id="modelAvatar" class="modal hide fade in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel5" aria-hidden="false" style="display: none;">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                    <h3 id="myModalLabel5">Alterar foto de perfil</h3>
+                                </div>
+                                @using (Html.BeginForm("EditAvatar", "Utilizadores", new { id = Model.UserId, }, FormMethod.Post, new { @enctype = "multipart/form-data" }))
+                                { 
+                                    @Html.AntiForgeryToken()
+                                    <div class="modal-body">
+
+                                         <div class="fileupload fileupload-new" data-provides="fileupload">
+                                        <div class="fileupload-new thumbnail" style="width: 200px; height: 150px;">
+                                            <img src="~/Images/no_image.gif" />
+                                        </div>
+                                        <div class="fileupload-preview fileupload-exists thumbnail" style="max-width: 200px; max-height: 150px; line-height: 20px;"></div>
+                                        <div>
+                                            <span class="btn btn-file"><span class="fileupload-new">Procurar</span><span class="fileupload-exists">Alterar</span><input type="file" name="file" accept="image/JPEG" /></span>
+                                            <a href="#" class="btn fileupload-exists" data-dismiss="fileupload">Remover</a>
+                                        </div>
+                                    </div>
+
+
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button class="btn" data-dismiss="modal" aria-hidden="true">Fechar</button>
+                                        <button class="btn btn-primary">Guardar</button>
+                                    </div>
+                                }
+                            </div>
+
+
+
                             @if (Model.UserId == WebSecurity.CurrentUserId)
                             {
                                 <button type="button" class="command-button bg-color-blueDark fg-color-white"
@@ -418,18 +473,43 @@
 
                             <h2>Sobre Mim</h2>
                             <div class="hero-unit">
+                                <a href="#editSobre" role="button" data-toggle="modal"><i class="icon-pencil"></i></a>
                                 <p>
-                                    Estudante do 3º ano de Engenharia Informática da Universidade do Minho.
-                                    <br />
-                                    Director do Departamento de Comunicação e Imagem do Cesium
-                                    <br />
-                                    Caloiro na Centuria
-                                     
-
-                           
+                                    @Model.Sobre
                                 </p>
 
                             </div>
+
+                            <div id="editSobre" class="modal hide fade in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel3" aria-hidden="false" style="display: none;">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                    <h3 id="myModalLabel4">Sobre</h3>
+                                </div>
+                                @using (Html.BeginForm("EditSobre", "Utilizadores", new { id = Model.UserId }, FormMethod.Post))
+                                { 
+                                    @Html.AntiForgeryToken()
+                                    <div class="modal-body">
+
+                                        <div class="control-group">
+                                            <label class="control-label" for="inputDesc">Descricão</label>
+                                            <div class="controls">
+                                                <textarea id="inputDesc" style="width: 100%; height: 300px" name="Sobre"></textarea>
+
+                                            </div>
+                                        </div>
+
+
+
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button class="btn" data-dismiss="modal" aria-hidden="true">Fechar</button>
+                                        <button class="btn btn-primary">Guardar</button>
+                                    </div>
+                                }
+                            </div>
+
+
+
 
 
                             <div class="row">
@@ -471,7 +551,7 @@
                                 </div>
 
                                 <div class="span3TAG">
-                                    <h2>Edução</h2>
+                                    <h2>Educação</h2>
                                     <div class="row">
                                         <div class="span3TAG">
                                             <div class="replies">

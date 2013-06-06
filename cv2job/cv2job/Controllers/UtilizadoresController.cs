@@ -70,6 +70,71 @@ namespace cv2job.Controllers
             return View(utilizador);
         }
 
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult EditInfo(int id)
+        {
+            var utilizador = db.Utilizadores.Find(id);
+            if (ModelState.IsValid)
+            {
+                utilizador.DataNascimento = Request["DataNascimento"];
+                utilizador.Nacionalidade = Request["Nacionalidade"];
+                db.Entry(utilizador).State = EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("Perfil", new { id = utilizador.UserId });
+            }
+            return View(utilizador);
+        }
+
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult EditSobre(int id)
+        {
+            var utilizador = db.Utilizadores.Find(id);
+            if (ModelState.IsValid)
+            {
+                utilizador.Sobre = Request["Sobre"];
+                db.Entry(utilizador).State = EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("Perfil", new { id = utilizador.UserId });
+            }
+            return View(utilizador);
+        }
+
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult EditAvatar(int id, HttpPostedFileBase file)
+        {
+            var utilizador = db.Utilizadores.Find(id);
+            if (ModelState.IsValid)
+            {
+                if (file != null && file.ContentLength > 0)
+                {
+
+
+
+                    var filename = "Corp" + id + Path.GetExtension(file.FileName);
+                    var path = Path.Combine(Server.MapPath("~/Imagens/Users/"), filename);
+                    file.SaveAs(path);
+                    utilizador.Avatar = filename;
+
+                }
+
+                db.Entry(utilizador).State = EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("Perfil", new { id = utilizador.UserId });
+            }
+            return View(utilizador);
+        }
+
+
+
+
+
+
+
 
 
 
@@ -505,35 +570,35 @@ namespace cv2job.Controllers
             InfoExtra infoE = new InfoExtra();
 
             infoP.FirstName = utilizador.Nome;
-            infoP.LastName=utilizador.Apelido;
+            infoP.LastName = utilizador.Apelido;
             infoP.Email = utilizador.Email;
 
             if (utilizador.Morada != null && !utilizador.Morada.Equals(""))
-            infoP.AddInfo=utilizador.Morada;
+                infoP.AddInfo = utilizador.Morada;
             if (utilizador.Avatar != null && !utilizador.Avatar.Equals(""))
-            infoP.PathFoto=utilizador.Avatar;
+                infoP.PathFoto = utilizador.Avatar;
 
             if (utilizador.Nacionalidade != null && !utilizador.Nacionalidade.Equals(""))
-            infoP.Nacionalidade=utilizador.Nacionalidade;
+                infoP.Nacionalidade = utilizador.Nacionalidade;
 
             infoP.Genero = utilizador.Sexo;
             if (utilizador.Fax != null && !utilizador.Fax.Equals(""))
-            infoP.Fax = utilizador.Fax;
+                infoP.Fax = utilizador.Fax;
             if (utilizador.Contacto != null && !utilizador.Contacto.Equals(""))
-            infoP.Tel = utilizador.Contacto;
+                infoP.Tel = utilizador.Contacto;
 
+
+
+            /*  public string CodPostal {get;set;}
+              public string Cidade { get; set; }
+              public string Pais { get; set; }
 
  
-      /*  public string CodPostal {get;set;}
-        public string Cidade { get; set; }
-        public string Pais { get; set; }
-
- 
-        public string WebSite { get; set; }*/
+              public string WebSite { get; set; }*/
 
 
             Candidato c = new Candidato(utilizador.UserName, infoP, infoE);
-            
+
 
             var path = Path.Combine(Server.MapPath("~/Europass/"), utilizador.UserName + ".xml");
             WriteXML xml = new WriteXML(path, c);
