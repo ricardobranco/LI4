@@ -42,7 +42,9 @@ namespace cv2job.Models
         public string Fax { get; set; }
         public string Contacto { get; set; }
         public string WebSite { get; set; }
-       
+
+        
+        public string DataNascimento { get; set; }
     }
 
     public class RegisterExternalLoginModel
