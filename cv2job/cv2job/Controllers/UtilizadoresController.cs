@@ -509,19 +509,20 @@ namespace cv2job.Controllers
             infoP.AddInfo=utilizador.Morada;
             infoP.PathFoto=utilizador.Avatar;
             infoP.Nacionalidade=utilizador.Nacionalidade;
+            infoP.Genero = utilizador.Sexo;
+            infoP.Fax = utilizador.Fax;
+            infoP.Tel = utilizador.Contacto;
+
+
  
       /*  public string CodPostal {get;set;}
         public string Cidade { get; set; }
-        public string Nacionalidade { get; set; }
         public string Pais { get; set; }
-        public string Sexo { get; set; }
-        
-        public string Email { get; set; }
-        public string Fax { get; set; }
-        public string Contacto { get; set; }
-        public string WebSite { get; set; }
+
+ 
+        public string WebSite { get; set; }*/
             Candidato c = new Candidato(utilizador.UserName, infoP, infoE);
-            */
+            
 
             var path = Path.Combine(Server.MapPath("~/Europass/"), utilizador.UserName + ".xml");
             WriteXML xml = new WriteXML(path, c);
