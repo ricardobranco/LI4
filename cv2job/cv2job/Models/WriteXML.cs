@@ -235,10 +235,10 @@ namespace cv2job.Models
             
 
 
-            //var pathimage = Path.Combine(HttpContext.Current.Server.MapPath("~/Imagens/Users"),this.person.pessoal.PathFoto);
-            //if (!this.person.pessoal.PathFoto.Equals("NA")) t.WriteLine("<photo type=\"JPEG\">" + this.ImageToBase64String(Image.FromFile(pathimage)) + "</photo>");
+            var pathimage = Path.Combine(HttpContext.Current.Server.MapPath("~/Imagens/Users"),this.person.pessoal.PathFoto);
+            if (!this.person.pessoal.PathFoto.Equals("NA")) t.WriteLine("<photo type=\"JPEG\">" + this.ImageToBase64String(Image.FromFile(pathimage)) + "</photo>");
 
-            if (!this.person.pessoal.PathFoto.Equals("NA")) t.WriteLine("<photo type=\"JPEG\">" + this.ImageToBase64String(Image.FromFile(this.person.pessoal.PathFoto)) + "</photo>");
+            //if (!this.person.pessoal.PathFoto.Equals("NA")) t.WriteLine("<photo type=\"JPEG\">" + this.ImageToBase64String(Image.FromFile(this.person.pessoal.PathFoto)) + "</photo>");
 
 
             t.WriteLine("</identification>");
