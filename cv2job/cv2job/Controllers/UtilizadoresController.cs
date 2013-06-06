@@ -501,6 +501,7 @@ namespace cv2job.Controllers
         public FileResult GeraXML()
         {
             var utilizador = db.Utilizadores.Find(WebSecurity.CurrentUserId);
+<<<<<<< HEAD
             InfoPessoal infoP = new InfoPessoal();
             InfoExtra infoE = new InfoExtra();
             infoP.FirstName = utilizador.Nome;
@@ -511,6 +512,23 @@ namespace cv2job.Controllers
 
             var path = Path.Combine(Server.MapPath("~/Europass/"), utilizador.UserName + ".xml");
             WriteXML xml = new WriteXML(path, c);
+=======
+            
+
+            utilizador.InfoP = new InfoPessoal();
+            utilizador.InfoP.FirstName = utilizador.Nome;
+            utilizador.InfoP.LastName = utilizador.Nome;
+            utilizador.InfoP.Email = utilizador.Email;
+            //falta passar o campo!
+            utilizador.InfoP.PathFoto=utilizador.
+            utilizador.InfoE = new InfoExtra();
+
+            Candidato c = new Candidato(utilizador.UserName,utilizador.InfoP,utilizador.InfoE);
+            
+            
+            var path = Path.Combine(Server.MapPath("~/Europass/"),utilizador.UserName+".xml");
+            WriteXML xml=new WriteXML(path,c);
+>>>>>>> ffb1a10fcf34f8a3661c2e3ce0bd3673aca1e1ca
             xml.WritetoXml();
 
 
