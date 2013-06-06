@@ -202,38 +202,44 @@ namespace cv2job.Models
             t.WriteLine("<lastname>" + this.person.pessoal.LastName + "</lastname>");
             
 
-            if(this.person.pessoal.Tel!="NA")
+            if(!this.person.pessoal.Tel.Equals("NA"))
             {
                 t.WriteLine("<contactinfo>");
 
-                if(this.person.pessoal.Nacionalidade!="NA")
+                if(!this.person.pessoal.Nacionalidade.Equals("NA"))
                 {
                     t.WriteLine("<address>");
                     t.WriteLine("<addressLine>StreetNumber</addressLine><municipality>Cidade</municipality><postalCode>CodPostal</postalCode><country><label></label></country></address>");
                 }
             
-                if(this.person.pessoal.Tel!="NA")t.WriteLine("<telephone>"+this.person.pessoal.Tel+"</telephone>");
+
+                if(!this.person.pessoal.Tel.Equals("NA"))t.WriteLine("<telephone>"+this.person.pessoal.Tel+"</telephone>");
             
-                if(this.person.pessoal.Fax!="NA")t.WriteLine("<fax>"+this.person.pessoal.Fax+"</fax>");
+                if(!this.person.pessoal.Fax.Equals("NA"))t.WriteLine("<fax>"+this.person.pessoal.Fax+"</fax>");
             
-                if(this.person.pessoal.Tel!="NA")t.WriteLine("<mobile>"+this.person.pessoal.Tel+"</mobile>");
+                if(!this.person.pessoal.Tel.Equals("NA"))t.WriteLine("<mobile>"+this.person.pessoal.Tel+"</mobile>");
             
                 if(!this.person.pessoal.Email.Equals("NA"))t.WriteLine("<email>"+this.person.pessoal.Email+"</email>");
             
+
                 t.WriteLine("</contactinfo>");
             }
 
 
-            if(this.person.pessoal.Nascimento!="NA")
-            {
+            
+            
                 t.WriteLine("<demographics>");
-                   t.WriteLine("<birthdate>"+this.person.pessoal.Nascimento+"</birthdate>");
-                if(this.person.pessoal.Genero!="NA") t.WriteLine("<gender>"+this.person.pessoal.Genero+"</gender>");
-                if(this.person.pessoal.Nacionalidade!="NA")t.WriteLine("<nationality><code>PT</code><label>Portuguese</label></nationality></demographics>");
-            }
+                if (!this.person.pessoal.Nascimento.Equals("NA"))t.WriteLine("<birthdate>" + this.person.pessoal.Nascimento + "</birthdate>");
+                if(!this.person.pessoal.Genero.Equals("NA")) t.WriteLine("<gender>"+this.person.pessoal.Genero+"</gender>");
+                if(!this.person.pessoal.Nacionalidade.Equals("NA"))t.WriteLine("<nationality><code>PT</code><label>Portuguese</label></nationality></demographics>");
+            
 
-            var pathimage = Path.Combine(HttpContext.Current.Server.MapPath("~/Imagens/Users"),this.person.pessoal.PathFoto);
-            if (!this.person.pessoal.PathFoto.Equals("NA")) t.WriteLine("<photo type=\"JPEG\">" + this.ImageToBase64String(Image.FromFile(pathimage)) + "</photo>");
+
+            //var pathimage = Path.Combine(HttpContext.Current.Server.MapPath("~/Imagens/Users"),this.person.pessoal.PathFoto);
+            //if (!this.person.pessoal.PathFoto.Equals("NA")) t.WriteLine("<photo type=\"JPEG\">" + this.ImageToBase64String(Image.FromFile(pathimage)) + "</photo>");
+
+            if (!this.person.pessoal.PathFoto.Equals("NA")) t.WriteLine("<photo type=\"JPEG\">" + this.ImageToBase64String(Image.FromFile(this.person.pessoal.PathFoto)) + "</photo>");
+
 
             t.WriteLine("</identification>");
 

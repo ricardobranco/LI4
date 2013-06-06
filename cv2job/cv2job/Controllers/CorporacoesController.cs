@@ -221,5 +221,11 @@ namespace cv2job.Controllers
             return RedirectToAction("Details", new { id = corporacao.CorpID});
         }
 
+        public ActionResult Pesquisa(String termo)
+        {
+            List<Corporacao> res = db.Corporacoes.Where(c => c.Nome.Contains(termo)).ToList();
+            return View(res);
+        }
+
     }
 }

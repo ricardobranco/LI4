@@ -565,5 +565,11 @@ namespace cv2job.Controllers
             // Response.TransmitFile(path);
             return File(path, Response.ContentType, utilizador.UserName + ".pdf");
         }
+        public ActionResult Pesquisa(String termo)
+        {
+            List<Utilizador> res = db.Utilizadores.Where(u => u.Nome.Contains(termo)).ToList();
+            return View(res);
+        }
+
     }
 }
