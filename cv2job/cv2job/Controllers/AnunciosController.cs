@@ -143,5 +143,10 @@ namespace cv2job.Controllers
             db.Dispose();
             base.Dispose(disposing);
         }
+
+        public ActionResult Pesquisa(String termo){
+            List<Anuncio> res=db.Anuncios.Where(a => a.Cargo.Contains(termo)).ToList();
+            return View(res);
+        }
     }
 }
