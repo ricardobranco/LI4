@@ -503,14 +503,23 @@ namespace cv2job.Controllers
             var utilizador = db.Utilizadores.Find(WebSecurity.CurrentUserId);
             InfoPessoal infoP = new InfoPessoal();
             InfoExtra infoE = new InfoExtra();
+
             infoP.FirstName = utilizador.Nome;
             infoP.LastName=utilizador.Apelido;
             infoP.Email = utilizador.Email;
+
+            if (utilizador.Morada != null || !utilizador.Morada.Equals(""))
             infoP.AddInfo=utilizador.Morada;
+            if (utilizador.Avatar != null || !utilizador.Avatar.Equals(""))
             infoP.PathFoto=utilizador.Avatar;
+
+            if (utilizador.Nacionalidade != null || !utilizador.Nacionalidade.Equals(""))
             infoP.Nacionalidade=utilizador.Nacionalidade;
+
             infoP.Genero = utilizador.Sexo;
+            if (utilizador.Fax != null || !utilizador.Fax.Equals(""))
             infoP.Fax = utilizador.Fax;
+            if (utilizador.Contacto != null || !utilizador.Contacto.Equals(""))
             infoP.Tel = utilizador.Contacto;
 
 
@@ -521,6 +530,8 @@ namespace cv2job.Controllers
 
  
         public string WebSite { get; set; }*/
+
+
             Candidato c = new Candidato(utilizador.UserName, infoP, infoE);
             
 
