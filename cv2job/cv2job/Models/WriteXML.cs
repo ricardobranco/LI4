@@ -234,6 +234,7 @@ namespace cv2job.Models
                 if(!this.person.pessoal.Nacionalidade.Equals("NA"))t.WriteLine("<nationality><code>PT</code><label>Portuguese</label></nationality></demographics>");
             
 
+
             //var pathimage = Path.Combine(HttpContext.Current.Server.MapPath("~/Imagens/Users"),this.person.pessoal.PathFoto);
             //if (!this.person.pessoal.PathFoto.Equals("NA")) t.WriteLine("<photo type=\"JPEG\">" + this.ImageToBase64String(Image.FromFile(pathimage)) + "</photo>");
 
