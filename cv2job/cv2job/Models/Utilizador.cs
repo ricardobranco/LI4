@@ -30,9 +30,19 @@ namespace cv2job.Models
         public DateTime Criado { get; set; }
         public string Avatar { get; set; }
         public string Nome { get; set; }
+        public string Apelido { get; set; }
+        public string Morada { get; set; }
+        public string CodPostal {get;set;}
+        public string Cidade { get; set; }
+        public string Nacionalidade { get; set; }
+        public string Pais { get; set; }
+        public string Sexo { get; set; }
+        
         public string Email { get; set; }
-        public InfoPessoal InfoP {get;set;}
-        public InfoExtra InfoE {get;set;}
+        public string Fax { get; set; }
+        public string Contacto { get; set; }
+        public string WebSite { get; set; }
+       
     }
 
     public class RegisterExternalLoginModel
@@ -95,6 +105,12 @@ namespace cv2job.Models
 
 
         [Required]
+        [Display(Name = "Apelido")]
+        public string Apelido { get; set; }
+
+
+
+        [Required]
         [StringLength(100, ErrorMessage = "O {0} deve ter pelo menos {2} carateres.", MinimumLength = 6)]
         [DataType(DataType.Password)]
         [Display(Name = "Password")]
@@ -105,8 +121,8 @@ namespace cv2job.Models
         [Compare("Password", ErrorMessage = "A password e a password de confirmação não são iguais.")]
         public string ConfirmPassword { get; set; }
 
-
-
+        [Required(ErrorMessage = "Campo obrigatório")]
+        public string Sexo { get; set; }
 
     }
 

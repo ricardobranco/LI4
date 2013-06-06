@@ -255,6 +255,34 @@
     <Compile Include="Migrations\201306051834430_utilizador1.Designer.cs">
       <DependentUpon>201306051834430_utilizador1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201306060001361_utilizadorINFOPES.cs" />
+    <Compile Include="Migrations\201306060001361_utilizadorINFOPES.Designer.cs">
+      <DependentUpon>201306060001361_utilizadorINFOPES.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201306060028587_utilizadorINFOPE.cs" />
+    <Compile Include="Migrations\201306060028587_utilizadorINFOPE.Designer.cs">
+      <DependentUpon>201306060028587_utilizadorINFOPE.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201306060046587_utilizadorINFOPE1.cs" />
+    <Compile Include="Migrations\201306060046587_utilizadorINFOPE1.Designer.cs">
+      <DependentUpon>201306060046587_utilizadorINFOPE1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201306060146360_utilizadorApelido.cs" />
+    <Compile Include="Migrations\201306060146360_utilizadorApelido.Designer.cs">
+      <DependentUpon>201306060146360_utilizadorApelido.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201306060202045_utilizadorSexo.cs" />
+    <Compile Include="Migrations\201306060202045_utilizadorSexo.Designer.cs">
+      <DependentUpon>201306060202045_utilizadorSexo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201306060229089_utilizadorContact.cs" />
+    <Compile Include="Migrations\201306060229089_utilizadorContact.Designer.cs">
+      <DependentUpon>201306060229089_utilizadorContact.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201306060246364_utilizadorsite.cs" />
+    <Compile Include="Migrations\201306060246364_utilizadorsite.Designer.cs">
+      <DependentUpon>201306060246364_utilizadorsite.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Candidato.cs" />
     <Compile Include="Models\Corporacao.cs" />
@@ -624,6 +652,27 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201306051834430_utilizador1.resx">
       <DependentUpon>201306051834430_utilizador1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201306060001361_utilizadorINFOPES.resx">
+      <DependentUpon>201306060001361_utilizadorINFOPES.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201306060028587_utilizadorINFOPE.resx">
+      <DependentUpon>201306060028587_utilizadorINFOPE.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201306060046587_utilizadorINFOPE1.resx">
+      <DependentUpon>201306060046587_utilizadorINFOPE1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201306060146360_utilizadorApelido.resx">
+      <DependentUpon>201306060146360_utilizadorApelido.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201306060202045_utilizadorSexo.resx">
+      <DependentUpon>201306060202045_utilizadorSexo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201306060229089_utilizadorContact.resx">
+      <DependentUpon>201306060229089_utilizadorContact.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201306060246364_utilizadorsite.resx">
+      <DependentUpon>201306060246364_utilizadorsite.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -13,6 +13,7 @@ using cv2job.Models;
 using PagedList;
 using System.IO;
 using System.Diagnostics;
+using System.Data;
 namespace cv2job.Controllers
 {
     [Authorize]
@@ -26,7 +27,7 @@ namespace cv2job.Controllers
             int pageSize = 28;
             int pageFinal = (page ?? 1);
             ViewBag.Utilizadores = db.Utilizadores.ToList().ToPagedList(pageFinal, pageSize);
-            ViewBag.Utilizador = db.Utilizadores.Find(WebSecurity.CurrentUserId);   
+            ViewBag.Utilizador = db.Utilizadores.Find(WebSecurity.CurrentUserId);
             return View(db.Utilizadores.ToList());
 
         }
@@ -38,7 +39,7 @@ namespace cv2job.Controllers
 
         [Authorize]
         [InitializeSimpleMembership]
-         public ActionResult Perfil(int id = 0)
+        public ActionResult Perfil(int id = 0)
         {
             Cv2jobContext db = new Cv2jobContext();
             Utilizador user = db.Utilizadores.Find(id);
@@ -49,8 +50,56 @@ namespace cv2job.Controllers
             return View(user);
         }
 
+
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult EditLocal(int id)
+        {
+            var utilizador = db.Utilizadores.Find(id);
+            if (ModelState.IsValid)
+            {
+                utilizador.Morada = Request["Morada"];
+                utilizador.Cidade = Request["Cidade"];
+                utilizador.CodPostal = Request["CodPostal"];
+                utilizador.Pais = Request["Pais"];
+                db.Entry(utilizador).State = EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("Perfil", new { id = utilizador.UserId });
+            }
+            return View(utilizador);
+        }
+
+
+
+
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult EditContactos(int id)
+        {
+            var utilizador = db.Utilizadores.Find(id);
+            if (ModelState.IsValid)
+            {
+                utilizador.Email = Request["Email"];
+                utilizador.Fax = Request["Fax"];
+                utilizador.WebSite = Request["WebSite"];
+                utilizador.Contacto = Request["Contacto"];
+                utilizador.Pais = Request["Pais"];
+                db.Entry(utilizador).State = EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("Perfil", new { id = utilizador.UserId });
+            }
+            return View(utilizador);
+        }
+
+
+
         //
         // GET: /Account/Login
+
+
+
 
 
         [AllowAnonymous]
@@ -74,7 +123,7 @@ namespace cv2job.Controllers
                 int currentuserid = WebSecurity.GetUserId(model.UserName);
 
                 ViewBag.logID = currentuserid;
-                
+
                 return RedirectToLocal(returnUrl);
             }
 
@@ -117,7 +166,8 @@ namespace cv2job.Controllers
                 // Attempt to register the user
                 try
                 {
-                    WebSecurity.CreateUserAndAccount(model.UserName, model.Password, new {Email = model.Email, Nome = model.Nome, Avatar = "default.jpg",Criado = DateTime.Now});
+
+                    WebSecurity.CreateUserAndAccount(model.UserName, model.Password, new { Email = model.Email, Nome = model.Nome, Apelido = model.Apelido, Avatar = "default.jpg", Criado = DateTime.Now, Sexo = model.Sexo });
                     WebSecurity.Login(model.UserName, model.Password);
                     return RedirectToAction("Index", "Home");
                 }
@@ -145,7 +195,7 @@ namespace cv2job.Controllers
             if (ownerAccount == User.Identity.Name)
             {
                 // Use a transaction to prevent the user from deleting their last login credential
-                using (var scope = new TransactionScope(TransactionScopeOption.Required, new TransactionOptions { IsolationLevel = IsolationLevel.Serializable }))
+                using (var scope = new TransactionScope(TransactionScopeOption.Required, new TransactionOptions { IsolationLevel = System.Transactions.IsolationLevel.Serializable }))
                 {
                     bool hasLocalAccount = OAuthWebSecurity.HasLocalAccount(WebSecurity.GetUserId(User.Identity.Name));
                     if (hasLocalAccount || OAuthWebSecurity.GetAccountsFromUserName(User.Identity.Name).Count > 1)
@@ -448,36 +498,34 @@ namespace cv2job.Controllers
 
         [Authorize]
         [InitializeSimpleMembership]
-        public FileResult GeraXML ()
+        public FileResult GeraXML()
         {
             var utilizador = db.Utilizadores.Find(WebSecurity.CurrentUserId);
-            
+            InfoPessoal infoP = new InfoPessoal();
+            InfoExtra infoE = new InfoExtra();
+            infoP.FirstName = utilizador.Nome;
+            infoP.Email = utilizador.Email;
 
-            utilizador.InfoP = new InfoPessoal();
-            utilizador.InfoP.FirstName = utilizador.Nome;
-            utilizador.InfoP.Email = utilizador.Email;
-            utilizador.InfoE = new InfoExtra();
+            Candidato c = new Candidato(utilizador.UserName, infoP, infoE);
 
-            Candidato c = new Candidato(utilizador.UserName,utilizador.InfoP,utilizador.InfoE);
-            
-            
-            var path = Path.Combine(Server.MapPath("~/Europass/"),utilizador.UserName+".xml");
-            WriteXML xml=new WriteXML(path,c);
+
+            var path = Path.Combine(Server.MapPath("~/Europass/"), utilizador.UserName + ".xml");
+            WriteXML xml = new WriteXML(path, c);
             xml.WritetoXml();
 
-            
+
 
 
             //Corro bat do java .
 
-            path = Path.Combine(Server.MapPath("~/Europass/"),utilizador.UserName);
+            path = Path.Combine(Server.MapPath("~/Europass/"), utilizador.UserName);
 
             if (!Directory.Exists(path))
             {
                 Directory.CreateDirectory(path);
             }
-            path = Server.MapPath("~/Europass/runComand2.bat");  
-            Process process = Process.Start(path,utilizador.UserName);
+            path = Server.MapPath("~/Europass/runComand2.bat");
+            Process process = Process.Start(path, utilizador.UserName);
             while (!process.HasExited)
             { }
 
