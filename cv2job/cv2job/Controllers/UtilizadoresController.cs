@@ -508,18 +508,18 @@ namespace cv2job.Controllers
             infoP.LastName=utilizador.Apelido;
             infoP.Email = utilizador.Email;
 
-            if (utilizador.Morada != null || !utilizador.Morada.Equals(""))
+            if (utilizador.Morada != null && !utilizador.Morada.Equals(""))
             infoP.AddInfo=utilizador.Morada;
-            if (utilizador.Avatar != null || !utilizador.Avatar.Equals(""))
+            if (utilizador.Avatar != null && !utilizador.Avatar.Equals(""))
             infoP.PathFoto=utilizador.Avatar;
 
-            if (utilizador.Nacionalidade != null || !utilizador.Nacionalidade.Equals(""))
+            if (utilizador.Nacionalidade != null && !utilizador.Nacionalidade.Equals(""))
             infoP.Nacionalidade=utilizador.Nacionalidade;
 
             infoP.Genero = utilizador.Sexo;
-            if (utilizador.Fax != null || !utilizador.Fax.Equals(""))
+            if (utilizador.Fax != null && !utilizador.Fax.Equals(""))
             infoP.Fax = utilizador.Fax;
-            if (utilizador.Contacto != null || !utilizador.Contacto.Equals(""))
+            if (utilizador.Contacto != null && !utilizador.Contacto.Equals(""))
             infoP.Tel = utilizador.Contacto;
 
 

@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
 using System.Drawing;
+using System.Web;
 
 namespace cv2job.Models
 {
@@ -217,7 +218,7 @@ namespace cv2job.Models
             
                 if(this.person.pessoal.Tel!="NA")t.WriteLine("<mobile>"+this.person.pessoal.Tel+"</mobile>");
             
-                if(this.person.pessoal.Email!="NA")t.WriteLine("<email>"+this.person.pessoal.Email+"</email>");
+                if(!this.person.pessoal.Email.Equals("NA"))t.WriteLine("<email>"+this.person.pessoal.Email+"</email>");
             
                 t.WriteLine("</contactinfo>");
             }
@@ -231,7 +232,8 @@ namespace cv2job.Models
                 if(this.person.pessoal.Nacionalidade!="NA")t.WriteLine("<nationality><code>PT</code><label>Portuguese</label></nationality></demographics>");
             }
 
-            if (this.person.pessoal.PathFoto!="NA") t.WriteLine("<photo type=\"JPEG\">" + this.ImageToBase64String(Image.FromFile(this.person.pessoal.PathFoto)) + "</photo>");
+            var pathimage = Path.Combine(HttpContext.Current.Server.MapPath("~/Imagens/Users"),this.person.pessoal.PathFoto);
+            if (!this.person.pessoal.PathFoto.Equals("NA")) t.WriteLine("<photo type=\"JPEG\">" + this.ImageToBase64String(Image.FromFile(pathimage)) + "</photo>");
 
             t.WriteLine("</identification>");
 
