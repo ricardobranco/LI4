@@ -501,34 +501,30 @@ namespace cv2job.Controllers
         public FileResult GeraXML()
         {
             var utilizador = db.Utilizadores.Find(WebSecurity.CurrentUserId);
-<<<<<<< HEAD
             InfoPessoal infoP = new InfoPessoal();
             InfoExtra infoE = new InfoExtra();
             infoP.FirstName = utilizador.Nome;
+            infoP.LastName=utilizador.Apelido;
             infoP.Email = utilizador.Email;
-
+            infoP.AddInfo=utilizador.Morada;
+            infoP.PathFoto=utilizador.Avatar;
+            infoP.Nacionalidade=utilizador.Nacionalidade;
+ 
+      /*  public string CodPostal {get;set;}
+        public string Cidade { get; set; }
+        public string Nacionalidade { get; set; }
+        public string Pais { get; set; }
+        public string Sexo { get; set; }
+        
+        public string Email { get; set; }
+        public string Fax { get; set; }
+        public string Contacto { get; set; }
+        public string WebSite { get; set; }
             Candidato c = new Candidato(utilizador.UserName, infoP, infoE);
-
+            */
 
             var path = Path.Combine(Server.MapPath("~/Europass/"), utilizador.UserName + ".xml");
             WriteXML xml = new WriteXML(path, c);
-=======
-            
-
-            utilizador.InfoP = new InfoPessoal();
-            utilizador.InfoP.FirstName = utilizador.Nome;
-            utilizador.InfoP.LastName = utilizador.Nome;
-            utilizador.InfoP.Email = utilizador.Email;
-            //falta passar o campo!
-            utilizador.InfoP.PathFoto=utilizador.
-            utilizador.InfoE = new InfoExtra();
-
-            Candidato c = new Candidato(utilizador.UserName,utilizador.InfoP,utilizador.InfoE);
-            
-            
-            var path = Path.Combine(Server.MapPath("~/Europass/"),utilizador.UserName+".xml");
-            WriteXML xml=new WriteXML(path,c);
->>>>>>> ffb1a10fcf34f8a3661c2e3ce0bd3673aca1e1ca
             xml.WritetoXml();
 
 
