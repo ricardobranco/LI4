@@ -517,10 +517,7 @@ namespace cv2job.Controllers
 
             utilizador.InfoP = new InfoPessoal();
             utilizador.InfoP.FirstName = utilizador.Nome;
-            utilizador.InfoP.LastName = utilizador.Nome;
             utilizador.InfoP.Email = utilizador.Email;
-            //falta passar o campo!
-            utilizador.InfoP.PathFoto=utilizador.
             utilizador.InfoE = new InfoExtra();
 
             Candidato c = new Candidato(utilizador.UserName,utilizador.InfoP,utilizador.InfoE);
