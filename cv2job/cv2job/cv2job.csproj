@@ -283,6 +283,10 @@
     <Compile Include="Migrations\201306060246364_utilizadorsite.Designer.cs">
       <DependentUpon>201306060246364_utilizadorsite.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201306060439205_utilizadorDN.cs" />
+    <Compile Include="Migrations\201306060439205_utilizadorDN.Designer.cs">
+      <DependentUpon>201306060439205_utilizadorDN.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Candidato.cs" />
     <Compile Include="Models\Corporacao.cs" />
@@ -673,6 +677,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201306060246364_utilizadorsite.resx">
       <DependentUpon>201306060246364_utilizadorsite.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201306060439205_utilizadorDN.resx">
+      <DependentUpon>201306060439205_utilizadorDN.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

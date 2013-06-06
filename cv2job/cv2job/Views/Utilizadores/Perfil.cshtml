@@ -277,6 +277,19 @@
                                         <i class="icon-print"></i>&nbsp;&nbsp;@Model.Fax
                                     </li>}
                                 else { }
+                                @if (Model.DataNascimento != null)
+                                {
+                                    <li>
+                                        <i class="icon-calendar"></i>@Model.DataNascimento <a href="#editInfos" role="button" data-toggle="modal"><i class="icon-pencil"></i></a>
+                                    </li> 
+                                    
+                                }
+                                else { 
+                                    <li>
+                                         <a href="#editInfos" role="button" data-toggle="modal"><i class="icon-plus"></i></a>
+                                    </li>
+                                }
+
 
 
                             </ul>
@@ -329,6 +342,65 @@
                                     </div>
                                 }
                             </div>
+
+                            <div id="editInfos" class="modal hide fade in" tabindex="-1" role="dialog" aria-labelledby="myModalLabel2" aria-hidden="false" style="display: none;">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                    <h3 id="myModalLabel2">Editar Contactos</h3>
+                                </div>
+                                @using (Html.BeginForm("EditInfo", "Utilizadores", new { id = Model.UserId }, FormMethod.Post))
+                                { 
+                                    @Html.AntiForgeryToken()
+                                    <div class="modal-body">
+
+                                        <div class="control-group">
+                                            <label class="control-label" for="inputNacionalidade">Nacionalidade </label>
+                                            <div class="controls">
+
+                                                <input type="text" value="@Model.Nacionalidade" style="width: 100%" id="inputNacionalidade" name="inputNacionalidade">
+                                            </div>
+                                        </div>
+
+
+                                        <div id="datetimepicker1" class="input-append">
+                                            <input data-format="dd/MM/yyyy" name="DataNascimento" type="text">
+                                            <span class="add-on">
+                                                <i data-time-icon="icon-time" data-date-icon="icon-calendar"  class="icon-calendar"></i>
+                                            </span>
+                                        </div>
+
+
+                                        <div class="control-group">
+                                            <label class="control-label" for="inputContacto">Contacto</label>
+                                            <div class="controls">
+                                                <input type="tel" value="@Model.Contacto" style="width: 100%" id="inputContacto" name="Contacto">
+                                            </div>
+                                        </div>
+
+                                        <div class="control-group">
+                                            <label class="control-label" for="inputFax">Fax</label>
+                                            <div class="controls">
+                                                <input type="tel"value="@Model.Fax" style="width: 100%" id="inputFax" name="Fax">
+                                            </div>
+                                        </div>
+
+                                        <div class="control-group">
+                                            <label class="control-label" for="inputWeb">Website</label>
+                                            <div class="controls">
+                                                <input type="url" value="@Model.WebSite" style="width: 100%" id="inputWeb" name="Website">
+                                            </div>
+                                        </div>
+
+
+
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button class="btn" data-dismiss="modal" aria-hidden="true">Fechar</button>
+                                        <button class="btn btn-primary">Guardar</button>
+                                    </div>
+                                }
+                            </div>
+
 
 
                         </div>
